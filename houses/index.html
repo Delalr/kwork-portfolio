@@ -10,10 +10,10 @@
 <meta property="og:image" content="https://delalr.github.io/kwork-portfolio/shots/houses-og.jpg">
 <meta property="og:title" content="«Северный дом» — дома под ключ">
 <meta property="og:description" content="Фиксированная смета, гарантия 10 лет. Подберём проект за 4 вопроса.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231f2a36'/><path d='M20 80V45l30-25 30 25v35z' fill='none' stroke='%23e6e9ea' stroke-width='5'/><rect x='42' y='52' width='16' height='16' fill='%23f2b44b'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Северный дом","telephone":"+7 900 444-55-66",
@@ -21,133 +21,156 @@
  "openingHours":"Mo-Fr 09:00-19:00","priceRange":"₽₽₽"}
 </script>
 <style>
-:root{--bg:#f4f1ea;--ink:#1d2621;--muted:#68706a;--accent:#2f5d46;--accent-dark:#244a37;--gold:#b8945a;--line:#ddd6c8;--card:#fff}
+/* a northern evening: dusk sky, fog, drawing ink, and warm light in the windows */
+:root{--dusk:#1f2a36;--dusk-2:#2a3846;--fog:#e6e9ea;--ink:#18212b;--light:#f2b44b;--slate:#536170;--mist:#aab5be}
 *{box-sizing:border-box;margin:0;padding:0}
 [hidden]{display:none!important}
-html{scroll-behavior:smooth}
-body{font:16px/1.65 Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+html{scroll-behavior:smooth;background:#fff}
+body{font:400 17px/1.65 Jost,system-ui,sans-serif;color:var(--ink);background:#fff}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
-h1,h2,h3{font-family:Cormorant,Georgia,serif;line-height:1.05;font-weight:700}
-h2{font-size:clamp(34px,4.6vw,56px);margin-bottom:14px}
-.eyebrow{text-transform:uppercase;letter-spacing:3px;font-size:13px;color:var(--gold);font-weight:600;margin-bottom:12px}
-.lead{color:var(--muted);max-width:600px;margin-bottom:44px}
-section{padding:100px 0;scroll-margin-top:76px}
-.btn{display:inline-block;background:var(--accent);color:#fff;padding:16px 30px;border-radius:2px;font:inherit;font-weight:600;letter-spacing:.3px;border:0;cursor:pointer;transition:.2s}
-.btn:hover{background:var(--accent-dark)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+h1,h2,h3{font-weight:300;line-height:1.05;letter-spacing:-.02em}
+h2{font-size:clamp(36px,4.6vw,60px)}
+.lead{color:var(--slate);max-width:600px;margin-top:16px;font-size:18px}
+section{padding:120px 0;scroll-margin-top:76px}
+:focus-visible{outline:2px solid var(--light);outline-offset:3px}
+.btn{display:inline-block;background:var(--light);color:var(--ink);padding:16px 28px;border-radius:4px;font:500 17px Jost,sans-serif;border:1px solid var(--light);cursor:pointer;transition:background .2s}
+.btn:hover{background:#ffc66a}
 .btn:disabled{opacity:.4;cursor:not-allowed}
-.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.7)}
-.btn.ghost:hover{background:rgba(255,255,255,.1)}
-.btn.text{background:none;color:var(--muted);padding-left:0;padding-right:0}
+.btn.ghost{background:transparent;color:var(--fog);border-color:rgba(230,233,234,.5)}
+.btn.ghost:hover{border-color:var(--fog)}
+.btn.text{background:none;border-color:transparent;color:var(--slate);padding-left:0;padding-right:0}
 
 /* header */
-header{position:sticky;top:0;z-index:10;background:rgba(244,241,234,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:10;background:var(--dusk);color:var(--fog);border-bottom:1px solid var(--dusk-2)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
-.logo{font-family:Cormorant,serif;font-weight:700;font-size:26px;letter-spacing:.5px}
-.logo span{color:var(--gold)}
-nav{display:flex;gap:30px;align-items:center;font-weight:500}
-nav a:hover{color:var(--accent)}
-.burger{display:none;background:none;border:0;font-size:28px;width:40px;cursor:pointer;color:var(--ink)}
+.logo{font-size:24px;font-weight:500;letter-spacing:.01em}
+nav{display:flex;gap:34px;align-items:center}
+header nav a:hover{color:var(--light)}
+.burger{display:none;background:none;border:0;font-size:28px;width:44px;height:44px;cursor:pointer;color:var(--fog)}
 
-/* hero */
-.hero{min-height:700px;display:flex;align-items:flex-end;padding-bottom:90px;color:#fff;background:linear-gradient(180deg,rgba(15,22,18,.15) 30%,rgba(15,22,18,.85)),url(https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1900&q=70) center/cover}
-.hero h1{font-size:clamp(46px,7vw,92px);max-width:820px;margin-bottom:20px}
-.hero p{font-size:19px;max-width:560px;opacity:.9;margin-bottom:34px}
-.hero .actions{display:flex;gap:14px;flex-wrap:wrap}
-.facts{display:grid;grid-template-columns:repeat(4,1fr);background:var(--card);border:1px solid var(--line);margin-top:-1px}
-.facts div{padding:30px;border-right:1px solid var(--line)}
-.facts div:last-child{border-right:0}
-.facts b{display:block;font-family:Cormorant,serif;font-size:44px;line-height:1;color:var(--accent)}
-.facts span{color:var(--muted);font-size:14px}
+/* hero: dusk panel + house with its windows lit */
+.hero{display:grid;grid-template-columns:5fr 7fr;min-height:min(calc(100vh - 76px),820px);background:var(--dusk);color:var(--fog);padding:0}
+.hero-text{padding:80px 56px 48px max(32px,calc((100vw - 1240px)/2 + 32px));display:flex;flex-direction:column}
+.hero h1{font-size:clamp(44px,5.2vw,80px);margin-bottom:28px}
+.hero p{font-size:19px;color:var(--mist);max-width:460px;margin-bottom:36px}
+.actions{display:flex;gap:14px;flex-wrap:wrap}
+.facts{display:grid;grid-template-columns:1fr 1fr;margin-top:auto;padding-top:56px}
+.facts div{border-top:1px solid #3a4a5a;padding:16px 16px 16px 0}
+.facts b{display:block;font-size:28px;font-weight:400;color:var(--light);line-height:1.2}
+.facts span{font-size:15px;color:var(--mist)}
+.hero-photo{position:relative;overflow:hidden}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.js .hero-photo img{animation:dusk 2.4s .3s both ease-out}
+@keyframes dusk{from{filter:brightness(.45) saturate(.6)}}
 
-/* projects */
-.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.project{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column}
-.project img{height:260px;width:100%;object-fit:cover}
-.project>div{padding:26px;display:flex;flex-direction:column;flex:1}
-.project h3{font-size:30px;margin-bottom:6px}
-.project p{color:var(--muted);font-size:15px;margin-bottom:18px}
-.specs{display:flex;gap:18px;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;margin-top:auto}
-.specs b{color:var(--ink)}
-.project strong{display:block;margin-top:14px;font-size:20px;color:var(--accent)}
+/* projects: photo + ground-floor drawing */
+#projects{background:var(--fog)}
+.projects{display:grid;gap:72px;margin-top:64px}
+.project{display:grid;grid-template-columns:7fr 5fr;gap:48px;align-items:start}
+.project:nth-child(even){grid-template-columns:5fr 7fr}
+.project:nth-child(even) img{order:2}
+.project img{width:100%;height:460px;object-fit:cover}
+.project h3{font-size:40px;margin-bottom:10px}
+.project p{color:var(--slate);margin-bottom:24px}
+.plan{background:#fff;padding:18px 18px 10px;margin-bottom:22px}
+.plan svg{width:100%;height:auto;display:block}
+.plan figcaption{font-size:14px;color:var(--slate);margin-top:6px}
+.plan .wall{fill:none;stroke:var(--ink);stroke-width:3}
+.plan .part{stroke:var(--ink);stroke-width:1.2}
+.plan .open{fill:none;stroke:var(--slate);stroke-width:1.2;stroke-dasharray:4 4}
+.plan .pool{fill:#cfe0ea;stroke:var(--slate);stroke-width:1}
+.plan text{font:400 9.5px Jost,sans-serif;fill:var(--slate)}
+.specs{display:flex;gap:28px;border-top:1px solid #c8cfd4;padding-top:16px;color:var(--slate);font-size:15px}
+.specs b{display:block;font-size:22px;font-weight:400;color:var(--ink)}
+.project strong{display:block;margin-top:18px;font-size:24px;font-weight:500}
 
 /* quiz */
-.quiz-box{background:var(--card);border:1px solid var(--line);display:grid;grid-template-columns:1fr 1.5fr}
-.quiz-side{background:var(--accent);color:#fff;padding:48px}
-.quiz-side h2{font-size:clamp(30px,3.6vw,44px)}
-.quiz-side p{opacity:.85}
-.quiz-side .gift{margin-top:28px;border:1px dashed rgba(255,255,255,.5);padding:18px;font-size:15px}
-#quiz{padding:48px;display:flex;flex-direction:column;gap:22px}
-.progress{height:4px;background:var(--line)}
-.progress i{display:block;height:100%;width:20%;background:var(--gold);transition:width .3s}
-.step-label{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:2px}
+#quiz-section{background:var(--dusk);color:var(--fog)}
+.quiz-box{display:grid;grid-template-columns:4fr 6fr;gap:64px;align-items:start}
+.quiz-side p{color:var(--mist);margin-top:16px;max-width:420px}
+.quiz-side .gift{margin-top:32px;padding-left:16px;border-left:2px solid var(--light);color:var(--fog)}
+#quiz{background:var(--fog);color:var(--ink);padding:44px;display:flex;flex-direction:column;gap:22px;min-height:470px}
+#quiz :focus-visible{outline-color:var(--ink)}
+.progress{height:3px;background:#c8cfd4}
+.progress i{display:block;height:100%;width:20%;background:var(--ink);transition:width .3s}
+.step-label{font-size:15px;color:var(--slate)}
 fieldset{border:0;display:grid;gap:12px}
-legend{font-family:Cormorant,serif;font-size:32px;font-weight:700;margin-bottom:12px}
-.options{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+legend{font-size:30px;font-weight:300;letter-spacing:-.01em;margin-bottom:14px}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .option{position:relative}
 .option input{position:absolute;opacity:0}
-.option span{display:block;padding:16px 18px;border:1px solid var(--line);cursor:pointer;transition:.15s}
-.option input:checked+span{border-color:var(--accent);background:#eef3ef;box-shadow:inset 3px 0 0 var(--accent)}
-.option input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.option span{display:block;padding:16px 18px;border:1px solid #c3cbd1;background:#fff;cursor:pointer}
+.option span:hover{border-color:var(--ink)}
+.option input:checked+span{background:var(--ink);color:var(--fog);border-color:var(--ink)}
+.option input:focus-visible+span{outline:2px solid var(--ink);outline-offset:2px}
 .nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
-.summary{background:var(--bg);padding:16px 18px;font-size:15px;color:var(--muted)}
-.summary b{color:var(--ink)}
-input[type=text],input[type=tel]{font:inherit;color:var(--ink);padding:15px 16px;border:1px solid var(--line);width:100%;background:#fff}
-input:focus{outline:2px solid var(--accent);border-color:transparent}
-.ok{display:none;text-align:center;padding:40px 0}
+.summary{background:#fff;padding:14px 16px;font-size:15px;color:var(--slate)}
+input[type=text],input[type=tel]{font:inherit;color:var(--ink);padding:15px 16px;border:1px solid #c3cbd1;border-radius:4px;width:100%;background:#fff}
+input:focus{outline:2px solid var(--ink);border-color:transparent}
+.ok{display:none;padding:40px 0}
+.ok h3{font-size:40px;margin-bottom:10px}
 #quiz.sent>*:not(.ok){display:none}
 #quiz.sent .ok{display:block}
 
-/* stages */
-.stages{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line)}
-.stage{padding:28px 22px 0 0;position:relative}
-.stage::before{content:"";position:absolute;top:-6px;left:0;width:11px;height:11px;border-radius:50%;background:var(--gold)}
-.stage b{font-family:Cormorant,serif;font-size:22px;display:block;margin-bottom:6px}
-.stage p{color:var(--muted);font-size:15px}
-.stage small{display:block;margin-top:8px;color:var(--accent);font-weight:600}
+/* stages: a schedule drawn to scale, ~30 weeks for a 150 m² house */
+.gantt{margin-top:64px;border-top:1px solid #c8cfd4}
+.stage{display:grid;grid-template-columns:4fr 7fr;gap:32px;align-items:center;padding:20px 0;border-bottom:1px solid #e1e5e8}
+.stage b{display:block;font-size:22px;font-weight:400}
+.stage p{color:var(--slate);font-size:15px}
+.track{position:relative;height:34px}
+.bar{position:absolute;top:0;bottom:0;left:var(--from);width:var(--len);background:var(--dusk);color:var(--fog);font-size:14px;display:flex;align-items:center;padding:0 10px;white-space:nowrap;min-width:max-content}
+.bar.end{background:var(--light);color:var(--ink)}
+.axis{display:grid;grid-template-columns:4fr 7fr;gap:32px;padding-top:10px;color:var(--slate);font-size:14px}
+.axis div{position:relative;height:20px}
+.axis div span{position:absolute;transform:translateX(-50%)}
+.axis div span:first-child{transform:none}
 
 /* contacts */
-.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;border-top:1px solid var(--line);padding-top:40px}
-.contacts b{display:block;font-family:Cormorant,serif;font-size:24px}
-.contacts span,.contacts a{color:var(--muted)}
-.contacts a{border-bottom:1px solid var(--line)}
+#contacts{background:var(--dusk);color:var(--fog)}
+#contacts .lead{color:var(--mist)}
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:56px;border-top:1px solid #3a4a5a;padding-top:32px}
+.contacts b{display:block;font-weight:400;color:var(--mist);font-size:15px;margin-bottom:6px}
+.contacts a,.contacts span{font-size:21px}
+.contacts a{border-bottom:1px solid var(--light)}
 
-footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:14px}
+footer{background:var(--dusk);color:var(--mist);border-top:1px solid #3a4a5a;padding:28px 0;font-size:15px}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-footer nav{gap:18px}
+footer nav{gap:22px}
 
-/* reveal on scroll */
-.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
-.js .reveal.in{opacity:1;transform:none}
-.reveal:nth-child(2){transition-delay:.1s}
-.reveal:nth-child(3){transition-delay:.2s}
-.reveal:nth-child(4){transition-delay:.3s}
-.reveal:nth-child(5){transition-delay:.4s}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}.progress i{transition:none}}
+/* content stays visible without JS; with JS sections fade in once */
+.js .reveal{opacity:0;transition:opacity .8s}
+.js .reveal.in{opacity:1}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transition:none}.progress i{transition:none}.js .hero-photo img{animation:none}}
 
 @media (max-width:900px){
+  .wrap{padding:0 18px}
   .burger{display:block}
-  header nav{display:none;position:absolute;top:76px;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px;border-bottom:1px solid var(--line)}
+  header nav{display:none;position:absolute;top:76px;left:0;right:0;background:var(--dusk);flex-direction:column;align-items:flex-start;padding:20px 18px 26px;border-bottom:1px solid var(--dusk-2)}
   header nav.open{display:flex}
-  .hero{min-height:620px;padding-bottom:60px;background-image:linear-gradient(180deg,rgba(15,22,18,.45),rgba(15,22,18,.9)),url(https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=70)}
-  .facts{grid-template-columns:1fr 1fr}
-  .facts div:nth-child(2){border-right:0}
-  .facts div:nth-child(-n+2){border-bottom:1px solid var(--line)}
-  .projects,.quiz-box,.contacts{grid-template-columns:1fr}
-  .quiz-side,#quiz{padding:28px}
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-photo{order:-1;height:300px}
+  .hero-text{padding:40px 18px 32px}
+  .facts{padding-top:40px}
+  section{padding:72px 0}
+  .project,.quiz-box,.contacts{grid-template-columns:1fr}
+  .project{gap:24px}
+  .project:nth-child(even){grid-template-columns:1fr}
+  .project:nth-child(even) img{order:0}
+  .project img{height:260px}
+  .project h3{font-size:34px}
+  #quiz{padding:24px;min-height:0}
   .options{grid-template-columns:1fr}
-  .stages{grid-template-columns:1fr;border-top:0;border-left:1px solid var(--line);margin-left:6px}
-  .stage{padding:0 0 28px 26px}
-  .stage::before{top:6px;left:-6px}
-  section{padding:64px 0}
+  .stage,.axis{grid-template-columns:1fr;gap:10px}
+  .axis>i{display:none}
 }
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
-    <a href="#" class="logo">Северный <span>дом</span></a>
+    <a href="#" class="logo">Северный дом</a>
     <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">☰</button>
     <nav id="nav">
       <a href="#projects">Проекты</a>
@@ -159,139 +182,180 @@ footer nav{gap:18px}
 </header>
 
 <section class="hero">
-  <div class="wrap">
-    <h1>Дом, в который хочется возвращаться</h1>
+  <div class="hero-text">
+    <h1>Дом, в&nbsp;который хочется возвращаться</h1>
     <p>Строим загородные дома под ключ по фиксированной смете. Без доплат по ходу стройки и с гарантией 10 лет.</p>
     <div class="actions">
       <a href="#quiz-section" class="btn">Подобрать проект за 4 вопроса</a>
       <a href="#projects" class="btn ghost">Смотреть проекты</a>
     </div>
+    <div class="facts">
+      <div><b>14 лет</b><span>строим дома</span></div>
+      <div><b>230+</b><span>сданных домов</span></div>
+      <div><b>10 лет</b><span>гарантия по договору</span></div>
+      <div><b>0 ₽</b><span>доплат сверх сметы</span></div>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=70" srcset="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=70 900w, https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=70 1600w" sizes="(max-width:900px) 100vw, 58vw" alt="Современный загородный дом вечером, в окнах горит свет" fetchpriority="high">
   </div>
 </section>
-
-<div class="wrap">
-  <div class="facts">
-    <div><b>14 лет</b><span>строим дома</span></div>
-    <div><b>230+</b><span>сданных объектов</span></div>
-    <div><b>10 лет</b><span>гарантия по договору</span></div>
-    <div><b>0 ₽</b><span>доплат сверх сметы</span></div>
-  </div>
-</div>
 
 <section id="projects">
   <div class="wrap">
-    <p class="eyebrow reveal">Каталог</p>
-    <h2 class="reveal">Популярные проекты</h2>
-    <p class="lead reveal">Любой проект адаптируем под ваш участок и состав семьи — бесплатно.</p>
+    <div class="reveal">
+      <h2>Популярные проекты</h2>
+      <p class="lead">Любой проект адаптируем под ваш участок и состав семьи — бесплатно.</p>
+    </div>
     <div class="projects">
       <article class="project reveal">
-        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=70" alt="Деревянный дом в скандинавском стиле с подсветкой" loading="lazy">
-        <div><h3>«Шале»</h3><p>Клеёный брус, второй свет в гостиной и терраса с видом на лес.</p>
-          <div class="specs"><span><b>148</b> м²</span><span><b>4</b> спальни</span><span><b>2</b> этажа</span></div>
-          <strong>от 9,8 млн ₽</strong></div>
-      </article>
-      <article class="project reveal">
-        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=70" alt="Современный дом с деревянной отделкой фасада" loading="lazy">
-        <div><h3>«Модерн»</h3><p>Газобетон с отделкой планкеном, панорамные окна, плоская кровля.</p>
-          <div class="specs"><span><b>176</b> м²</span><span><b>4</b> спальни</span><span><b>2</b> этажа</span></div>
-          <strong>от 12,4 млн ₽</strong></div>
-      </article>
-      <article class="project reveal">
-        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=70" alt="Белый дом в стиле хай-тек с бассейном" loading="lazy">
-        <div><h3>«Резиденция»</h3><p>Монолит, кровля-терраса, бассейн и гостевой блок.</p>
-          <div class="specs"><span><b>260</b> м²</span><span><b>5</b> спален</span><span><b>2</b> этажа</span></div>
-          <strong>от 21,5 млн ₽</strong></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="quiz-section" style="padding-top:0">
-  <div class="wrap">
-    <div class="quiz-box reveal">
-      <div class="quiz-side">
-        <p class="eyebrow" style="color:#e7d3ae">Подбор проекта</p>
-        <h2>Ответьте на 4 вопроса</h2>
-        <p>Пришлём 3 подходящих проекта с расчётом сметы под ваш бюджет.</p>
-        <div class="gift">🎁 Бонус: геология участка бесплатно при заключении договора в этом месяце.</div>
-      </div>
-      <form id="quiz" novalidate>
-        <div class="progress" aria-hidden="true"><i></i></div>
-        <span class="step-label" aria-live="polite">Шаг <span id="stepNo">1</span> из 5</span>
-
-        <fieldset data-step>
-          <legend>Какая площадь дома нужна?</legend>
-          <div class="options">
-            <label class="option"><input type="radio" name="area" value="до 120 м²" required><span>до 120 м²</span></label>
-            <label class="option"><input type="radio" name="area" value="120–180 м²"><span>120–180 м²</span></label>
-            <label class="option"><input type="radio" name="area" value="180–250 м²"><span>180–250 м²</span></label>
-            <label class="option"><input type="radio" name="area" value="больше 250 м²"><span>больше 250 м²</span></label>
-          </div>
-        </fieldset>
-        <fieldset data-step hidden>
-          <legend>Сколько этажей?</legend>
-          <div class="options">
-            <label class="option"><input type="radio" name="floors" value="1 этаж" required><span>Один этаж</span></label>
-            <label class="option"><input type="radio" name="floors" value="2 этажа"><span>Два этажа</span></label>
-            <label class="option"><input type="radio" name="floors" value="с мансардой"><span>С мансардой</span></label>
-            <label class="option"><input type="radio" name="floors" value="пока не знаю"><span>Пока не знаю</span></label>
-          </div>
-        </fieldset>
-        <fieldset data-step hidden>
-          <legend>Из какого материала?</legend>
-          <div class="options">
-            <label class="option"><input type="radio" name="material" value="клеёный брус" required><span>Клеёный брус</span></label>
-            <label class="option"><input type="radio" name="material" value="газобетон"><span>Газобетон</span></label>
-            <label class="option"><input type="radio" name="material" value="каркас"><span>Каркас</span></label>
-            <label class="option"><input type="radio" name="material" value="посоветуйте"><span>Посоветуйте</span></label>
-          </div>
-        </fieldset>
-        <fieldset data-step hidden>
-          <legend>Какой бюджет на строительство?</legend>
-          <div class="options">
-            <label class="option"><input type="radio" name="budget" value="до 8 млн ₽" required><span>до 8 млн ₽</span></label>
-            <label class="option"><input type="radio" name="budget" value="8–12 млн ₽"><span>8–12 млн ₽</span></label>
-            <label class="option"><input type="radio" name="budget" value="12–20 млн ₽"><span>12–20 млн ₽</span></label>
-            <label class="option"><input type="radio" name="budget" value="больше 20 млн ₽"><span>больше 20 млн ₽</span></label>
-          </div>
-        </fieldset>
-        <fieldset data-step hidden>
-          <legend>Куда прислать подборку?</legend>
-          <p class="summary" id="summary"></p>
-          <input type="text" name="name" aria-label="Ваше имя" placeholder="Ваше имя" autocomplete="name" required>
-          <input type="tel" name="phone" aria-label="Телефон" placeholder="Телефон" autocomplete="tel" required pattern="[\d\s\(\)+\-]{10,}">
-        </fieldset>
-
-        <div class="nav-btns">
-          <button type="button" class="btn text" id="back" hidden>← Назад</button>
-          <button type="button" class="btn" id="next" disabled>Далее</button>
-          <button type="submit" class="btn" id="send" hidden>Получить подборку</button>
+        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1000&q=70" alt="Деревянный дом в скандинавском стиле с подсветкой" loading="lazy">
+        <div>
+          <h3>«Шале»</h3>
+          <p>Клеёный брус, второй свет в гостиной и терраса с видом на лес.</p>
+          <figure class="plan">
+            <svg viewBox="0 0 240 150" role="img" aria-label="План первого этажа дома «Шале»">
+              <rect class="wall" x="10" y="8" width="220" height="104"/>
+              <path class="part" d="M128 8V112M128 58H230M182 58V112"/>
+              <rect class="open" x="10" y="112" width="118" height="32"/>
+              <text x="40" y="64">Гостиная 42 м²</text><text x="158" y="37">Кухня 18 м²</text>
+              <text x="134" y="88">Спальня</text><text x="196" y="88">С/у</text><text x="50" y="132">Терраса</text>
+            </svg>
+            <figcaption>План первого этажа</figcaption>
+          </figure>
+          <div class="specs"><span><b>148</b>м²</span><span><b>4</b>спальни</span><span><b>2</b>этажа</span></div>
+          <strong>от 9,8 млн ₽</strong>
         </div>
-        <div class="ok" role="status"><h3 style="font-size:34px">Спасибо!</h3><p>Архитектор подготовит подборку и позвонит вам в течение дня.</p></div>
-      </form>
+      </article>
+      <article class="project reveal">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1000&q=70" alt="Современный дом с деревянной отделкой фасада" loading="lazy">
+        <div>
+          <h3>«Модерн»</h3>
+          <p>Газобетон с отделкой планкеном, панорамные окна, плоская кровля.</p>
+          <figure class="plan">
+            <svg viewBox="0 0 240 150" role="img" aria-label="План первого этажа дома «Модерн»">
+              <path class="wall" d="M10 8H150V48H230V142H10Z"/>
+              <path class="part" d="M10 78H150M150 48V142M90 78V142"/>
+              <text x="30" y="46">Кухня-гостиная 48 м²</text><text x="166" y="98">Гараж</text>
+              <text x="24" y="114">Кабинет</text><text x="104" y="114">Спальня</text>
+            </svg>
+            <figcaption>План первого этажа</figcaption>
+          </figure>
+          <div class="specs"><span><b>176</b>м²</span><span><b>4</b>спальни</span><span><b>2</b>этажа</span></div>
+          <strong>от 12,4 млн ₽</strong>
+        </div>
+      </article>
+      <article class="project reveal">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1000&q=70" alt="Белый дом в стиле хай-тек с бассейном" loading="lazy">
+        <div>
+          <h3>«Резиденция»</h3>
+          <p>Монолит, кровля-терраса, бассейн и гостевой блок.</p>
+          <figure class="plan">
+            <svg viewBox="0 0 240 150" role="img" aria-label="План первого этажа дома «Резиденция»">
+              <rect class="wall" x="10" y="8" width="150" height="88"/>
+              <rect class="wall" x="176" y="8" width="54" height="88"/>
+              <path class="part" d="M86 8V96M10 56H86"/>
+              <rect class="pool" x="40" y="108" width="150" height="34"/>
+              <text x="96" y="56">Гостиная 64 м²</text><text x="24" y="36">Кухня</text><text x="22" y="80">Спальня</text>
+              <text x="182" y="56">Гостевой</text><text x="94" y="129">Бассейн</text>
+            </svg>
+            <figcaption>План первого этажа</figcaption>
+          </figure>
+          <div class="specs"><span><b>260</b>м²</span><span><b>5</b>спален</span><span><b>2</b>этажа</span></div>
+          <strong>от 21,5 млн ₽</strong>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<section id="stages" style="background:var(--card)">
+<section id="quiz-section">
+  <div class="wrap quiz-box reveal">
+    <div class="quiz-side">
+      <h2>Ответьте на 4 вопроса</h2>
+      <p>Пришлём 3 подходящих проекта с расчётом сметы под ваш бюджет.</p>
+      <p class="gift">Геологию участка сделаем бесплатно, если заключите договор в этом месяце.</p>
+    </div>
+    <form id="quiz" novalidate>
+      <div class="progress" aria-hidden="true"><i></i></div>
+      <span class="step-label" aria-live="polite">Шаг <span id="stepNo">1</span> из 5</span>
+
+      <fieldset data-step>
+        <legend>Какая площадь дома нужна?</legend>
+        <div class="options">
+          <label class="option"><input type="radio" name="area" value="до 120 м²" required><span>до 120 м²</span></label>
+          <label class="option"><input type="radio" name="area" value="120–180 м²"><span>120–180 м²</span></label>
+          <label class="option"><input type="radio" name="area" value="180–250 м²"><span>180–250 м²</span></label>
+          <label class="option"><input type="radio" name="area" value="больше 250 м²"><span>больше 250 м²</span></label>
+        </div>
+      </fieldset>
+      <fieldset data-step hidden>
+        <legend>Сколько этажей?</legend>
+        <div class="options">
+          <label class="option"><input type="radio" name="floors" value="1 этаж" required><span>Один этаж</span></label>
+          <label class="option"><input type="radio" name="floors" value="2 этажа"><span>Два этажа</span></label>
+          <label class="option"><input type="radio" name="floors" value="с мансардой"><span>С мансардой</span></label>
+          <label class="option"><input type="radio" name="floors" value="пока не знаю"><span>Пока не знаю</span></label>
+        </div>
+      </fieldset>
+      <fieldset data-step hidden>
+        <legend>Из какого материала?</legend>
+        <div class="options">
+          <label class="option"><input type="radio" name="material" value="клеёный брус" required><span>Клеёный брус</span></label>
+          <label class="option"><input type="radio" name="material" value="газобетон"><span>Газобетон</span></label>
+          <label class="option"><input type="radio" name="material" value="каркас"><span>Каркас</span></label>
+          <label class="option"><input type="radio" name="material" value="посоветуйте"><span>Посоветуйте</span></label>
+        </div>
+      </fieldset>
+      <fieldset data-step hidden>
+        <legend>Какой бюджет на строительство?</legend>
+        <div class="options">
+          <label class="option"><input type="radio" name="budget" value="до 8 млн ₽" required><span>до 8 млн ₽</span></label>
+          <label class="option"><input type="radio" name="budget" value="8–12 млн ₽"><span>8–12 млн ₽</span></label>
+          <label class="option"><input type="radio" name="budget" value="12–20 млн ₽"><span>12–20 млн ₽</span></label>
+          <label class="option"><input type="radio" name="budget" value="больше 20 млн ₽"><span>больше 20 млн ₽</span></label>
+        </div>
+      </fieldset>
+      <fieldset data-step hidden>
+        <legend>Куда прислать подборку?</legend>
+        <p class="summary" id="summary"></p>
+        <input type="text" name="name" aria-label="Ваше имя" placeholder="Ваше имя" autocomplete="name" required>
+        <input type="tel" name="phone" aria-label="Телефон" placeholder="Телефон" autocomplete="tel" required pattern="[\d\s\(\)+\-]{10,}">
+      </fieldset>
+
+      <div class="nav-btns">
+        <button type="button" class="btn text" id="back" hidden>Назад</button>
+        <button type="button" class="btn" id="next" disabled>Далее</button>
+        <button type="submit" class="btn" id="send" hidden>Получить подборку</button>
+      </div>
+      <div class="ok" role="status"><h3>Подборка в работе</h3><p>Архитектор подготовит 3 проекта со сметой и позвонит вам в течение дня.</p></div>
+    </form>
+  </div>
+</section>
+
+<section id="stages">
   <div class="wrap">
-    <p class="eyebrow reveal">Как мы работаем</p>
-    <h2 class="reveal">Пять этапов до новоселья</h2>
-    <p class="lead reveal">Каждый этап закрываем актом и фотоотчётом — вы видите стройку, даже не приезжая на участок.</p>
-    <div class="stages">
-      <div class="stage reveal"><b>Проект</b><p>Планировки под вашу семью и участок.</p><small>2–4 недели</small></div>
-      <div class="stage reveal"><b>Смета и договор</b><p>Фиксированная цена и сроки в договоре.</p><small>1 неделя</small></div>
-      <div class="stage reveal"><b>Фундамент</b><p>Геология, разметка, заливка с контролем качества.</p><small>3–4 недели</small></div>
-      <div class="stage reveal"><b>Коробка и кровля</b><p>Стены, перекрытия, кровля, окна.</p><small>2–4 месяца</small></div>
-      <div class="stage reveal"><b>Сдача дома</b><p>Инженерия, отделка, приёмка по чек-листу.</p><small>2–3 месяца</small></div>
+    <div class="reveal">
+      <h2>Пять этапов до новоселья</h2>
+      <p class="lead">Каждый этап закрываем актом и фотоотчётом — вы видите стройку, даже не приезжая на участок. Ниже — график для дома около 150 м².</p>
+    </div>
+    <div class="gantt reveal">
+      <div class="stage"><div><b>Проект</b><p>Планировки под вашу семью и участок.</p></div><div class="track"><span class="bar" style="--from:0%;--len:10%">2–4 недели</span></div></div>
+      <div class="stage"><div><b>Смета и договор</b><p>Фиксированная цена и сроки в договоре.</p></div><div class="track"><span class="bar" style="--from:10%;--len:3.4%">1 неделя</span></div></div>
+      <div class="stage"><div><b>Фундамент</b><p>Геология, разметка, заливка с контролем качества.</p></div><div class="track"><span class="bar" style="--from:13.4%;--len:11.6%">3–4 недели</span></div></div>
+      <div class="stage"><div><b>Коробка и кровля</b><p>Стены, перекрытия, кровля, окна.</p></div><div class="track"><span class="bar" style="--from:25%;--len:40%">2–4 месяца</span></div></div>
+      <div class="stage"><div><b>Сдача дома</b><p>Инженерия, отделка, приёмка по чек-листу.</p></div><div class="track"><span class="bar end" style="--from:65%;--len:35%">2–3 месяца</span></div></div>
+      <div class="axis" aria-hidden="true"><i></i><div><span style="left:0">старт</span><span style="left:29%">2 мес.</span><span style="left:58%">4 мес.</span><span style="left:87%">6 мес.</span></div></div>
     </div>
   </div>
 </section>
 
 <section id="contacts">
   <div class="wrap">
-    <h2 class="reveal">Приезжайте в офис</h2>
-    <p class="lead reveal">Покажем материалы, макеты и отвезём на объекты, которые строим сейчас.</p>
+    <div class="reveal">
+      <h2>Приезжайте в офис</h2>
+      <p class="lead">Покажем материалы, макеты и отвезём на объекты, которые строим сейчас.</p>
+    </div>
     <div class="contacts reveal">
       <div><b>Адрес</b><a href="https://yandex.ru/maps/?text=ул.+Лесная,+3" target="_blank" rel="noopener">ул. Лесная, 3</a></div>
       <div><b>Телефон</b><a href="tel:+79004445566">+7 (900) 444-55-66</a></div>

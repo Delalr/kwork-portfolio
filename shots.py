@@ -15,7 +15,7 @@ BG = (236, 239, 243)
 def shoot(page: Path, out: Path, width: int, height: int, scale: int):
     out.unlink(missing_ok=True)
     subprocess.run([
-        EDGE, "--headless=new", "--disable-gpu", "--hide-scrollbars",
+        EDGE, "--headless=new", "--disable-gpu", "--hide-scrollbars", "--force-prefers-reduced-motion",  # no half-faded reveals in shots
         f"--user-data-dir={ROOT / '.edge'}",  # keep Edge profile on E:
         f"--window-size={width},{height}", f"--force-device-scale-factor={scale}",
         "--virtual-time-budget=10000", f"--screenshot={out}", page.as_uri(),
