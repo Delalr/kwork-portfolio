@@ -4,3 +4,4 @@ shots/*-mobile.png
 __pycache__/
 cover_*.png
 covers.py
+shots/*-cover.jpg
