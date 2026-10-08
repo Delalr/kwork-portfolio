@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Стоматология «Белая линия» — демо-лендинг</title>
+<meta name="description" content="Стоматология «Белая линия»: лечение без боли, имплантация, брекеты, профессиональная гигиена. Бесплатная консультация, рассрочка 0%.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://delalr.github.io/kwork-portfolio/dental/">
+<meta property="og:image" content="https://delalr.github.io/kwork-portfolio/shots/dental-og.jpg">
+<meta property="og:title" content="Стоматология «Белая линия»">
+<meta property="og:description" content="Лечение без боли, бесплатная консультация и рассрочка 0%.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Dentist","name":"Белая линия","telephone":"+7 900 222-33-44",
+ "address":{"@type":"PostalAddress","streetAddress":"пр. Мира, 25","addressCountry":"RU"},
+ "openingHours":["Mo-Sa 09:00-21:00","Su 10:00-18:00"],"priceRange":"₽₽"}
+</script>
+<style>
+:root{--bg:#f6fafb;--ink:#12303a;--muted:#5c7680;--accent:#0e9f9a;--accent-dark:#0b827e;--soft:#e3f4f3;--line:#dbe7ea;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:16px/1.6 Manrope,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+h1,h2,h3{line-height:1.15;font-weight:800}
+h2{font-size:clamp(28px,4vw,42px);margin-bottom:12px}
+.lead{color:var(--muted);max-width:580px;margin-bottom:40px}
+section{padding:90px 0;scroll-margin-top:72px}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:15px 28px;border-radius:12px;font:inherit;font-weight:700;border:0;cursor:pointer;transition:.2s}
+.btn:hover{background:var(--accent-dark)}
+.btn.light{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+.btn.light:hover{border-color:var(--accent)}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.logo{font-weight:800;font-size:21px;display:flex;align-items:center;gap:8px}
+.logo i{width:30px;height:30px;border-radius:9px;background:var(--accent);display:inline-block}
+nav{display:flex;gap:26px;align-items:center;font-weight:600}
+nav a:hover{color:var(--accent)}
+.burger{display:none;background:none;border:0;font-size:28px;width:40px;cursor:pointer;color:var(--ink)}
+
+/* hero */
+.hero{padding:70px 0}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.badge{display:inline-block;background:var(--soft);color:var(--accent-dark);padding:6px 14px;border-radius:30px;font-weight:700;font-size:14px;margin-bottom:18px}
+.hero h1{font-size:clamp(36px,5vw,58px);margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{font-size:18px;color:var(--muted);margin-bottom:30px;max-width:520px}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.trust{display:flex;gap:28px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.trust b{display:block;font-size:22px;color:var(--ink)}
+.hero-img{position:relative}
+.hero-img img{border-radius:28px;height:520px;width:100%;object-fit:cover}
+.hero-card{position:absolute;left:-28px;bottom:36px;background:var(--card);border-radius:16px;padding:16px 20px;box-shadow:0 18px 40px rgba(18,48,58,.14);font-size:14px}
+.hero-card b{display:block;font-size:20px;color:var(--accent)}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.service{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column}
+.service:hover{border-color:var(--accent)}
+.service h3{font-size:20px;margin-bottom:8px}
+.service p{color:var(--muted);font-size:15px;margin-bottom:18px}
+.service strong{margin-top:auto;color:var(--accent-dark);font-size:18px}
+
+/* doctors */
+.doctors{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.doctor{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;text-align:center}
+.avatar{width:96px;height:96px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;font-size:30px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--accent),#42c2b2)}
+.doctor h3{font-size:19px}
+.doctor p{color:var(--muted);font-size:15px}
+.doctor small{display:inline-block;margin-top:12px;background:var(--soft);color:var(--accent-dark);padding:4px 12px;border-radius:20px;font-weight:700}
+
+/* reviews slider (native scroll-snap) */
+.slider-head{display:flex;justify-content:space-between;align-items:end;gap:20px}
+.arrows{display:flex;gap:10px;margin-bottom:40px}
+.arrows button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-size:20px;cursor:pointer;color:var(--ink)}
+.arrows button:hover{border-color:var(--accent)}
+.slider{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px)/3);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.slider::-webkit-scrollbar{display:none}
+.review{scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px}
+.review .stars{color:#f4b400;letter-spacing:2px;margin-bottom:10px}
+.review p{margin-bottom:16px}
+.review small{color:var(--muted)}
+
+/* cta */
+.cta{background:var(--ink);color:#fff;border-radius:28px;padding:56px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+.cta>div{flex:1 1 380px;max-width:640px}
+.cta p{color:#a9c3ca;margin-top:8px}
+.contacts{display:flex;gap:40px;flex-wrap:wrap;margin-top:40px;color:var(--muted)}
+.contacts b{display:block;color:var(--ink)}
+.contacts a{border-bottom:1px solid var(--line)}
+
+/* modal */
+dialog{border:0;border-radius:22px;padding:36px;width:min(460px,calc(100% - 32px));margin:auto;color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.25)}
+dialog::backdrop{background:rgba(18,48,58,.55)}
+dialog h3{font-size:24px;margin-bottom:6px}
+dialog .sub{color:var(--muted);margin-bottom:20px}
+.close{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;border:0;background:var(--soft);font-size:18px;cursor:pointer;color:var(--ink)}
+form{display:grid;gap:12px}
+label{display:grid;gap:4px;font-size:13px;color:var(--muted);font-weight:600}
+input,select{font:inherit;color:var(--ink);padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;width:100%;background:#fff}
+input:focus,select:focus{outline:2px solid var(--accent);border-color:transparent}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ok{display:none;text-align:center;padding:24px 0}
+form.sent>*:not(.ok){display:none}
+form.sent .ok{display:block}
+
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer nav{gap:18px;font-weight:500}
+
+/* reveal on scroll */
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.js .reveal.in{opacity:1;transform:none}
+.reveal:nth-child(2),.reveal:nth-child(5){transition-delay:.1s}
+.reveal:nth-child(3),.reveal:nth-child(6){transition-delay:.2s}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}}
+
+@media (max-width:900px){
+  .burger{display:block}
+  header nav{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;flex-direction:column;padding:20px;border-bottom:1px solid var(--line)}
+  header nav.open{display:flex}
+  .hero .wrap,.services,.doctors{grid-template-columns:1fr}
+  .hero-img img{height:300px}
+  .hero-card{left:12px;bottom:12px}
+  .slider{grid-auto-columns:85%}
+  .cta{padding:32px}
+  section{padding:60px 0}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a href="#" class="logo"><i aria-hidden="true"></i>Белая линия</a>
+    <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">☰</button>
+    <nav id="nav">
+      <a href="#services">Услуги</a>
+      <a href="#doctors">Врачи</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+      <button class="btn" data-open>Записаться</button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="badge">Первая консультация — бесплатно</span>
+      <h1>Лечим зубы <em>без боли</em> и без лишних услуг</h1>
+      <p>Составим план лечения с ценами на первом приёме. Современная анестезия, рассрочка 0% и гарантия на все работы.</p>
+      <div class="actions">
+        <button class="btn" data-open>Записаться на приём</button>
+        <a href="#services" class="btn light">Услуги и цены</a>
+      </div>
+      <div class="trust">
+        <div><b>15 лет</b>работаем в городе</div>
+        <div><b>0%</b>рассрочка на лечение</div>
+        <div><b>5 лет</b>гарантия на импланты</div>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1100&q=70" srcset="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=700&q=70 700w, https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1100&q=70 1100w" sizes="(max-width:900px) 100vw, 50vw" alt="Светлый кабинет стоматологической клиники">
+      <div class="hero-card"><b>4,9 ★</b>более 1 200 отзывов</div>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="background:#fff">
+  <div class="wrap">
+    <h2 class="reveal">Услуги и цены</h2>
+    <p class="lead reveal">Итоговую стоимость фиксируем в плане лечения — она не меняется в процессе.</p>
+    <div class="services">
+      <div class="service reveal"><h3>Консультация и план лечения</h3><p>Осмотр, снимок и понятный план с ценами.</p><strong>бесплатно</strong></div>
+      <div class="service reveal"><h3>Лечение кариеса</h3><p>Под микроскопом, с качественной анестезией.</p><strong>от 3 500 ₽</strong></div>
+      <div class="service reveal"><h3>Профессиональная гигиена</h3><p>Ультразвук, Air Flow, полировка и фторирование.</p><strong>от 4 500 ₽</strong></div>
+      <div class="service reveal"><h3>Имплантация</h3><p>Импланты с пожизненной гарантией производителя.</p><strong>от 35 000 ₽</strong></div>
+      <div class="service reveal"><h3>Брекеты и элайнеры</h3><p>Исправим прикус в любом возрасте.</p><strong>от 60 000 ₽</strong></div>
+      <div class="service reveal"><h3>Отбеливание</h3><p>До 8 тонов светлее за один визит.</p><strong>от 15 000 ₽</strong></div>
+    </div>
+  </div>
+</section>
+
+<section id="doctors">
+  <div class="wrap">
+    <h2 class="reveal">Наши врачи</h2>
+    <p class="lead reveal">Каждый врач ежегодно проходит повышение квалификации.</p>
+    <div class="doctors">
+      <div class="doctor reveal"><div class="avatar" aria-hidden="true">ЕС</div><h3>Елена Смирнова</h3><p>Стоматолог-терапевт, главный врач</p><small>стаж 18 лет</small></div>
+      <div class="doctor reveal"><div class="avatar" aria-hidden="true">АК</div><h3>Артём Ковалёв</h3><p>Хирург-имплантолог</p><small>стаж 12 лет</small></div>
+      <div class="doctor reveal"><div class="avatar" aria-hidden="true">ОН</div><h3>Ольга Новикова</h3><p>Ортодонт</p><small>стаж 9 лет</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="background:#fff">
+  <div class="wrap">
+    <div class="slider-head">
+      <div>
+        <h2 class="reveal">Отзывы пациентов</h2>
+        <p class="lead reveal">Что говорят о нас на картах и в соцсетях.</p>
+      </div>
+      <div class="arrows">
+        <button type="button" data-dir="-1" aria-label="Предыдущие отзывы">←</button>
+        <button type="button" data-dir="1" aria-label="Следующие отзывы">→</button>
+      </div>
+    </div>
+    <div class="slider" tabindex="0" aria-label="Отзывы пациентов">
+      <div class="review"><div class="stars">★★★★★</div><p>Боялась стоматологов с детства. Здесь впервые лечила зуб и вообще ничего не почувствовала.</p><small>Наталья</small></div>
+      <div class="review"><div class="stars">★★★★★</div><p>Поставил имплант. Цена в плане лечения совпала с итоговой до рубля.</p><small>Игорь</small></div>
+      <div class="review"><div class="stars">★★★★★</div><p>Ольга Владимировна подобрала элайнеры дочке, всё объяснила, результат уже заметен.</p><small>Светлана</small></div>
+      <div class="review"><div class="stars">★★★★★</div><p>Записался онлайн на вечер после работы, приняли без ожидания.</p><small>Павел</small></div>
+      <div class="review"><div class="stars">★★★★★</div><p>Сделали чистку быстро и бережно, дали понятные рекомендации по уходу.</p><small>Ксения</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div>
+        <h2>Запишитесь на бесплатную консультацию</h2>
+        <p>Осмотр, снимок и план лечения с ценами — за 40 минут.</p>
+      </div>
+      <button class="btn" data-open>Записаться</button>
+    </div>
+    <div class="contacts reveal">
+      <div><b>Адрес</b><a href="https://yandex.ru/maps/?text=пр.+Мира,+25" target="_blank" rel="noopener">пр. Мира, 25</a></div>
+      <div><b>Телефон</b><a href="tel:+79002223344">+7 (900) 222-33-44</a></div>
+      <div><b>Режим работы</b>Пн–Сб 9:00–21:00, Вс 10:00–18:00</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© «Белая линия». Демо-проект: клиника вымышленная, сайт сделан для портфолио. Имеются противопоказания, необходима консультация специалиста.</span>
+    <nav aria-label="Соцсети"><a href="#">ВКонтакте</a><a href="#">Telegram</a></nav>
+  </div>
+</footer>
+
+<dialog id="modal" aria-labelledby="modal-title">
+  <button class="close" type="button" aria-label="Закрыть">✕</button>
+  <form novalidate>
+    <h3 id="modal-title">Запись на приём</h3>
+    <p class="sub">Администратор перезвонит в течение 10 минут.</p>
+    <input name="name" aria-label="Ваше имя" placeholder="Ваше имя" autocomplete="name" required>
+    <input name="phone" type="tel" aria-label="Телефон" placeholder="Телефон" autocomplete="tel" required pattern="[\d\s\(\)+\-]{10,}">
+    <label>Услуга
+      <select name="service">
+        <option>Консультация</option><option>Лечение кариеса</option><option>Гигиена</option>
+        <option>Имплантация</option><option>Брекеты и элайнеры</option><option>Отбеливание</option>
+      </select>
+    </label>
+    <div class="row">
+      <label>Дата<input name="date" type="date" required></label>
+      <label>Время<input name="time" type="time" min="09:00" max="20:00" required></label>
+    </div>
+    <button class="btn">Записаться</button>
+    <div class="ok" role="status"><h3>Вы записаны!</h3><p>Перезвоним, чтобы подтвердить время приёма.</p></div>
+  </form>
+</dialog>
+
+<script>
+const nav = document.getElementById('nav'), burger = document.querySelector('.burger');
+const setMenu = open => {
+  nav.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+  burger.textContent = open ? '✕' : '☰';
+};
+burger.onclick = () => setMenu(!nav.classList.contains('open'));
+nav.querySelectorAll('a').forEach(a => a.onclick = () => setMenu(false));
+
+const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')));
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// reviews slider: arrows scroll by one card
+const slider = document.querySelector('.slider');
+document.querySelectorAll('[data-dir]').forEach(b => b.onclick = () =>
+  slider.scrollBy({left: b.dataset.dir * (slider.firstElementChild.offsetWidth + 20), behavior: 'smooth'}));
+
+// booking modal (native <dialog>: focus trap and Esc for free)
+const modal = document.getElementById('modal'), form = modal.querySelector('form');
+document.querySelectorAll('[data-open]').forEach(b => b.onclick = () => { setMenu(false); modal.showModal(); });
+modal.querySelector('.close').onclick = () => modal.close();
+modal.onclick = e => { // close on backdrop click only (e.target is the dialog for its padding too)
+  const r = modal.getBoundingClientRect();
+  if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) modal.close();
+};
+modal.onclose = () => { if (form.classList.contains('sent')) { form.reset(); form.classList.remove('sent'); } };
+
+form.date.min = new Date(Date.now() - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10); // local date
+form.time.oninput = form.date.oninput = () => form.time.setCustomValidity('');
+form.onsubmit = e => {
+  e.preventDefault();
+  const sunday = form.date.value && new Date(form.date.value + 'T00:00').getDay() === 0;
+  if (sunday && (form.time.value < '10:00' || form.time.value > '17:00'))
+    form.time.setCustomValidity('В воскресенье запись с 10:00 до 17:00');
+  if (!form.checkValidity()) return form.reportValidity();
+  form.classList.add('sent'); // demo: no backend
+};
+</script>
+</body>
+</html>

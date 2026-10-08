@@ -1,0 +1,92 @@
+<!doctype html>
+<meta charset="utf-8">
+<!-- Behaviour test: loads ../<site>/index.html in an iframe, clicks through it, prints PASS/FAIL lines. Run via tests/run.py -->
+<body>
+<script>
+const site = new URLSearchParams(location.search).get('site');
+const out = [];
+const t = (name, ok) => out.push((ok ? 'PASS ' : 'FAIL ') + site + ': ' + name);
+const frame = document.createElement('iframe');
+frame.style.cssText = 'width:1200px;height:900px';
+frame.src = `../${site}/index.html`;
+document.body.append(frame);
+frame.onload = async () => {
+  const w = frame.contentWindow, d = w.document;
+  try {
+    // burger menu
+    const b = d.querySelector('.burger');
+    b.click(); t('burger opens (aria-expanded=true)', b.getAttribute('aria-expanded') === 'true');
+    b.click(); t('burger closes (aria-expanded=false)', b.getAttribute('aria-expanded') === 'false');
+
+    if (site === 'houses') { // walk the quiz to the contact step before the generic form checks
+      const q = d.getElementById('quiz'), next = d.getElementById('next'), vis = id => d.getElementById(id).offsetParent !== null;
+      t('quiz: "Далее" disabled until answered', next.disabled);
+      t('quiz: back/send hidden on step 1', !vis('back') && !vis('send'));
+      q.querySelector('[name=area]').click();
+      t('quiz: answering enables "Далее"', !next.disabled);
+      q.requestSubmit(); // Enter key on a question step
+      t('quiz: Enter advances to step 2', d.getElementById('stepNo').textContent === '2');
+      for (const n of ['floors', 'material', 'budget']) { q.querySelector(`[name=${n}]`).click(); next.click(); }
+      t('quiz: reached contact step', d.getElementById('stepNo').textContent === '5' && vis('send') && !vis('next'));
+      t('quiz: summary lists answers', d.getElementById('summary').textContent === 'до 120 м² · 1 этаж · клеёный брус · до 8 млн ₽');
+    }
+
+    // booking form: the form that has a phone field
+    const f = [...d.forms].find(x => x.phone);
+    const local = new Date(Date.now() - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
+    if (f.date) t('date min is local today', f.date.min === local);
+    const submit = () => f.requestSubmit();
+    submit(); t('empty form is rejected', !f.classList.contains('sent'));
+    for (const el of f.elements) if (el.required && !el.value) el.value =
+      el.type === 'tel' ? 'hello world' : el.type === 'date' ? nextWeekday(1) : el.type === 'time' ? (el.min || '12:00') : 'Тест';
+    submit(); t('letters in phone are rejected', !f.classList.contains('sent'));
+    f.phone.value = '+7 (900) 000-00-00';
+    if (site === 'autoservice' || site === 'dental') { // autoservice: closed on Sunday; dental: Sunday 10–17 only, time = 09:00 here
+      f.date.value = nextWeekday(0); submit(); t('Sunday (09:00) is rejected', !f.classList.contains('sent'));
+      f.date.value = nextWeekday(1); f.date.dispatchEvent(new w.Event('input'));
+    }
+    if (site === 'dental') {
+      const m = d.getElementById('modal');
+      d.querySelector('[data-open]').click(); t('modal opens', m.open);
+      m.querySelector('.close').click(); t('close button closes modal', !m.open);
+    }
+    submit(); t('valid form is accepted', f.classList.contains('sent'));
+    if (site === 'dental') {
+      const m = d.getElementById('modal');
+      m.showModal(); m.close();
+      await new Promise(r => m.addEventListener('close', r, {once: true})); // 'close' fires asynchronously
+      t('form resets after close', !f.classList.contains('sent') && !f.phone.value);
+    }
+
+    // page-specific widgets
+    if (site === 'coffee') {
+      const tabs = d.querySelectorAll('[role=tab]');
+      tabs[1].click();
+      t('tab 2 selected', tabs[1].getAttribute('aria-selected') === 'true' && tabs[0].getAttribute('aria-selected') === 'false');
+      t('panel 2 shown, panel 1 hidden', !d.getElementById('breakfast').hidden && d.getElementById('coffee').hidden);
+    }
+    if (site === 'english') {
+      t('timer format "N д HH:MM:SS"', /^\d+ д \d\d:\d\d:\d\d$/.test(d.getElementById('timer').textContent));
+      d.querySelector('[data-plan="Интенсив"]').click();
+      t('plan button preselects plan in form', f.plan.value === 'Интенсив');
+      const ds = d.querySelectorAll('details');
+      ds[2].open = true;
+      t('FAQ is exclusive (opening one closes others)', ds[2].open && !ds[0].open);
+    }
+    if (site === 'autoservice') {
+      const c = d.getElementById('calcForm'), total = () => d.getElementById('total').textContent.replace(/\s/g, '');
+      t('calc default 900', total() === '900₽');
+      c.querySelector('[value="1200"]').click();
+      t('calc oil+diag = 2100', total() === '2100₽');
+      c.querySelector('[name=class][value="1.4"]').click();
+      t('calc ×1.4 = 2940', total() === '2940₽');
+    }
+  } catch (e) { t('exception: ' + e.message, false); }
+  fetch('/result', {method: 'POST', body: out.join('\n')}); // run.py waits for this
+};
+function nextWeekday(day) { // next local date on weekday `day` (0 = Sunday), at least tomorrow
+  const x = new Date(); x.setDate(x.getDate() + 1);
+  while (x.getDay() !== day) x.setDate(x.getDate() + 1);
+  return new Date(x - x.getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
+}
+</script>
