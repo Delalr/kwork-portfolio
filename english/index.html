@@ -9,11 +9,11 @@
 <meta property="og:url" content="https://delalr.github.io/kwork-portfolio/english/">
 <meta property="og:image" content="https://delalr.github.io/kwork-portfolio/shots/english-og.jpg">
 <meta property="og:title" content="Онлайн-школа английского Speakly">
-<meta property="og:description" content="Найдите ошибку в четырёх фразах — а остальные исправим на бесплатном пробном уроке.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231b2a6b'/><path d='M8 17l5 5 11-12' stroke='%23e0312b' stroke-width='3.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<meta property="og:description" content="Напишите преподавателю: найдите ошибку в четырёх фразах, а остальные разберём на бесплатном пробном уроке.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M6 6h20a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3H13l-6 5v-5H6a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3z' fill='%235b4bff'/><path d='M10 14l3 3 7-7' stroke='white' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Rubik:wght@400;500&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"EducationalOrganization","name":"Speakly","telephone":"+7 900 333-44-55",
@@ -23,365 +23,368 @@
                {"@type":"Offer","name":"Интенсив","price":"15900","priceCurrency":"RUB"}]}
 </script>
 <style>
-/* a live lesson: dotted bullet-journal paper, ballpoint ink, the teacher's red pen, a highlighter */
+/* the whole site is a messenger: a chat list on the left, the conversation with the teacher on the right */
 :root{
-  --paper:#fbfaf6;--card:#fff;--ink:#1b2a6b;--graphite:#535b78;--line:#dfe3ef;--red:#e0312b;--marker:#ffe94d;--ok:#1f8a5b;
-  --head:Unbounded,system-ui,sans-serif;--body:Rubik,system-ui,sans-serif;--pen:Caveat,cursive;
+  --brand:#5b4bff;--brand-2:#7c6dff;--coral:#ff6b4a;--ok:#1fa96b;--ink:#1e1d2b;--muted:#6d6b80;--line:#e6e4f0;
+  --in:#fff;--out:#e3dcff;--side:#fbfaff;--wall:#d9d2ff;
+  --font:Nunito,system-ui,sans-serif;--ease:cubic-bezier(.2,.7,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font:17px/1.6 var(--body);color:var(--ink);background:var(--paper);background-image:radial-gradient(rgba(27,42,107,.16) 1.2px,transparent 1.4px);background-size:24px 24px}
+body{font:16px/1.5 var(--font);color:var(--ink);background:var(--wall)}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-:focus-visible{outline:3px solid var(--red);outline-offset:3px}
-.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
-h1,h2,h3{font-family:var(--head);font-weight:500;line-height:1.1;letter-spacing:-.02em}
-h2{font-size:clamp(28px,3.6vw,44px);max-width:20ch}
-.pen{font-family:var(--pen);font-weight:700;color:var(--red);line-height:1}
-.hl{background:linear-gradient(transparent 55%,var(--marker) 55%,var(--marker) 92%,transparent 92%);padding:0 .1em}
-.lead{color:var(--graphite);max-width:56ch;margin-top:16px;font-size:18px}
-section{padding:104px 0;scroll-margin-top:72px}
+:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.app{display:grid;grid-template-columns:340px 1fr;min-height:100vh}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;background:var(--ink);color:#fff;border:2px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--red);font:500 17px var(--body);cursor:pointer;transition:transform .12s,box-shadow .12s}
-.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--red)}
-.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--red)}
-.btn.outline{background:var(--card);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
-.btn.outline:hover{box-shadow:6px 6px 0 var(--ink)}
-.btn.yellow{background:var(--marker);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
+/* ---- chat list (navigation) ---- */
+#nav{position:sticky;top:0;height:100vh;background:var(--side);border-right:1px solid var(--line);display:flex;flex-direction:column;z-index:30}
+.me{display:flex;align-items:center;gap:12px;padding:18px 18px 12px}
+.logo{font-weight:800;font-size:22px;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+.logo svg{width:28px;height:28px}
+.search{margin:4px 14px 10px;padding:9px 14px;border-radius:999px;background:#efedf8;color:var(--muted);font-size:14px}
+.chats{list-style:none;overflow:auto;flex:1;padding:4px 8px}
+.chats a{display:grid;grid-template-columns:48px 1fr auto;gap:2px 12px;align-items:center;padding:10px;border-radius:14px;transition:background .15s}
+.chats a:hover{background:#f0eefb}
+.chats a.on{background:var(--brand);color:#fff}
+.chats a.on small,.chats a.on time{color:rgba(255,255,255,.8)}
+.chats .av{grid-row:span 2}
+.chats b{font-weight:800;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chats small{grid-column:2;font-size:13.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chats time{grid-row:1;grid-column:3;font-size:12px;color:var(--muted)}
+.chats .badge{grid-row:2;grid-column:3;justify-self:end;min-width:22px;height:22px;padding:0 6px;border-radius:11px;background:var(--coral);color:#fff;font-size:12px;font-weight:800;display:grid;place-items:center}
+.side-foot{padding:14px 18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.side-foot a{color:var(--brand);font-weight:600}
+.av{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;font-size:18px;flex:none}
+.av.anna{background:linear-gradient(135deg,#ff8a65,#ff5a7a)}
+.av.club{background:linear-gradient(135deg,#29c4a9,#2a8bd8)}
+.av.price{background:linear-gradient(135deg,#ffc04a,#ff8a3d)}
+.av.faq{background:linear-gradient(135deg,#8f7bff,#5b4bff)}
+.av.trial{background:linear-gradient(135deg,#46d07f,#1fa96b)}
+.av svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-/* header */
-header{position:sticky;top:0;z-index:10;background:rgba(251,250,246,.94);backdrop-filter:blur(8px);border-bottom:2px solid var(--ink)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
-.logo{font:700 22px var(--head);letter-spacing:-.03em;display:flex;align-items:center;gap:8px}
-.logo span{color:var(--red);font:700 30px var(--pen);transform:rotate(-8deg)}
-header nav{display:flex;gap:28px;align-items:center;font-weight:500}
-header nav a:not(.btn):hover{text-decoration:underline wavy var(--red) 2px;text-underline-offset:6px}
-header nav .btn{min-height:42px;padding:0 18px;box-shadow:3px 3px 0 var(--red)}
-.burger{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:10px;background:var(--card);cursor:pointer;position:relative}
-.burger span{position:absolute;left:10px;right:10px;height:2px;background:var(--ink);transition:transform .25s,top .25s}
-.burger span:first-child{top:15px}.burger span:last-child{top:23px}
+/* ---- conversation ---- */
+.chat{position:relative;min-width:0;display:flex;flex-direction:column;
+  background:var(--wall) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' fill='none' stroke='%23ffffff' stroke-opacity='.5' stroke-width='2' stroke-linecap='round'%3E%3Ctext x='14' y='34' font-family='Nunito' font-weight='800' font-size='22' fill='%23ffffff' fill-opacity='.45' stroke='none'%3EAa%3C/text%3E%3Cpath d='M110 20l6 12 13 2-9 9 2 13-12-6-12 6 2-13-9-9 13-2z'/%3E%3Ctext x='92' y='120' font-family='Nunito' font-weight='800' font-size='26' fill='%23ffffff' fill-opacity='.45' stroke='none'%3E%3F%3C/text%3E%3Cpath d='M24 104c8-8 18-8 26 0M30 112c5-4 10-4 14 0'/%3E%3Ccircle cx='60' cy='70' r='5'/%3E%3C/svg%3E")}
+header{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;padding:10px 18px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .who{min-width:0}
+header .who b{display:block;font-weight:800;font-size:16px}
+header .who small{color:var(--ok);font-size:13px;font-weight:600}
+header .av{width:42px;height:42px;font-size:16px}
+header .call{margin-left:auto;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:999px;background:var(--brand);color:#fff;font-weight:800;font-size:14px;transition:background .2s}
+header .call:hover{background:var(--brand-2)}
+.burger{display:none;width:40px;height:40px;border:0;background:none;cursor:pointer;position:relative;flex:none}
+.burger span{position:absolute;left:9px;right:9px;height:2px;border-radius:2px;background:var(--ink);transition:transform .25s,top .25s}
+.burger span:first-child{top:14px}.burger span:last-child{top:24px}
 .burger[aria-expanded=true] span:first-child{top:19px;transform:rotate(45deg)}
 .burger[aria-expanded=true] span:last-child{top:19px;transform:rotate(-45deg)}
+.pin{position:sticky;top:63px;z-index:19;display:flex;align-items:center;gap:10px;padding:8px 18px;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);font-size:14px}
+.pin svg{width:16px;height:16px;flex:none;stroke:var(--brand);fill:none;stroke-width:2}
+.pin span{color:var(--muted)}
+.pin b{color:var(--coral);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pin a{margin-left:auto;color:var(--brand);font-weight:800;white-space:nowrap}
 
-/* hero */
-.hero{padding:64px 0 104px}
-.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
-.promo{display:inline-block;font-size:28px;transform:rotate(-2deg);margin-bottom:18px}
-.promo b{font-variant-numeric:tabular-nums;white-space:nowrap}
-.hero h1{font-size:clamp(36px,4.6vw,62px);margin-bottom:24px}
-.hero p.text{font-size:19px;color:var(--graphite);max-width:46ch;margin-bottom:34px}
-.actions{display:flex;gap:16px;flex-wrap:wrap}
+.feed{width:100%;max-width:820px;margin:0 auto;padding:18px 18px 110px;flex:1}
+.thread{display:flex;flex-direction:column;gap:6px;scroll-margin-top:120px;margin-bottom:22px}
+.day{align-self:center;margin:14px 0 8px;padding:4px 12px;border-radius:999px;background:rgba(30,29,43,.28);color:#fff;font-size:13px;font-weight:600}
+.msg{display:flex;align-items:flex-end;gap:8px;max-width:min(560px,88%)}
+.msg.out{align-self:flex-end;flex-direction:row-reverse}
+.msg .av{width:34px;height:34px;font-size:14px}
+.msg .gap{width:34px;flex:none}
+.bubble{position:relative;padding:9px 12px 8px;border-radius:18px 18px 18px 6px;background:var(--in);box-shadow:0 1px 1px rgba(30,29,43,.08);font-size:16px}
+.out .bubble{border-radius:18px 18px 6px 18px;background:var(--out)}
+.bubble p+p{margin-top:6px}
+.meta{float:right;margin:6px 0 -4px 12px;font-size:11.5px;color:var(--muted);display:inline-flex;align-items:center;gap:3px}
+.meta svg{width:16px;height:12px;stroke:var(--brand);fill:none;stroke-width:1.8}
+.bubble b{font-weight:800}
+.bubble .hl{background:linear-gradient(transparent 55%,#ffe46b 55%,#ffe46b 92%,transparent 92%)}
+.bubble .btn{margin-top:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:12px;background:var(--brand);color:#fff;border:0;font:800 15px var(--font);cursor:pointer;transition:background .2s,transform .12s}
+.btn:hover{background:var(--brand-2)}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:#f0eefb;color:var(--brand)}
+.btn.ghost:hover{background:#e4e0fb}
+.sticker{font-size:64px;line-height:1;padding:0 6px}
+/* typing indicator */
+.typing .bubble{display:flex;gap:4px;padding:14px 14px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:blink 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes blink{0%,60%,100%{opacity:.25;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+/* messages pop in once the thread scrolls into view; the footer simply fades */
+.js .reveal{opacity:0;transition:opacity .6s}
+.js .reveal.in{opacity:1}
+.js .thread>.msg{opacity:0;transform:translateY(10px) scale(.98);transform-origin:bottom left}
+.js .thread>.msg.out{transform-origin:bottom right}
+.js .thread>.msg.shown,.js .thread.done>.msg{opacity:1;transform:none;transition:opacity .35s var(--ease),transform .45s cubic-bezier(.3,1.4,.5,1)}
 
-/* the exercise card: ruled paper with a red margin */
-.ex{position:relative;background:var(--card);border:2px solid var(--ink);border-radius:16px;box-shadow:8px 8px 0 var(--ink);padding:26px 28px 24px 64px;
-  background-image:linear-gradient(90deg,transparent 44px,rgba(224,49,43,.5) 44px,rgba(224,49,43,.5) 46px,transparent 46px),repeating-linear-gradient(transparent 0 39px,var(--line) 39px 40px);background-position:0 0,0 22px}
-.ex::before{content:"";position:absolute;top:-16px;right:36px;width:120px;height:32px;background:rgba(255,233,77,.8);transform:rotate(4deg)}
-.ex-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:26px}
-.ex-top h2{font-size:16px;max-width:none;letter-spacing:0}
-.ex-top .count{font:700 26px var(--pen);color:var(--red)}
-.sentence{font:500 clamp(30px,3.4vw,42px)/1.5 var(--body);min-height:2.4em;display:flex;flex-wrap:wrap;gap:0 .32em;padding-top:28px}
-.w{position:relative;font:inherit;color:inherit;background:none;border:0;padding:0 .04em;cursor:pointer;border-radius:4px;transition:background .15s}
-.w:hover{background:rgba(255,233,77,.55)}
+/* exercise inside the chat */
+.task .bubble{padding-bottom:12px}
+.task .sent{font-size:clamp(22px,2.6vw,28px);font-weight:800;line-height:1.5;display:flex;flex-wrap:wrap;gap:0 .3em;margin:6px 0 2px}
+.w{font:inherit;color:inherit;background:#f3f1fd;border:0;border-radius:8px;padding:0 .2em;cursor:pointer;transition:background .15s}
+.w:hover{background:#ffe46b}
+.w:disabled{cursor:default;background:none}
 .w.nope{animation:nope .4s}
 @keyframes nope{25%{transform:translateX(-4px)}50%{transform:translateX(4px)}75%{transform:translateX(-2px)}}
-.w.strike{color:var(--graphite);cursor:default}
-.w.strike:hover{background:none}
-.w.strike::after{content:"";position:absolute;left:-3px;right:-3px;top:52%;height:3px;border-radius:2px;background:var(--red);transform:rotate(-4deg);transform-origin:left;animation:strike .35s ease-out both}
-.w .fixed{position:absolute;left:50%;bottom:78%;transform:translateX(-50%) rotate(-5deg);font:700 1.15em var(--pen);color:var(--red);white-space:nowrap;animation:write .4s .3s both;pointer-events:none}
-@keyframes strike{from{transform:rotate(-4deg) scaleX(0)}}
-@keyframes write{from{opacity:0;transform:translateX(-50%) rotate(-5deg) translateY(6px)}}
-.feedback{min-height:84px;margin-top:22px;font-size:16px;color:var(--graphite)}
-.feedback b{color:var(--ink);font-weight:500}
-.feedback .rule{display:block;margin-top:4px}
-.feedback .good{color:var(--ok);font-weight:500}
-.ex-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:10px}
-.dots{display:flex;gap:8px}
-.dots i{width:12px;height:12px;border:2px solid var(--ink);border-radius:50%}
-.dots i.done{background:var(--red);border-color:var(--red)}
-.dots i.now{background:var(--marker)}
-.ex-foot .btn{min-height:44px;padding:0 18px;font-size:15px}
-.ex-foot .btn[hidden]{display:none}
-.final{display:none;padding:8px 0 4px}
-.final p.pen{font-size:40px;margin-bottom:10px}
-.final p{color:var(--graphite);margin-bottom:22px;max-width:40ch}
-.ex.done .sentence,.ex.done .feedback,.ex.done .ex-foot{display:none}
-.ex.done .final{display:block}
+.w.bad{text-decoration:line-through;text-decoration-color:var(--coral);text-decoration-thickness:3px;color:var(--muted)}
+.task small{display:block;color:var(--muted);font-size:13px}
+.task .hint{color:var(--coral);font-weight:600;min-height:1.4em}
+.fix s{color:var(--muted);text-decoration-color:var(--coral);text-decoration-thickness:2px}
+.fix em{font-style:normal;color:var(--ok);font-weight:800}
+.score{display:flex;gap:6px;margin-top:8px}
+.score i{width:10px;height:10px;border-radius:50%;background:#dcd8f2}
+.score i.done{background:var(--ok)}
 
-/* lesson: 50 minutes, split like a real plan */
-.lesson{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.lesson figure{position:relative;border:2px solid var(--ink);background:var(--card);padding:12px;transform:rotate(-1.5deg);box-shadow:6px 6px 0 var(--ink)}
-.lesson figure img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.lesson figcaption{margin:10px 4px 0;font-size:28px}
-.bar{display:grid;grid-template-columns:2fr 3fr 3fr 2fr;border:2px solid var(--ink);border-radius:12px;overflow:hidden;background:var(--card);margin-top:36px}
-.bar div{padding:16px 14px;min-height:150px;display:flex;flex-direction:column;gap:6px}
-.bar div+div{border-left:2px solid var(--ink)}
-.bar time{font:700 26px var(--pen);color:var(--red)}
-.bar b{font-weight:500}
-.bar span{color:var(--graphite);font-size:15px;line-height:1.4}
-.bar div:nth-child(4){background:rgba(255,233,77,.35)}
-.pillars{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
-.pillars li{border-top:2px solid var(--ink);padding-top:16px}
-.pillars b{display:block;font:500 18px var(--head);margin-bottom:6px;letter-spacing:-.01em}
-.pillars span{color:var(--graphite)}
+/* voice message: the 50-minute lesson plan */
+.voice{min-width:min(420px,72vw)}
+.voice .row{display:flex;align-items:center;gap:12px}
+.play{width:44px;height:44px;flex:none;border-radius:50%;border:0;background:var(--brand);cursor:pointer;display:grid;place-items:center}
+.play svg{width:18px;height:18px;fill:#fff}
+.play .pause{display:none}
+.voice.playing .play .go{display:none}.voice.playing .play .pause{display:block}
+.wave{flex:1;display:flex;align-items:center;gap:2px;height:34px;position:relative}
+.wave i{flex:1;border-radius:2px;background:#c9c2f5;transition:background .2s}
+.wave i.lit{background:var(--brand)}
+.voice .dur{font-size:12px;color:var(--muted);margin-top:2px}
+.plan{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}
+.plan li{padding:8px;border-radius:10px;background:#f3f1fd;font-size:13px;transition:background .3s,color .3s}
+.plan li b{display:block;font-size:12px;color:var(--brand)}
+.plan li.now{background:var(--brand);color:#fff}
+.plan li.now b{color:#ffe46b}
+.photo{padding:4px;overflow:hidden}
+.photo img{border-radius:14px;width:100%;aspect-ratio:4/3;object-fit:cover}
+.photo p{padding:6px 8px 2px}
 
-/* pricing: index cards */
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:stretch;margin-top:56px}
-.plan{position:relative;background:var(--card);border:2px solid var(--ink);border-radius:16px;padding:30px;display:flex;flex-direction:column;box-shadow:6px 6px 0 var(--ink)}
-.plan h3{font-size:24px}
-.plan .for{color:var(--graphite);margin-top:6px}
-.plan .price{font:700 36px var(--head);letter-spacing:-.03em;margin:22px 0 4px;align-self:flex-start}
-.plan .price small{font:400 15px var(--body);color:var(--graphite);letter-spacing:0}
-.plan.best{box-shadow:6px 6px 0 var(--red)}
-.plan.best .price{background:linear-gradient(transparent 50%,var(--marker) 50%,var(--marker) 90%,transparent 90%);padding:0 6px;margin-left:-6px}
-.plan.best .note{position:absolute;top:-28px;right:18px;font-size:30px;transform:rotate(4deg);background:var(--paper);padding:0 8px}
-.plan ul{list-style:none;margin:18px 0 28px;display:grid;gap:10px}
-.plan li{padding-left:30px;position:relative}
-.plan li::before{content:"✓";position:absolute;left:0;top:-4px;font:700 26px var(--pen);color:var(--red)}
-.plan .btn{margin-top:auto}
+/* tariffs: cards sent as a carousel */
+.msg.cards{max-width:none;align-self:stretch;align-items:stretch}
+.cards{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 12px 42px;margin:0 -18px 0 0;scrollbar-width:thin}
+.card{flex:none;width:260px;scroll-snap-align:start;background:#fff;border-radius:18px;padding:18px;box-shadow:0 1px 1px rgba(30,29,43,.08);display:flex;flex-direction:column;position:relative}
+.card.best{outline:3px solid var(--brand)}
+.card .tag{position:absolute;top:-10px;right:14px;padding:2px 10px;border-radius:999px;background:var(--coral);color:#fff;font-size:12px;font-weight:800}
+.card h3{font-size:20px;font-weight:800}
+.card .for{color:var(--muted);font-size:14px}
+.card .price{font-size:30px;font-weight:800;letter-spacing:-.02em;margin:12px 0 2px}
+.card .price small{font-size:14px;font-weight:600;color:var(--muted)}
+.card ul{list-style:none;margin:10px 0 16px;display:grid;gap:6px;font-size:14.5px}
+.card li{padding-left:24px;position:relative}
+.card li::before{content:"";position:absolute;left:2px;top:6px;width:12px;height:7px;border:solid var(--ok);border-width:0 0 2.5px 2.5px;transform:rotate(-45deg)}
+.card .btn{margin-top:auto}
 
-/* faq */
-.faq{max-width:860px;margin-top:40px;border-top:2px solid var(--ink)}
-details{border-bottom:2px solid var(--ink)}
-summary{cursor:pointer;list-style:none;padding:20px 0;font-weight:500;font-size:19px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+/* FAQ: your question on the right, Anna's answer on the left */
+details{display:block}
+summary{display:block;width:fit-content;margin-left:auto;list-style:none;cursor:pointer;max-width:min(520px,86%);padding:9px 14px;border-radius:18px 18px 6px 18px;background:var(--out);font-weight:600;box-shadow:0 1px 1px rgba(30,29,43,.08);transition:background .2s}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font:700 38px/0.8 var(--pen);color:var(--red);transition:transform .2s}
-details[open] summary::after{transform:rotate(45deg)}
-details p{color:var(--graphite);padding-bottom:22px;max-width:68ch}
+summary:hover{background:#d6ccff}
+details:not([open]) summary::after{content:" — нажмите, чтобы спросить";color:var(--muted);font-weight:400;font-size:13px}
+details .msg{margin-top:6px}
 
-/* trial form */
-.lead-box{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.perks{list-style:none;display:grid;gap:10px;margin-top:26px;font-size:18px}
-.perks li{padding-left:34px;position:relative}
-.perks li::before{content:"✓";position:absolute;left:0;top:-6px;font:700 30px var(--pen);color:var(--red)}
-form{background:var(--card);border:2px solid var(--ink);border-radius:16px;padding:32px;display:grid;gap:16px;box-shadow:8px 8px 0 var(--ink)}
-form h3{font-size:22px}
-label{display:grid;gap:6px;font-size:14px;color:var(--graphite);font-weight:500}
-input,select{font:17px var(--body);color:var(--ink);padding:12px 14px;min-height:48px;border:2px solid var(--ink);border-radius:10px;width:100%;background:var(--card)}
-input::placeholder{color:#7a809c}
-input:focus,select:focus{outline:3px solid var(--marker);outline-offset:0}
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-fieldset{border:0;display:flex;gap:10px;flex-wrap:wrap}
-legend{font-size:14px;color:var(--graphite);font-weight:500;margin-bottom:8px;width:100%}
+/* trial form as a message */
+form{display:grid;gap:12px;margin-top:8px}
+label{display:grid;gap:4px;font-size:13px;font-weight:600;color:var(--muted)}
+input,select{font:16px var(--font);color:var(--ink);padding:10px 12px;min-height:44px;border:2px solid var(--line);border-radius:12px;width:100%;background:#fff;transition:border-color .2s}
+input:focus,select:focus{outline:none;border-color:var(--brand)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+fieldset{border:0;display:flex;flex-wrap:wrap;gap:8px}
+legend{font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px;width:100%}
 fieldset label{position:relative;cursor:pointer}
 fieldset input{position:absolute;opacity:0;pointer-events:none}
-fieldset label span{display:block;padding:9px 16px;border:2px solid var(--ink);border-radius:999px;font-size:16px;color:var(--ink);transition:background .15s}
-fieldset input:checked+span{background:var(--marker)}
-fieldset input:focus-visible+span{outline:3px solid var(--red);outline-offset:2px}
-form .btn{margin-top:6px}
-.legal{font-size:13px;color:var(--graphite)}
-.ok{display:none;padding:24px 0}
-.ok h3{font-size:26px;margin-bottom:8px}
+fieldset label span{display:block;padding:7px 14px;border-radius:999px;border:2px solid var(--line);font-size:14px;color:var(--ink);font-weight:600;transition:background .15s,border-color .15s}
+fieldset input:checked+span{background:var(--brand);border-color:var(--brand);color:#fff}
+fieldset input:focus-visible+span{outline:3px solid var(--coral);outline-offset:2px}
+form .btn{width:100%}
+.legal{font-size:12px;color:var(--muted)}
+.ok{display:none}
+.ok b{color:var(--ok)}
 form.sent>*:not(.ok){display:none}
 form.sent .ok{display:block}
-.contacts{margin-top:48px;font-size:18px}
-.contacts a{text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:4px;font-weight:500}
 
-footer{border-top:2px solid var(--ink);background:var(--card);padding:28px 0;color:var(--graphite);font-size:15px}
-footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-footer nav{display:flex;gap:20px}
+/* composer: a fake input bar that is really the booking button */
+.composer{position:sticky;bottom:0;z-index:18;padding:10px 18px 14px;background:linear-gradient(transparent,rgba(217,210,255,.95) 40%)}
+.composer div{max-width:820px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:6px 6px 6px 18px;border-radius:999px;background:#fff;box-shadow:0 6px 24px -10px rgba(30,29,43,.4)}
+.composer span{flex:1;color:var(--muted);font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.composer a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;background:var(--brand);color:#fff;font-weight:800;font-size:15px;white-space:nowrap}
+.composer a svg{width:18px;height:18px;fill:#fff}
+footer{max-width:820px;margin:0 auto;padding:0 18px 90px;color:#4d4a66;font-size:13px;text-align:center}
+footer a{text-decoration:underline}
 
-/* content stays visible without JS; with JS sections fade in once */
-.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
-.js .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .js .reveal{opacity:1;transform:none;transition:none}
-  .w.nope,.w.strike::after,.w .fixed{animation:none}
-  .btn{transition:none}
+  .js .thread>.msg,.js .reveal{opacity:1;transform:none}
+  .typing i,.w.nope{animation:none}
 }
-
 @media (max-width:960px){
-  .hero .wrap,.lesson,.lead-box{grid-template-columns:1fr}
-  .plans{grid-template-columns:1fr;gap:44px;max-width:520px}
-}
-@media (max-width:860px){
+  .app{grid-template-columns:1fr}
   .burger{display:block}
-  header nav{display:none;position:absolute;top:72px;left:0;right:0;background:var(--paper);flex-direction:column;align-items:flex-start;padding:20px 32px 26px;border-bottom:2px solid var(--ink)}
-  header nav.open{display:flex}
+  #nav{position:fixed;inset:0 auto 0 0;width:min(340px,86vw);transform:translateX(-102%);transition:transform .35s var(--ease);box-shadow:0 0 60px rgba(30,29,43,.3)}
+  #nav.open{transform:none}
+  .feed{padding:14px 10px 110px}
+  .msg{max-width:94%}
+  .cards{padding-left:10px;margin-right:-10px}
+  .plan{grid-template-columns:1fr 1fr}
 }
-@media (max-width:640px){
-  .wrap{padding:0 16px}
-  header nav{padding:20px 16px 26px}
-  section{padding:72px 0}
-  .hero{padding:36px 0 72px}
-  .ex{padding:22px 18px 20px 46px;box-shadow:5px 5px 0 var(--ink);background-position:-14px 0,0 22px}
-  .ex::before{right:18px;width:90px}
-  .bar{grid-template-columns:1fr 1fr}
-  .bar div:nth-child(3){border-left:0}
-  .bar div:nth-child(n+3){border-top:2px solid var(--ink)}
-  .bar div{min-height:0}
-  .pillars{grid-template-columns:1fr;gap:20px}
-  form{padding:22px;box-shadow:5px 5px 0 var(--ink)}
+@media (max-width:520px){
+  header .call{padding:0 12px;font-size:13px}
+  header .who b{font-size:15px}
+  .long{display:none}
+  .pin a{display:none}
   .pair{grid-template-columns:1fr}
+  .msg .av,.msg .gap{display:none}
 }
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <a href="#" class="logo">Speakly<span aria-hidden="true">✓</span></a>
-    <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
-    <nav id="nav">
-      <a href="#how">Как учимся</a>
-      <a href="#prices">Тарифы</a>
-      <a href="#faq">Вопросы</a>
-      <a href="#trial" class="btn">Пробный урок</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-<section class="hero">
-  <div class="wrap">
-    <div>
-      <p class="promo pen">Скидка 20% на первый месяц — ещё <b id="timer" aria-live="off">…</b></p>
-      <h1>Заговорите на английском за <span class="hl">3&nbsp;месяца</span></h1>
-      <p class="text">Начнём прямо здесь: найдите ошибку в четырёх фразах. Остальные ваши ошибки найдём и исправим на бесплатном пробном уроке.</p>
-      <div class="actions">
-        <a href="#trial" class="btn">Пробный урок бесплатно</a>
-        <a href="#prices" class="btn outline">Тарифы</a>
-      </div>
-    </div>
-
-    <div class="ex" id="ex">
-      <div class="ex-top"><h2>Найдите ошибку</h2><span class="count" id="count">1 / 4</span></div>
-      <p class="sentence" id="sentence" aria-describedby="feedback"></p>
-      <p class="feedback" id="feedback" aria-live="polite">Нажмите на слово, в котором ошибка.</p>
-      <div class="ex-foot">
-        <div class="dots" id="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-        <button class="btn outline" type="button" id="next" hidden>Дальше →</button>
-      </div>
-      <div class="final" role="status">
-        <p class="pen">4 из 4 — отлично!</p>
-        <p>Это самые частые ошибки русскоговорящих. На пробном уроке преподаватель найдёт ваши — и составит план, как от них избавиться.</p>
-        <div class="actions"><a href="#trial" class="btn">Записаться на пробный</a><button class="btn outline" type="button" id="again">Ещё раз</button></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="how">
-  <div class="wrap">
-    <div class="lesson">
-      <div>
-        <h2 class="reveal">Один урок — <span class="hl">50 минут</span>, и в каждом есть разбор ошибок</h2>
-        <p class="lead reveal">2–3 живых урока в неделю с преподавателем в удобное время — с 7:00 до 23:00.</p>
-        <div class="bar reveal" aria-label="План урока">
-          <div><time>0–10</time><b>Разговор</b><span>Как прошла неделя — по-английски</span></div>
-          <div><time>10–25</time><b>Новая тема</b><span>Грамматика на примерах из жизни</span></div>
-          <div><time>25–40</time><b>Практика</b><span>Диалоги, роли, ситуации</span></div>
-          <div><time>40–50</time><b>Разбор</b><span>Красная ручка: ваши ошибки за урок</span></div>
-        </div>
-      </div>
-      <figure class="reveal">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1000&q=70" alt="Студенты занимаются с ноутбуками" loading="lazy">
-        <figcaption class="pen">разговорный клуб по четвергам</figcaption>
-      </figure>
-    </div>
-    <ul class="pillars">
-      <li class="reveal"><b>Живые уроки</b><span>Индивидуально или в мини-группе до 4 человек. Камера включена, учебник — нет.</span></li>
-      <li class="reveal"><b>Разговорные клубы</b><span>Темы на неделю, носитель языка и 6–8 участников вашего уровня.</span></li>
-      <li class="reveal"><b>Тренажёр слов</b><span>Приложение напоминает слова с урока, пока они не запомнятся.</span></li>
+<div class="app">
+  <nav id="nav" aria-label="Чаты">
+    <div class="me"><a href="#" class="logo"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 6h20a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3H13l-6 5v-5H6a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3z" fill="#5b4bff"/><path d="M10 14l3 3 7-7" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Speakly</a></div>
+    <div class="search" aria-hidden="true">Поиск по чатам</div>
+    <ul class="chats">
+      <li><a href="#start" class="on"><span class="av anna">А</span><b>Анна, преподаватель</b><time>10:04</time><small>Найдите ошибку в четырёх фразах</small><span class="badge">4</span></a></li>
+      <li><a href="#how"><span class="av club"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M14.5 14.5c3.6-.6 6.5 1.6 6.5 5.5"/></svg></span><b>Как проходит урок</b><time>10:05</time><small>Голосовое · 0:50</small></a></li>
+      <li><a href="#prices"><span class="av price"><svg viewBox="0 0 24 24"><path d="M4 12l8-8h7v7l-8 8z"/><circle cx="15.5" cy="8.5" r="1.5"/></svg></span><b>Тарифы</b><time>10:06</time><small>от 5 900 ₽ в месяц</small></a></li>
+      <li><a href="#faq"><span class="av faq">?</span><b>Частые вопросы</b><time>10:07</time><small>Можно ли перенести урок?</small></a></li>
+      <li><a href="#trial"><span class="av trial"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><b>Пробный урок</b><time>10:08</time><small>Бесплатно, 30 минут</small><span class="badge">1</span></a></li>
     </ul>
-  </div>
-</section>
+    <div class="side-foot">Есть вопросы? <a href="tel:+79003334455">+7 (900) 333-44-55</a> · <a href="#">Telegram</a></div>
+  </nav>
 
-<section id="faq">
-  <div class="wrap">
-    <h2 class="reveal">Частые вопросы</h2>
-    <p class="lead reveal">Не нашли ответ — напишите нам в Telegram.</p>
-    <div class="faq reveal">
-      <details name="faq" open><summary>Я совсем не знаю английский. Мне подойдёт?</summary><p>Да. Начнём с нуля: преподаватель объясняет всё на русском, пока вы не будете готовы перейти на английский.</p></details>
-      <details name="faq"><summary>Что нужно для занятий?</summary><p>Компьютер или телефон с камерой и наушники. Уроки проходят на нашей платформе прямо в браузере.</p></details>
-      <details name="faq"><summary>Можно ли перенести урок?</summary><p>Да, бесплатно, если предупредить за 8 часов до начала.</p></details>
-      <details name="faq"><summary>Как вернуть деньги, если не понравится?</summary><p>Вернём оплату за неиспользованные уроки в течение 10 дней после заявления.</p></details>
+  <div class="chat">
+    <header>
+      <button class="burger" aria-label="Открыть список чатов" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+      <span class="av anna" aria-hidden="true">А</span>
+      <div class="who"><b>Анна · Speakly</b><small>в сети<span class="long"> · преподаёт 8 лет</span></small></div>
+      <a href="#trial" class="call">Пробный урок</a>
+    </header>
+    <div class="pin">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6l-1 6 4 3v2H6v-2l4-3zM12 14v7"/></svg>
+      <span>Скидка 20%<span class="long"> на первый месяц</span> — ещё</span><b id="timer" aria-live="off">…</b>
+      <a href="#trial">Забрать</a>
     </div>
-  </div>
-</section>
 
-<section id="prices">
-  <div class="wrap">
-    <h2 class="reveal">Тарифы</h2>
-    <p class="lead reveal">Цена за месяц. Обучение можно заморозить на время отпуска.</p>
-    <div class="plans">
-      <div class="plan reveal">
-        <h3>Старт</h3><span class="for">для знакомства с языком</span>
-        <div class="price">5 900 ₽ <small>в месяц</small></div>
-        <ul><li>8 уроков в мини-группе</li><li>Доступ к приложению</li><li>Проверка домашних заданий</li></ul>
-        <a href="#trial" class="btn outline" data-plan="Старт">Выбрать «Старт»</a>
+    <main class="feed">
+      <div class="thread" id="start">
+        <span class="day">Сегодня</span>
+        <div class="msg"><span class="gap"></span><div class="bubble"><p>Привет! Я Анна, преподаватель в Speakly.</p><p>За 3 месяца вы <span class="hl">заговорите на английском</span> — без зубрёжки, на живых уроках со мной.</p><span class="meta">10:02</span></div></div>
+        <div class="msg"><span class="av anna" aria-hidden="true">А</span><div class="bubble"><p>Давайте сразу проверим. Найдите ошибку в фразе — просто нажмите на неправильное слово.</p><span class="meta">10:02</span></div></div>
       </div>
-      <div class="plan best reveal">
-        <span class="note pen">выбор учеников</span>
-        <h3>Прогресс</h3><span class="for">чтобы заговорить за 3 месяца</span>
-        <div class="price">9 900 ₽ <small>в месяц</small></div>
-        <ul><li>8 индивидуальных уроков</li><li>4 разговорных клуба</li><li>Личный куратор</li><li>Доступ к приложению</li></ul>
-        <a href="#trial" class="btn" data-plan="Прогресс">Выбрать «Прогресс»</a>
-      </div>
-      <div class="plan reveal">
-        <h3>Интенсив</h3><span class="for">к переезду или собеседованию</span>
-        <div class="price">15 900 ₽ <small>в месяц</small></div>
-        <ul><li>12 индивидуальных уроков</li><li>Безлимит разговорных клубов</li><li>Подготовка к IELTS и собеседованию</li><li>Личный куратор</li></ul>
-        <a href="#trial" class="btn outline" data-plan="Интенсив">Выбрать «Интенсив»</a>
-      </div>
-    </div>
-  </div>
-</section>
+      <div class="thread done" id="lesson" aria-live="polite"></div>
 
-<section id="trial">
-  <div class="wrap">
-    <div class="lead-box">
-      <div class="reveal">
-        <h2>Запишитесь на бесплатный пробный урок</h2>
-        <p class="lead">30 минут: определим уровень, найдём ваши частые ошибки и составим план занятий.</p>
-        <ul class="perks"><li>Без обязательств и предоплаты</li><li>Письменный разбор уровня после урока</li><li>Скидка 20% на первый месяц</li></ul>
+      <div class="thread" id="how">
+        <span class="day">Как проходит урок</span>
+        <div class="msg out"><div class="bubble">А как проходят занятия?<span class="meta">10:05 <svg viewBox="0 0 16 12" aria-hidden="true"><path d="M1 6l3 3 6-7M6 9l1 1 6-8"/></svg></span></div></div>
+        <div class="msg"><span class="gap"></span><div class="bubble voice" id="voice">
+          <div class="row"><button class="play" type="button" aria-label="Прослушать план урока"><svg class="go" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg><svg class="pause" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button><div class="wave" id="wave" aria-hidden="true"></div></div>
+          <div class="dur">План урока · 50:00</div>
+          <ol class="plan" id="plan">
+            <li><b>0–10 мин</b>Разговор: как прошла неделя</li>
+            <li><b>10–25 мин</b>Новая тема на примерах</li>
+            <li><b>25–40 мин</b>Практика: диалоги и роли</li>
+            <li><b>40–50 мин</b>Разбор ваших ошибок</li>
+          </ol>
+          <span class="meta">10:05</span></div></div>
+        <div class="msg"><span class="gap"></span><div class="bubble"><p>2–3 урока в неделю, в любое время с 7:00 до 23:00. Камера включена, учебник — нет.</p><span class="meta">10:05</span></div></div>
+        <div class="msg" id="club"><span class="av anna" aria-hidden="true">А</span><div class="bubble photo"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=70" alt="Студенты занимаются с ноутбуками в разговорном клубе" loading="lazy"><p>А по четвергам — разговорный клуб: носитель языка и 6–8 человек вашего уровня. Плюс тренажёр слов в приложении.<span class="meta">10:06</span></p></div></div>
       </div>
-      <form class="reveal" novalidate>
-        <h3>Пробный урок</h3>
-        <label>Имя<input name="name" autocomplete="name" required></label>
-        <label>Телефон<input name="phone" type="tel" placeholder="+7 (900) 000-00-00" autocomplete="tel" required pattern="[\d\s\(\)+\-]{10,}"></label>
-        <div class="pair">
-          <label>Тариф
-            <select name="plan"><option>Пока не знаю</option><option>Старт</option><option>Прогресс</option><option>Интенсив</option></select>
-          </label>
-          <label>Ваш уровень
-            <select name="level"><option>С нуля</option><option>Начальный</option><option>Средний</option><option>Выше среднего</option></select>
-          </label>
+
+      <div class="thread" id="prices">
+        <span class="day">Тарифы</span>
+        <div class="msg out"><div class="bubble">Сколько это стоит?<span class="meta">10:06 <svg viewBox="0 0 16 12" aria-hidden="true"><path d="M1 6l3 3 6-7M6 9l1 1 6-8"/></svg></span></div></div>
+        <div class="msg"><span class="av anna" aria-hidden="true">А</span><div class="bubble"><p>Цена за месяц, обучение можно заморозить на время отпуска. Отправляю три варианта — листайте →</p><span class="meta">10:06</span></div></div>
+        <div class="cards msg" role="list">
+          <div class="card" role="listitem">
+            <h3>Старт</h3><span class="for">для знакомства с языком</span>
+            <div class="price">5 900 ₽ <small>в месяц</small></div>
+            <ul><li>8 уроков в мини-группе</li><li>Доступ к приложению</li><li>Проверка домашних заданий</li></ul>
+            <a href="#trial" class="btn ghost" data-plan="Старт">Выбрать «Старт»</a>
+          </div>
+          <div class="card best" role="listitem">
+            <span class="tag">выбор учеников</span>
+            <h3>Прогресс</h3><span class="for">чтобы заговорить за 3 месяца</span>
+            <div class="price">9 900 ₽ <small>в месяц</small></div>
+            <ul><li>8 индивидуальных уроков</li><li>4 разговорных клуба</li><li>Личный куратор</li><li>Доступ к приложению</li></ul>
+            <a href="#trial" class="btn" data-plan="Прогресс">Выбрать «Прогресс»</a>
+          </div>
+          <div class="card" role="listitem">
+            <h3>Интенсив</h3><span class="for">к переезду или собеседованию</span>
+            <div class="price">15 900 ₽ <small>в месяц</small></div>
+            <ul><li>12 индивидуальных уроков</li><li>Безлимит разговорных клубов</li><li>Подготовка к IELTS</li><li>Личный куратор</li></ul>
+            <a href="#trial" class="btn ghost" data-plan="Интенсив">Выбрать «Интенсив»</a>
+          </div>
         </div>
-        <fieldset>
-          <legend>Как с вами связаться</legend>
-          <label><input type="radio" name="contact" value="Звонок" checked><span>Звонок</span></label>
-          <label><input type="radio" name="contact" value="Telegram"><span>Telegram</span></label>
-          <label><input type="radio" name="contact" value="WhatsApp"><span>WhatsApp</span></label>
-        </fieldset>
-        <button class="btn yellow">Записаться на пробный урок</button>
-        <p class="legal">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
-        <div class="ok" role="status"><h3>Вы записаны</h3><p>Куратор позвонит в течение часа и предложит время урока.</p></div>
-      </form>
-    </div>
-    <p class="contacts reveal">Есть вопросы? Звоните <a href="tel:+79003334455">+7 (900) 333-44-55</a> или пишите в <a href="#">Telegram</a>.</p>
-  </div>
-</section>
-</main>
+      </div>
 
-<footer>
-  <div class="wrap">
-    <span>© Speakly. Демо-проект: школа вымышленная, сайт сделан для портфолио.</span>
-    <nav aria-label="Соцсети"><a href="#">ВКонтакте</a><a href="#">Telegram</a><a href="#">YouTube</a></nav>
+      <div class="thread" id="faq">
+        <span class="day">Частые вопросы</span>
+        <details name="faq" open><summary>Я совсем не знаю английский. Мне подойдёт?</summary><div class="msg"><span class="gap"></span><div class="bubble">Да. Начнём с нуля: я объясняю всё на русском, пока вы не будете готовы перейти на английский.<span class="meta">10:07</span></div></div></details>
+        <details name="faq"><summary>Что нужно для занятий?</summary><div class="msg"><span class="gap"></span><div class="bubble">Компьютер или телефон с камерой и наушники. Уроки идут на нашей платформе прямо в браузере.<span class="meta">10:07</span></div></div></details>
+        <details name="faq"><summary>Можно ли перенести урок?</summary><div class="msg"><span class="gap"></span><div class="bubble">Да, бесплатно, если предупредить за 8 часов до начала.<span class="meta">10:07</span></div></div></details>
+        <details name="faq"><summary>Как вернуть деньги, если не понравится?</summary><div class="msg"><span class="gap"></span><div class="bubble">Вернём оплату за неиспользованные уроки в течение 10 дней после заявления.<span class="meta">10:07</span></div></div></details>
+      </div>
+
+      <div class="thread" id="trial">
+        <span class="day">Пробный урок</span>
+        <div class="msg out"><div class="bubble">Хочу на пробный урок!<span class="meta">10:08 <svg viewBox="0 0 16 12" aria-hidden="true"><path d="M1 6l3 3 6-7M6 9l1 1 6-8"/></svg></span></div></div>
+        <div class="msg"><span class="av anna" aria-hidden="true">А</span><div class="bubble" style="width:min(460px,100%)">
+          <p>Отлично! 30 минут: определим уровень, найдём ваши частые ошибки и составим план. Без предоплаты.</p>
+          <form novalidate>
+            <label>Имя<input name="name" autocomplete="name" required></label>
+            <label>Телефон<input name="phone" type="tel" placeholder="+7 (900) 000-00-00" autocomplete="tel" required pattern="[\d\s\(\)+\-]{10,}"></label>
+            <div class="pair">
+              <label>Тариф
+                <select name="plan"><option>Пока не знаю</option><option>Старт</option><option>Прогресс</option><option>Интенсив</option></select>
+              </label>
+              <label>Ваш уровень
+                <select name="level"><option>С нуля</option><option>Начальный</option><option>Средний</option><option>Выше среднего</option></select>
+              </label>
+            </div>
+            <fieldset>
+              <legend>Как с вами связаться</legend>
+              <label><input type="radio" name="contact" value="Звонок" checked><span>Звонок</span></label>
+              <label><input type="radio" name="contact" value="Telegram"><span>Telegram</span></label>
+              <label><input type="radio" name="contact" value="WhatsApp"><span>WhatsApp</span></label>
+            </fieldset>
+            <button class="btn">Записаться на пробный урок</button>
+            <p class="legal">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+            <div class="ok" role="status"><p><b>Готово, вы записаны!</b> Куратор позвонит в течение часа и предложит время урока. До встречи!</p></div>
+          </form>
+          <span class="meta">10:08</span></div></div>
+      </div>
+    </main>
+    <footer class="reveal">© Speakly. Демо-проект: школа вымышленная, сайт сделан для портфолио. Вопросы — <a href="tel:+79003334455">+7 (900) 333-44-55</a>.</footer>
+    <div class="composer"><div><span>Напишите Анне…</span><a href="#trial">Пробный урок бесплатно <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20l18-8L3 4v6l12 2-12 2z"/></svg></a></div></div>
   </div>
-</footer>
+</div>
 
 <script>
 const nav = document.getElementById('nav'), burger = document.querySelector('.burger');
 const setMenu = open => {
   nav.classList.toggle('open', open);
   burger.setAttribute('aria-expanded', open);
-  burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+  burger.setAttribute('aria-label', open ? 'Закрыть список чатов' : 'Открыть список чатов');
 };
 burger.onclick = () => setMenu(!nav.classList.contains('open'));
 nav.querySelectorAll('a').forEach(a => a.onclick = () => setMenu(false));
+const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const wait = ms => new Promise(r => setTimeout(r, calm ? 0 : ms));
 
-const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), {threshold: .15});
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+// chat list follows the thread you are reading
+const links = [...nav.querySelectorAll('.chats a')];
+const follow = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && links.forEach(a => a.classList.toggle('on', a.hash === '#' + e.target.id))), {rootMargin: '-45% 0px -50% 0px'});
+['start', 'how', 'prices', 'faq', 'trial'].forEach(id => follow.observe(document.getElementById(id)));
+
+// messages arrive one by one when a thread scrolls in; Anna "types" before each of hers
+const typing = () => { const t = document.createElement('div'); t.className = 'msg typing shown'; t.setAttribute('aria-hidden', 'true');
+  t.innerHTML = '<span class="gap"></span><div class="bubble"><i></i><i></i><i></i></div>'; return t; };
+const play = async thread => {
+  for (const m of thread.querySelectorAll(':scope > .msg')) {
+    if (!m.classList.contains('out') && !calm) { const t = typing(); m.before(t); await wait(650); t.remove(); }
+    else await wait(260);
+    m.classList.add('shown');
+  }
+  thread.classList.add('done');
+};
+const fade = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')));
+document.querySelectorAll('.reveal').forEach(el => fade.observe(el));
+const seen = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { seen.unobserve(e.target); play(e.target); } }), {threshold: .15});
+document.querySelectorAll('.thread:not(.done)').forEach(t => seen.observe(t));
 
 // promo timer: counts down to the end of the current week (Sunday 23:59:59, local time)
 const timer = document.getElementById('timer');
@@ -394,52 +397,65 @@ const tick = () => {
 };
 tick(); setInterval(tick, 1000);
 
-// hero exercise: tap the wrong word; the red pen strikes it and writes the fix.
-// A word marked "also" is struck together with the mistake (I have 25 years → I'm 25).
+// "find the mistake" played as a chat: Anna sends a phrase, you answer with a word, she corrects
 const TASKS = [
-  {words: ['I', {w: 'have', fix: 'am'}, '25', {w: 'years.', also: true, fix: '.'}], right: 'I am 25. (или I’m 25 years old.)', rule: 'Возраст говорим через to be, а не через have.'},
-  {words: ['She', {w: 'don’t', fix: 'doesn’t'}, 'like', 'mornings.'], right: 'She doesn’t like mornings.', rule: 'С he, she, it — does / doesn’t.'},
-  {words: ['I', {w: 'am', fix: '—'}, 'agree', 'with', 'you.'], right: 'I agree with you.', rule: 'Agree — уже глагол, am перед ним не нужен.'},
-  {words: ['We', {w: 'was', fix: 'were'}, 'at', 'home', 'yesterday.'], right: 'We were at home yesterday.', rule: 'С we, you, they в прошлом — were.'},
+  {words: ['I', 'have', '25', 'years.'], bad: 1, also: [3], fix: 'I’m 25.', rule: 'Возраст говорим через to be: I’m 25 (years old), а не «have years».'},
+  {words: ['She', 'don’t', 'like', 'mornings.'], bad: 1, fix: 'She doesn’t like mornings.', rule: 'С he, she, it — does / doesn’t.'},
+  {words: ['I', 'am', 'agree', 'with', 'you.'], bad: 1, fix: 'I agree with you.', rule: 'Agree — уже глагол, am перед ним не нужен.'},
+  {words: ['We', 'was', 'at', 'home', 'yesterday.'], bad: 1, fix: 'We were at home yesterday.', rule: 'С we, you, they в прошлом — were.'},
 ];
-const ex = document.getElementById('ex'), sentence = document.getElementById('sentence'), feedback = document.getElementById('feedback');
-const next = document.getElementById('next'), count = document.getElementById('count'), dots = [...document.querySelectorAll('#dots i')];
-let n = 0;
-const show = () => {
-  const task = TASKS[n];
-  count.textContent = `${n + 1} / ${TASKS.length}`;
-  dots.forEach((d, i) => { d.className = i < n ? 'done' : i === n ? 'now' : ''; });
-  feedback.textContent = 'Нажмите на слово, в котором ошибка.';
-  next.hidden = true;
-  sentence.replaceChildren(...task.words.map(t => {
-    const b = document.createElement('button');
-    b.type = 'button'; b.className = 'w'; b.textContent = typeof t === 'string' ? t : t.w;
-    b.onclick = () => {
-      if (sentence.dataset.solved) return;
-      if (typeof t === 'string' || t.also) {
-        b.classList.remove('nope'); void b.offsetWidth; b.classList.add('nope');
-        feedback.innerHTML = `<b>«${b.textContent}»</b> — здесь всё верно. Ищите дальше.`;
-        return;
-      }
-      sentence.dataset.solved = 1;
-      [...sentence.children].forEach((el, i) => {
-        const tk = task.words[i];
-        if (typeof tk !== 'string') { el.classList.add('strike'); el.insertAdjacentHTML('beforeend', `<span class="fixed" aria-hidden="true">${tk.fix}</span>`); }
-        el.disabled = true;
-      });
-      feedback.innerHTML = `<span class="good">Верно!</span> ${task.right}<span class="rule">${task.rule}</span>`;
-      dots[n].className = 'done';
-      next.hidden = false;
-      next.textContent = n === TASKS.length - 1 ? 'Итог →' : 'Дальше →';
-      next.focus({preventScroll: true});
-    };
-    return b;
-  }));
-  delete sentence.dataset.solved;
+const lesson = document.getElementById('lesson');
+let clock = 3; const now = () => `10:0${Math.min(clock++ >> 1, 4) + 3}`; // keep the story's 10:0x timeline
+const TICKS = '<svg viewBox="0 0 16 12" aria-hidden="true"><path d="M1 6l3 3 6-7M6 9l1 1 6-8"/></svg>';
+const say = (html, out = false, cls = '') => {
+  const m = document.createElement('div');
+  m.className = `msg ${out ? 'out' : ''} ${cls}`;
+  m.innerHTML = (out ? '' : '<span class="av anna" aria-hidden="true">А</span>') + `<div class="bubble">${html}<span class="meta">${now()} ${out ? TICKS : ''}</span></div>`;
+  lesson.append(m); return m;
 };
-next.onclick = () => { if (++n < TASKS.length) show(); else ex.classList.add('done'); };
-document.getElementById('again').onclick = () => { n = 0; ex.classList.remove('done'); show(); };
-show();
+const annaSays = async (html, cls) => { if (!calm) { const t = typing(); lesson.append(t); await wait(700); t.remove(); } return say(html, false, cls); };
+let solved = 0;
+const ask = async n => {
+  const task = TASKS[n];
+  const m = await annaSays(`<small>Фраза ${n + 1} из ${TASKS.length}</small><div class="sent"></div><div class="hint"></div><div class="score">${TASKS.map((_, i) => `<i class="${i < solved ? 'done' : ''}"></i>`).join('')}</div>`, 'task');
+  const box = m.querySelector('.sent'), hint = m.querySelector('.hint');
+  task.words.forEach((w, i) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'w'; b.textContent = w;
+    b.onclick = async () => {
+      if (i !== task.bad) { b.classList.remove('nope'); void b.offsetWidth; b.classList.add('nope'); hint.textContent = `«${w}» — здесь всё верно, ищите дальше`; return; }
+      box.querySelectorAll('.w').forEach((x, j) => { x.disabled = true; if (j === task.bad || (task.also || []).includes(j)) x.classList.add('bad'); });
+      hint.textContent = '';
+      solved++;
+      m.querySelectorAll('.score i').forEach((d, j) => d.classList.toggle('done', j < solved));
+      say(`<span class="fix"><s>${w}</s></span>`, true);
+      await annaSays(`<p class="fix">Верно! <em>${task.fix}</em></p><p>${task.rule}</p>`);
+      if (n + 1 < TASKS.length) ask(n + 1);
+      else await annaSays(`<p><b>4 из 4!</b> Это самые частые ошибки русскоговорящих. На пробном уроке найду ваши — и составим план, как от них избавиться.</p><a class="btn" href="#trial">Записаться на пробный</a>`);
+    };
+    box.append(b);
+  });
+};
+// start the exercise when the greeting has been "read"
+const lessonStart = new IntersectionObserver(es => { if (es[0].isIntersecting) { lessonStart.disconnect(); setTimeout(() => ask(0), calm ? 0 : 1500); } }, {threshold: .3});
+lessonStart.observe(document.getElementById('start'));
+
+// voice message: "plays" the lesson plan, lighting the wave and each part in turn
+const wave = document.getElementById('wave'), voice = document.getElementById('voice'), parts = [...document.querySelectorAll('#plan li')];
+for (let i = 0; i < 44; i++) { const b = document.createElement('i'); b.style.height = 18 + Math.round(70 * Math.abs(Math.sin(i * 1.7) * Math.cos(i * .45))) + '%'; wave.append(b); }
+const bars = [...wave.children];
+let playing = null;
+voice.querySelector('.play').onclick = () => {
+  if (playing) { clearInterval(playing); playing = null; voice.classList.remove('playing'); return; }
+  voice.classList.add('playing');
+  let i = bars.findIndex(b => !b.classList.contains('lit')); if (i < 0) { bars.forEach(b => b.classList.remove('lit')); i = 0; }
+  playing = setInterval(() => {
+    bars[i].classList.add('lit');
+    const part = Math.min(3, Math.floor(i / bars.length * 4));
+    parts.forEach((p, j) => p.classList.toggle('now', j === part));
+    if (++i >= bars.length) { clearInterval(playing); playing = null; voice.classList.remove('playing'); parts.forEach(p => p.classList.remove('now')); }
+  }, calm ? 20 : 110);
+};
 
 // "Выбрать" on a plan preselects it in the form
 const form = document.querySelector('form');
