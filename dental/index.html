@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Стоматология «Белая линия» — демо-лендинг</title>
-<meta name="description" content="Стоматология «Белая линия»: лечение без боли, имплантация, брекеты, профессиональная гигиена. Бесплатная консультация, рассрочка 0%.">
+<meta name="description" content="Стоматология «Белая линия»: на первом приёме — письменный план лечения с итоговой суммой, которая не меняется. Бесплатная консультация, рассрочка 0%, гарантии в договоре.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://delalr.github.io/kwork-portfolio/dental/">
 <meta property="og:image" content="https://delalr.github.io/kwork-portfolio/shots/dental-og.jpg">
 <meta property="og:title" content="Стоматология «Белая линия»">
-<meta property="og:description" content="Лечение без боли, бесплатная консультация и рассрочка 0%.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>">
+<meta property="og:description" content="Сначала план и цена. Потом лечение. Бесплатная консультация и рассрочка 0%.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2314272b'/><path d='M7 17h18' stroke='%23f5f3ee' stroke-width='3' stroke-linecap='round'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,300..600&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Dentist","name":"Белая линия","telephone":"+7 900 222-33-44",
@@ -21,224 +21,551 @@
  "openingHours":["Mo-Sa 09:00-21:00","Su 10:00-18:00"],"priceRange":"₽₽"}
 </script>
 <style>
-:root{--bg:#f6fafb;--ink:#12303a;--muted:#5c7680;--accent:#0e9f9a;--accent-dark:#0b827e;--soft:#e3f4f3;--line:#dbe7ea;--card:#fff}
+:root{
+  --paper:#f5f3ee;--card:#fffefb;--ink:#14272b;--muted:#566a6d;--line:#dcd7cc;
+  --accent:#1f6f64;--accent-dark:#175a51;--signal:#b84a33;--dark-muted:#a9bcbd;
+  --serif:Literata,Georgia,serif;--sans:Onest,system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font:16px/1.6 Manrope,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+body{font:17px/1.6 var(--sans);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
-h1,h2,h3{line-height:1.15;font-weight:800}
-h2{font-size:clamp(28px,4vw,42px);margin-bottom:12px}
-.lead{color:var(--muted);max-width:580px;margin-bottom:40px}
-section{padding:90px 0;scroll-margin-top:72px}
-.btn{display:inline-block;background:var(--accent);color:#fff;padding:15px 28px;border-radius:12px;font:inherit;font-weight:700;border:0;cursor:pointer;transition:.2s}
-.btn:hover{background:var(--accent-dark)}
-.btn.light{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
-.btn.light:hover{border-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.02em}
+h2{font-size:clamp(34px,4.6vw,56px);max-width:16ch}
+h2 em,h1 em{font-style:italic;color:var(--accent)}
+.label{font:500 12px/1.4 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.lead{color:var(--muted);max-width:52ch;margin-top:18px}
+section{padding:120px 0;scroll-margin-top:96px}
+.head{display:grid;grid-template-columns:200px 1fr;gap:24px;margin-bottom:64px;padding-top:20px;border-top:1px solid var(--line)}
 
-/* header */
-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
-.logo{font-weight:800;font-size:21px;display:flex;align-items:center;gap:8px}
-.logo i{width:30px;height:30px;border-radius:9px;background:var(--accent);display:inline-block}
-nav{display:flex;gap:26px;align-items:center;font-weight:600}
-nav a:hover{color:var(--accent)}
-.burger{display:none;background:none;border:0;font-size:28px;width:40px;cursor:pointer;color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 26px;border-radius:999px;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);font:500 16px var(--sans);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn:hover{background:var(--accent);border-color:var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn svg{width:16px;height:16px;transition:transform .2s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+
+/* liquid glass: tinted blur + specular rim; Chromium also gets refraction (see lens() in the script) */
+.glass{position:relative;background:var(--tint,rgba(255,255,255,.5));backdrop-filter:blur(14px) saturate(180%);-webkit-backdrop-filter:blur(14px) saturate(180%);
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.8),inset 0 -1px 1px rgba(255,255,255,.3),0 12px 32px -12px rgba(20,39,43,.4),0 0 0 .5px rgba(20,39,43,.14)}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+  background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(255,255,255,0) 35%,rgba(255,255,255,0) 65%,rgba(255,255,255,.55));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.lens .glass{backdrop-filter:var(--lens) blur(5px) saturate(180%)}
+.press{transition:transform .45s cubic-bezier(.3,1.7,.5,1)}
+.press:active{transform:scale(.94)}
+
+/* header: floating glass pill that turns dark over dark sections */
+header{position:sticky;top:0;z-index:10;padding:12px 12px 0;pointer-events:none}
+header .wrap{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;height:64px;gap:24px;max-width:1176px;padding:0 10px 0 24px;border-radius:999px;pointer-events:auto;transition:color .3s}
+header .pill{position:absolute;inset:0;z-index:-1;border-radius:inherit;--tint:rgba(245,243,238,.62);transition:background .3s}
+header.on-dark .wrap{color:var(--paper)}
+header.on-dark .pill{--tint:rgba(20,39,43,.5)}
+header.on-dark .logo i,header.on-dark .burger span{background:var(--paper)}
+header.on-dark .wrap>nav .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.logo{font:500 21px var(--serif);display:flex;align-items:center;gap:10px;letter-spacing:-.01em}
+.logo i{width:26px;height:2px;background:var(--ink);display:inline-block}
+header nav{display:flex;gap:28px;align-items:center;font-size:15px}
+header nav a{position:relative}
+header nav a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease)}
+header nav a:hover::after{transform:scaleX(1)}
+header .btn{min-height:42px;padding:0 20px;font-size:15px}
+.burger{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer;position:relative}
+.burger span{position:absolute;left:11px;right:11px;height:1.5px;background:var(--ink);transition:transform .25s var(--ease),top .25s var(--ease)}
+.burger span:first-child{top:18px}.burger span:last-child{top:25px}
+.burger[aria-expanded=true] span:first-child{top:21.5px;transform:rotate(45deg)}
+.burger[aria-expanded=true] span:last-child{top:21.5px;transform:rotate(-45deg)}
 
 /* hero */
-.hero{padding:70px 0}
-.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
-.badge{display:inline-block;background:var(--soft);color:var(--accent-dark);padding:6px 14px;border-radius:30px;font-weight:700;font-size:14px;margin-bottom:18px}
-.hero h1{font-size:clamp(36px,5vw,58px);margin-bottom:18px}
-.hero h1 em{font-style:normal;color:var(--accent)}
-.hero p{font-size:18px;color:var(--muted);margin-bottom:30px;max-width:520px}
-.hero .actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
-.trust{display:flex;gap:28px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
-.trust b{display:block;font-size:22px;color:var(--ink)}
-.hero-img{position:relative}
-.hero-img img{border-radius:28px;height:520px;width:100%;object-fit:cover}
-.hero-card{position:absolute;left:-28px;bottom:36px;background:var(--card);border-radius:16px;padding:16px 20px;box-shadow:0 18px 40px rgba(18,48,58,.14);font-size:14px}
-.hero-card b{display:block;font-size:20px;color:var(--accent)}
+.hero{padding:72px 0 96px;overflow-x:clip}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.hero .wrap>div:first-child{position:relative;z-index:2}
+.hero h1{font-size:clamp(44px,6.4vw,88px);font-weight:300;margin:22px 0 28px}
+.hero h1 span{display:block}
+.hero p{font-size:19px;color:var(--muted);max-width:46ch;margin-bottom:36px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
 
-/* services */
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.service{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column}
-.service:hover{border-color:var(--accent)}
-.service h3{font-size:20px;margin-bottom:8px}
-.service p{color:var(--muted);font-size:15px;margin-bottom:18px}
-.service strong{margin-top:auto;color:var(--accent-dark);font-size:18px}
+.plan-stage{position:relative;padding:0 0 40px 0}
+/* glass dental arches (three.js), linked to the plan rows; without WebGL the plan card stands alone */
+.jaw{position:absolute;right:-40px;top:-110px;width:calc(100% + 40px);aspect-ratio:1;pointer-events:none}
+.jaw canvas{position:absolute;inset:0;width:100%!important;height:100%!important;opacity:0;transition:opacity 1.2s var(--ease)}
+.jaw.webgl canvas{opacity:1}
+.tooth-tag{position:absolute;left:0;top:0;z-index:1;padding:6px 12px;font:500 12px var(--mono);letter-spacing:.04em;opacity:0;transition:opacity .5s,color .3s}
+.jaw.webgl .tooth-tag{opacity:1}
+.tooth-tag.hot{--tint:rgba(31,111,100,.85);color:#fff}
+.plan .line[data-tooth]{cursor:pointer}
+.plan .line.hot dt,.plan .line.hot dd{color:var(--accent)}
+.plan .line.hot::after{border-color:var(--accent)}
+.plan-hint{margin-top:22px;max-width:400px;font:400 13px var(--sans);text-transform:none;letter-spacing:0}
+.plan-hint .tap{display:none}
+@media (hover:none){.plan-hint .tap{display:inline}.plan-hint .point{display:none}}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;font-size:14px;font-weight:500;white-space:nowrap}
+.chip i{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(31,111,100,.2)}
+.plan{position:relative;width:min(400px,100%);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:28px 28px 24px;box-shadow:0 30px 60px -30px rgba(20,39,43,.35);transform:rotate(-1.5deg);margin-top:300px}
+.plan-top{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:12px;margin-bottom:6px}
+.plan h3{font-size:22px}
+.plan dl{font-size:14px}
+.plan .line{display:flex;gap:8px;align-items:baseline;padding:9px 0;border-bottom:1px dashed var(--line)}
+.plan dt{flex:none}
+.plan .line::after{content:"";order:1;flex:1;border-bottom:1px dotted #b9b3a6;transform:translateY(-4px)}
+.plan dd{order:2;font-family:var(--mono);font-size:13px;white-space:nowrap}
+.plan .total{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px}
+.plan .total b{font:400 34px var(--serif);letter-spacing:-.02em}
+.plan .sign{display:flex;justify-content:space-between;align-items:end;margin-top:18px;font-size:12px;color:var(--muted)}
+.plan .sign svg{width:96px;height:34px;stroke:var(--ink);fill:none;stroke-width:1.4}
+.stamp{position:absolute;right:-34px;bottom:-40px;width:108px;height:108px;border:2px solid var(--signal);border-radius:50%;color:var(--signal);display:grid;place-items:center;text-align:center;font:500 10px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.08em;transform:rotate(-14deg);background:rgba(255,254,251,.55)}
+.stamp::before{content:"";position:absolute;inset:5px;border:1px solid var(--signal);border-radius:50%}
+/* plan animation: rows, total and stamp arrive in order */
+.js .plan .line,.js .plan .total,.js .plan .sign{opacity:0;transform:translateY(6px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.js .plan .stamp{opacity:0;transform:rotate(-14deg) scale(1.6);transition:opacity .3s,transform .45s cubic-bezier(.3,1.6,.5,1)}
+.js .plan.in .line,.js .plan.in .total,.js .plan.in .sign{opacity:1;transform:none}
+.js .plan.in .stamp{opacity:1;transform:rotate(-14deg) scale(1)}
+.plan .line:nth-child(1){transition-delay:.2s}.plan .line:nth-child(2){transition-delay:.35s}
+.plan .line:nth-child(3){transition-delay:.5s}.plan .line:nth-child(4){transition-delay:.65s}
+.plan .total{transition-delay:.85s}.plan .sign{transition-delay:1s}.plan .stamp{transition-delay:1.5s}
+
+/* facts strip */
+.facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.facts .wrap>div{padding:28px 24px 28px 0}
+.facts .wrap>div+div{padding-left:24px;border-left:1px solid var(--line)}
+.facts b{display:block;font:400 30px/1.1 var(--serif);letter-spacing:-.02em;margin-bottom:6px}
+.facts span{font-size:15px;color:var(--muted)}
+
+/* prices */
+.prices{border-top:1px solid var(--ink)}
+.prices details{border-bottom:1px solid var(--line)}
+.prices summary{list-style:none;display:grid;grid-template-columns:56px 1fr auto 40px;gap:16px;align-items:baseline;padding:26px 0;cursor:pointer}
+.prices summary::-webkit-details-marker{display:none}
+.prices summary .n{font:500 13px var(--mono);color:var(--muted)}
+.prices summary h3{font-size:clamp(22px,2.4vw,30px);transition:color .2s}
+.prices summary:hover h3{color:var(--accent)}
+.prices summary strong{font:400 20px var(--mono);white-space:nowrap;letter-spacing:-.02em}
+.prices summary strong.free{color:var(--accent)}
+.plus{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;position:relative;align-self:center;transition:background .2s,border-color .2s}
+.plus::before,.plus::after{content:"";position:absolute;left:12px;right:12px;top:19px;height:1.5px;background:var(--ink);transition:transform .3s var(--ease)}
+.plus::after{transform:rotate(90deg)}
+details[open] .plus{background:var(--ink);border-color:var(--ink)}
+details[open] .plus::before,details[open] .plus::after{background:var(--paper)}
+details[open] .plus::after{transform:rotate(0)}
+.prices .body{display:grid;grid-template-columns:56px 1fr 1fr;gap:16px;padding:0 0 30px}
+.prices .body p{grid-column:2;color:var(--muted);max-width:44ch}
+.prices .body ul{grid-column:3;list-style:none;font-size:15px}
+.prices .body li{padding:6px 0 6px 22px;position:relative;border-bottom:1px solid var(--line)}
+.prices .body li::before{content:"";position:absolute;left:0;top:16px;width:10px;height:1.5px;background:var(--accent)}
+.note{margin-top:24px;font-size:14px;color:var(--muted)}
+
+/* first visit */
+#visit{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.visit{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:start}
+.visit figure{position:sticky;top:110px}
+.visit figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px}
+.visit figcaption{margin-top:12px}
+.steps{list-style:none}
+.steps li{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:30px 0;border-top:1px solid var(--line)}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+.steps time{font:300 48px/1 var(--serif);letter-spacing:-.03em;color:var(--accent)}
+.steps time small{font:500 12px var(--mono);letter-spacing:.1em;color:var(--muted);margin-left:4px}
+.steps h3{font-size:24px;margin-bottom:8px}
+.steps p{color:var(--muted);max-width:46ch}
+
+/* guarantees */
+#guarantee{background:var(--ink);color:var(--paper)}
+#guarantee .head{border-color:rgba(245,243,238,.2)}
+#guarantee .label,#guarantee .lead{color:var(--dark-muted)}
+#guarantee h2 em{color:#8fd1c4}
+.terms{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(245,243,238,.2)}
+.term{padding:36px 28px 36px 0;border-bottom:1px solid rgba(245,243,238,.2)}
+.term:not(:nth-child(3n+1)){padding-left:28px;border-left:1px solid rgba(245,243,238,.2)}
+.term b{display:block;font:300 64px/1 var(--serif);letter-spacing:-.04em;margin-bottom:14px}
+.term b small{font-size:20px;letter-spacing:0;margin-left:6px}
+.term h3{font:500 17px var(--sans);letter-spacing:0;margin-bottom:6px}
+.term p{color:var(--dark-muted);font-size:15px}
 
 /* doctors */
-.doctors{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.doctor{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;text-align:center}
-.avatar{width:96px;height:96px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;font-size:30px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--accent),#42c2b2)}
-.doctor h3{font-size:19px}
-.doctor p{color:var(--muted);font-size:15px}
-.doctor small{display:inline-block;margin-top:12px;background:var(--soft);color:var(--accent-dark);padding:4px 12px;border-radius:20px;font-weight:700}
+.doctors{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.doctor .ph{position:relative;margin-bottom:20px}
+.doctor .ph .chip{position:absolute;left:12px;bottom:12px}
+.doctor img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:4px;filter:grayscale(.35);transition:filter .4s}
+.doctor:hover img{filter:none}
+.doctor h3{font-size:26px;margin-bottom:4px}
+.doctor .role{color:var(--accent);font-weight:500;margin-bottom:14px}
+.doctor dl{font-size:15px;border-top:1px solid var(--line)}
+.doctor dl div{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+.doctor dt{color:var(--muted)}
 
-/* reviews slider (native scroll-snap) */
-.slider-head{display:flex;justify-content:space-between;align-items:end;gap:20px}
-.arrows{display:flex;gap:10px;margin-bottom:40px}
-.arrows button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-size:20px;cursor:pointer;color:var(--ink)}
-.arrows button:hover{border-color:var(--accent)}
-.slider{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px)/3);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
-.slider::-webkit-scrollbar{display:none}
-.review{scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px}
-.review .stars{color:#f4b400;letter-spacing:2px;margin-bottom:10px}
-.review p{margin-bottom:16px}
-.review small{color:var(--muted)}
+/* faq */
+#faq{background:var(--card);border-top:1px solid var(--line)}
+.faq{max-width:860px;margin-left:224px;border-top:1px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:24px 0;cursor:pointer;font:400 22px/1.3 var(--serif)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--accent)}
+.faq p{color:var(--muted);padding:0 64px 26px 0;max-width:62ch}
 
-/* cta */
-.cta{background:var(--ink);color:#fff;border-radius:28px;padding:56px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
-.cta>div{flex:1 1 380px;max-width:640px}
-.cta p{color:#a9c3ca;margin-top:8px}
-.contacts{display:flex;gap:40px;flex-wrap:wrap;margin-top:40px;color:var(--muted)}
-.contacts b{display:block;color:var(--ink)}
-.contacts a{border-bottom:1px solid var(--line)}
+/* contacts */
+#contacts{padding-bottom:80px}
+.cta{display:grid;grid-template-columns:1.3fr .7fr;gap:48px;align-items:end;padding-bottom:64px;border-bottom:1px solid var(--line)}
+.cta h2{font-size:clamp(40px,6vw,80px);font-weight:300;max-width:14ch}
+.cta .side p{color:var(--muted);margin-bottom:24px}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-top:32px}
+.info .label{display:block}
+.info b{display:block;font-size:20px;font-weight:500;margin-top:6px}
+.info a b{border-bottom:1px solid var(--line);display:inline-block;transition:border-color .2s}
+.info a:hover b{border-color:var(--ink)}
+
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer nav{display:flex;gap:20px}
+footer nav a:hover{color:var(--ink)}
 
 /* modal */
-dialog{border:0;border-radius:22px;padding:36px;width:min(460px,calc(100% - 32px));margin:auto;color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.25)}
-dialog::backdrop{background:rgba(18,48,58,.55)}
-dialog h3{font-size:24px;margin-bottom:6px}
-dialog .sub{color:var(--muted);margin-bottom:20px}
-.close{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;border:0;background:var(--soft);font-size:18px;cursor:pointer;color:var(--ink)}
-form{display:grid;gap:12px}
-label{display:grid;gap:4px;font-size:13px;color:var(--muted);font-weight:600}
-input,select{font:inherit;color:var(--ink);padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;width:100%;background:#fff}
-input:focus,select:focus{outline:2px solid var(--accent);border-color:transparent}
+dialog{border:0;border-radius:8px;padding:40px;width:min(480px,calc(100% - 32px));margin:auto;color:var(--ink);background:var(--card);box-shadow:0 40px 80px -20px rgba(20,39,43,.45)}
+dialog[open]{animation:pop .3s var(--ease)}
+dialog::backdrop{background:rgba(20,39,43,.6);backdrop-filter:blur(3px)}
+@keyframes pop{from{opacity:0;transform:translateY(12px)}}
+dialog h3{font-size:32px;margin-bottom:6px}
+dialog .sub{color:var(--muted);margin-bottom:24px;font-size:15px}
+.close{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:none;cursor:pointer;display:grid;place-items:center;transition:background .2s}
+.close:hover{background:var(--paper)}
+.close svg{width:14px;height:14px;stroke:var(--ink);stroke-width:1.6}
+form{display:grid;gap:16px}
+label{display:grid;gap:6px;font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+input,select{font:16px var(--sans);color:var(--ink);padding:12px 14px;min-height:48px;border:1px solid var(--line);border-radius:6px;width:100%;background:var(--paper);transition:border-color .2s,background .2s}
+input:hover,select:hover{border-color:#bdb6a8}
+input:focus,select:focus{outline:none;border-color:var(--accent);background:var(--card);box-shadow:0 0 0 3px rgba(31,111,100,.15)}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.ok{display:none;text-align:center;padding:24px 0}
+form .btn{justify-content:center;margin-top:6px}
+.legal{font-size:12px;color:var(--muted)}
+.ok{display:none;padding:12px 0}
+.ok svg{width:48px;height:48px;stroke:var(--accent);fill:none;stroke-width:1.5;margin-bottom:16px}
+.ok p{color:var(--muted);margin-top:8px}
 form.sent>*:not(.ok){display:none}
 form.sent .ok{display:block}
 
-footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:14px}
-footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-footer nav{gap:18px;font-weight:500}
+@media (min-width:901px){
+  header #nav.glass{background:none;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
+  header #nav.glass::before{display:none}
+}
+
+/* mobile dock: glass bar with call + booking, shown between hero and contacts */
+.dock{display:none}
 
 /* reveal on scroll */
-.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .js .reveal.in{opacity:1;transform:none}
-.reveal:nth-child(2),.reveal:nth-child(5){transition-delay:.1s}
-.reveal:nth-child(3),.reveal:nth-child(6){transition-delay:.2s}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}}
+.reveal:nth-child(2){transition-delay:.08s}.reveal:nth-child(3){transition-delay:.16s}
+.reveal:nth-child(4){transition-delay:.24s}.reveal:nth-child(5){transition-delay:.32s}.reveal:nth-child(6){transition-delay:.4s}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .reveal,.js .plan .line,.js .plan .total,.js .plan .sign,.js .plan .stamp{opacity:1;transform:none;transition:none}
+  .js .plan .stamp{transform:rotate(-14deg)}
+  dialog[open]{animation:none}
+  .press:active{transform:none}
+}
+@media (prefers-reduced-transparency:reduce){
+  .glass{background:var(--card)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  header.on-dark .pill{background:var(--ink)!important}
+}
 
+@media (max-width:1000px){
+  .hero .wrap,.visit,.cta{grid-template-columns:1fr}
+  .hero .wrap{gap:24px}
+  .plan-stage{max-width:520px}
+  .visit figure{position:static;max-width:420px}
+  .head{grid-template-columns:1fr;gap:16px;margin-bottom:44px}
+  .faq{margin-left:0}
+  .doctors{grid-template-columns:1fr 1fr}
+  .terms{grid-template-columns:1fr 1fr}
+  .term:not(:nth-child(3n+1)){padding-left:0;border-left:0}
+  .term:nth-child(even){padding-left:28px;border-left:1px solid rgba(245,243,238,.2)}
+}
 @media (max-width:900px){
   .burger{display:block}
-  header nav{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;flex-direction:column;padding:20px;border-bottom:1px solid var(--line)}
+  header nav{display:none;position:absolute;top:calc(100% + 8px);left:0;right:0;flex-direction:column;align-items:flex-start;gap:4px;padding:16px 24px 24px;border-radius:28px;--tint:rgba(245,243,238,.72);color:var(--ink)}
+  header nav a{padding:10px 0;font:400 24px var(--serif)}
+  header.on-dark .wrap>nav .btn{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  header nav .btn{margin-top:12px}
   header nav.open{display:flex}
-  .hero .wrap,.services,.doctors{grid-template-columns:1fr}
-  .hero-img img{height:300px}
-  .hero-card{left:12px;bottom:12px}
-  .slider{grid-auto-columns:85%}
-  .cta{padding:32px}
-  section{padding:60px 0}
+  .facts .wrap{grid-template-columns:1fr 1fr}
+  .facts .wrap>div:nth-child(3){padding-left:0;border-left:0}
+  .facts .wrap>div:nth-child(n+3){border-top:1px solid var(--line)}
 }
+@media (max-width:640px){
+  body{font-size:16px}
+  section{padding:80px 0}
+  .wrap{padding:0 16px}
+  .hero{padding:40px 0 64px}
+  .hero p{font-size:17px}
+  .plan-stage{padding:0 0 40px;margin-top:8px}
+  .jaw{right:-16px;top:-50px;width:calc(100% + 32px)}
+  .plan{padding:22px 18px 20px;margin-top:240px}
+  .stamp{right:4px;bottom:-30px;width:92px;height:92px;font-size:9px}
+  .facts b{font-size:24px}
+  .facts .wrap>div,.facts .wrap>div+div{padding:20px 12px 20px 0}
+  .facts .wrap>div:nth-child(even){padding-left:12px}
+  .prices summary{grid-template-columns:1fr auto;gap:4px 12px;padding:22px 0}
+  .prices summary .n{grid-column:1/-1}
+  .prices summary .plus{display:none}
+  .prices .body{grid-template-columns:1fr}
+  .prices .body p,.prices .body ul{grid-column:1}
+  .steps li{grid-template-columns:1fr;gap:10px}
+  .doctors,.info{grid-template-columns:1fr}
+  .visit figure img{aspect-ratio:16/11}
+  .term:nth-child(n){padding:24px 12px 24px 0}
+  .term:nth-child(even){padding-left:12px}
+  .term b{font-size:44px}
+  .term b small{font-size:16px}
+  .term h3{font-size:15px}
+  .term p{font-size:14px}
+  .faq summary{font-size:19px}
+  .faq p{padding-right:0}
+  dialog{padding:32px 20px 24px}
+  header{padding:8px 8px 0}
+  header .wrap{height:56px;padding:0 6px 0 20px}
+  .dock{display:flex;gap:6px;position:fixed;z-index:9;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));padding:6px;border-radius:999px;--tint:rgba(245,243,238,.6);
+    transform:translateY(calc(100% + 24px));transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
+  .dock.show{transform:none}
+  .dock .btn{flex:1;justify-content:center}
+  .dock-call{width:48px;height:48px;flex:none;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--ink)}
+  .dock-call svg{width:20px;height:20px}
+  footer{padding-bottom:96px}
+}
+@media (max-width:640px) and (prefers-reduced-motion:reduce){.dock{transition:none}}
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
+    <div class="pill glass" aria-hidden="true"></div>
     <a href="#" class="logo"><i aria-hidden="true"></i>Белая линия</a>
-    <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">☰</button>
-    <nav id="nav">
-      <a href="#services">Услуги</a>
+    <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+    <nav id="nav" class="glass">
+      <a href="#prices">Цены</a>
+      <a href="#visit">Первый визит</a>
+      <a href="#guarantee">Гарантии</a>
       <a href="#doctors">Врачи</a>
-      <a href="#reviews">Отзывы</a>
       <a href="#contacts">Контакты</a>
       <button class="btn" data-open>Записаться</button>
     </nav>
   </div>
 </header>
 
-<section class="hero">
+<main>
+<section class="hero" id="top">
   <div class="wrap">
     <div>
-      <span class="badge">Первая консультация — бесплатно</span>
-      <h1>Лечим зубы <em>без боли</em> и без лишних услуг</h1>
-      <p>Составим план лечения с ценами на первом приёме. Современная анестезия, рассрочка 0% и гарантия на все работы.</p>
+      <span class="label">Стоматология на пр. Мира, 25</span>
+      <h1><span>Сначала —</span><span>план и цена.</span><span><em>Потом</em> лечение.</span></h1>
+      <p>На первом приёме врач осматривает, делает снимок и выдаёт письменный план с итоговой суммой. Она не вырастет, даже если лечение окажется сложнее.</p>
       <div class="actions">
-        <button class="btn" data-open>Записаться на приём</button>
-        <a href="#services" class="btn light">Услуги и цены</a>
-      </div>
-      <div class="trust">
-        <div><b>15 лет</b>работаем в городе</div>
-        <div><b>0%</b>рассрочка на лечение</div>
-        <div><b>5 лет</b>гарантия на импланты</div>
+        <button class="btn" data-open>Записаться бесплатно
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg></button>
+        <a href="#prices" class="btn ghost">Посмотреть цены</a>
       </div>
     </div>
-    <div class="hero-img">
-      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1100&q=70" srcset="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=700&q=70 700w, https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1100&q=70 1100w" sizes="(max-width:900px) 100vw, 50vw" alt="Светлый кабинет стоматологической клиники">
-      <div class="hero-card"><b>4,9 ★</b>более 1 200 отзывов</div>
+
+    <div class="plan-stage">
+      <div class="jaw" id="jaw" aria-hidden="true">
+        <span class="chip glass tooth-tag" data-tag="25">зуб 25</span>
+        <span class="chip glass tooth-tag" data-tag="36">зуб 36</span>
+      </div>
+      <article class="plan" id="plan" aria-label="Пример плана лечения">
+        <div class="plan-top"><h3>План лечения</h3><span class="label">№ 0417</span></div>
+        <dl>
+          <div class="line" data-tooth="all" tabindex="0"><dt>Консультация и снимок</dt><dd>0 ₽</dd></div>
+          <div class="line" data-tooth="36" tabindex="0"><dt>Лечение кариеса, зуб 36</dt><dd>4 200 ₽</dd></div>
+          <div class="line" data-tooth="25" tabindex="0"><dt>Лечение кариеса, зуб 25</dt><dd>3 800 ₽</dd></div>
+          <div class="line" data-tooth="all" tabindex="0"><dt>Профессиональная гигиена</dt><dd>4 500 ₽</dd></div>
+        </dl>
+        <div class="total"><span class="label">Итого</span><b><span id="sum" data-to="12500">12 500</span> ₽</b></div>
+        <div class="sign">
+          <span>Врач: Смирнова Е. А.</span>
+          <svg viewBox="0 0 96 34" aria-hidden="true"><path d="M3 24c8-14 13-18 15-14s-6 16-3 15 9-17 13-16-2 13 1 13 6-9 9-9 1 8 4 8 7-6 10-6 4 4 8 3 10-4 14-6 12-1 18-3"/></svg>
+        </div>
+        <div class="stamp" aria-hidden="true">Сумма<br>зафикси&shy;рована</div>
+      </article>
+      <p class="label plan-hint"><span class="point">Наведите</span><span class="tap">Нажмите</span> на строку плана — покажем, какой это зуб</p>
     </div>
   </div>
 </section>
 
-<section id="services" style="background:#fff">
+<div class="facts">
   <div class="wrap">
-    <h2 class="reveal">Услуги и цены</h2>
-    <p class="lead reveal">Итоговую стоимость фиксируем в плане лечения — она не меняется в процессе.</p>
-    <div class="services">
-      <div class="service reveal"><h3>Консультация и план лечения</h3><p>Осмотр, снимок и понятный план с ценами.</p><strong>бесплатно</strong></div>
-      <div class="service reveal"><h3>Лечение кариеса</h3><p>Под микроскопом, с качественной анестезией.</p><strong>от 3 500 ₽</strong></div>
-      <div class="service reveal"><h3>Профессиональная гигиена</h3><p>Ультразвук, Air Flow, полировка и фторирование.</p><strong>от 4 500 ₽</strong></div>
-      <div class="service reveal"><h3>Имплантация</h3><p>Импланты с пожизненной гарантией производителя.</p><strong>от 35 000 ₽</strong></div>
-      <div class="service reveal"><h3>Брекеты и элайнеры</h3><p>Исправим прикус в любом возрасте.</p><strong>от 60 000 ₽</strong></div>
-      <div class="service reveal"><h3>Отбеливание</h3><p>До 8 тонов светлее за один визит.</p><strong>от 15 000 ₽</strong></div>
+    <div><b>0 ₽</b><span>консультация, снимок и план</span></div>
+    <div><b>0%</b><span>рассрочка до 12 месяцев</span></div>
+    <div><b>до 5 лет</b><span>гарантии, записанные в договор</span></div>
+    <div><b>до 21:00</b><span>принимаем после работы</span></div>
+  </div>
+</div>
+
+<section id="prices">
+  <div class="wrap">
+    <div class="head">
+      <span class="label reveal">01 — Цены</span>
+      <div>
+        <h2 class="reveal">Прайс, в котором <em>видно, за что</em> вы платите</h2>
+        <p class="lead reveal">Нажмите на услугу — покажем, что входит в цену. Всё, чего нет в списке, врач обсудит с вами до начала работы, а не после.</p>
+      </div>
+    </div>
+    <div class="prices">
+      <details class="reveal">
+        <summary><span class="n">01</span><h3>Консультация и план лечения</h3><strong class="free">0 ₽</strong><span class="plus" aria-hidden="true"></span></summary>
+        <div class="body"><p>Займёт около 40 минут. Даже если решите лечиться в другой клинике, план и снимок останутся у вас.</p>
+          <ul><li>Осмотр всех зубов и дёсен</li><li>Прицельный снимок</li><li>Фото зубов до лечения</li><li>Письменный план с итоговой суммой</li></ul></div>
+      </details>
+      <details class="reveal">
+        <summary><span class="n">02</span><h3>Лечение кариеса</h3><strong>от 3 500 ₽</strong><span class="plus" aria-hidden="true"></span></summary>
+        <div class="body"><p>Цена зависит от глубины кариеса — точную сумму врач назовёт после снимка, до начала лечения.</p>
+          <ul><li>Анестезия</li><li>Изоляция зуба коффердамом</li><li>Пломба светового отверждения</li><li>Шлифовка и полировка</li></ul></div>
+      </details>
+      <details class="reveal">
+        <summary><span class="n">03</span><h3>Профессиональная гигиена</h3><strong>4 500 ₽</strong><span class="plus" aria-hidden="true"></span></summary>
+        <div class="body"><p>Один визит, около часа. Рекомендуем раз в полгода — запишем на следующий раз, если захотите.</p>
+          <ul><li>Снятие камня ультразвуком</li><li>Чистка Air Flow</li><li>Полировка</li><li>Покрытие фтором</li></ul></div>
+      </details>
+      <details class="reveal">
+        <summary><span class="n">04</span><h3>Имплантация</h3><strong>от 35 000 ₽</strong><span class="plus" aria-hidden="true"></span></summary>
+        <div class="body"><p>Коронку на имплант считаем сразу, одной суммой в плане, — чтобы через три месяца не было «а теперь доплатите».</p>
+          <ul><li>Компьютерная томография</li><li>Имплант и его установка</li><li>Формирователь десны</li><li>Осмотры после операции</li></ul></div>
+      </details>
+      <details class="reveal">
+        <summary><span class="n">05</span><h3>Брекеты и элайнеры</h3><strong>от 60 000 ₽</strong><span class="plus" aria-hidden="true"></span></summary>
+        <div class="body"><p>Ортодонт покажет на 3D-модели, как будут двигаться зубы и сколько займёт лечение.</p>
+          <ul><li>Диагностика и 3D-модель</li><li>Брекет-система или набор элайнеров</li><li>Плановые визиты к ортодонту</li><li>Ретейнер после лечения</li></ul></div>
+      </details>
+      <details class="reveal">
+        <summary><span class="n">06</span><h3>Отбеливание</h3><strong>15 000 ₽</strong><span class="plus" aria-hidden="true"></span></summary>
+        <div class="body"><p>Сначала проверим, нет ли кариеса и чувствительности: отбеливать больные зубы мы не будем.</p>
+          <ul><li>Чистка перед процедурой</li><li>Отбеливание в кабинете</li><li>Гель для домашнего ухода</li><li>Контрольный осмотр</li></ul></div>
+      </details>
+    </div>
+    <p class="note">Цены указаны для демо-проекта. Рассрочка 0% — на любое лечение от 20 000 ₽.</p>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="head">
+      <span class="label reveal">02 — Первый визит</span>
+      <h2 class="reveal">Что будет <em>за 40 минут</em> первого приёма</h2>
+    </div>
+    <div class="visit">
+      <figure class="reveal">
+        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=900&q=70" srcset="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=500&q=70 500w, https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=900&q=70 900w" sizes="(max-width:1000px) 90vw, 35vw" alt="Врач рассматривает рентгеновские снимки зубов" loading="lazy">
+        <figcaption class="label">Снимки разбираем вместе с вами</figcaption>
+      </figure>
+      <ol class="steps">
+        <li class="reveal"><time>0<small>мин</small></time><div><h3>Знакомство</h3><p>Врач спрашивает, что беспокоит и чего вы хотите добиться. Если боитесь — скажите сразу, это нормально.</p></div></li>
+        <li class="reveal"><time>10<small>мин</small></time><div><h3>Осмотр и снимок</h3><p>Смотрим все зубы, а не только тот, что болит. Снимок делаем прямо в кабинете.</p></div></li>
+        <li class="reveal"><time>25<small>мин</small></time><div><h3>Разбор на экране</h3><p>Показываем снимок и фото, объясняем, что срочно, а что может подождать.</p></div></li>
+        <li class="reveal"><time>40<small>мин</small></time><div><h3>План на руках</h3><p>Вы уходите с письменным планом и суммой. Решение принимаете дома, без давления.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="guarantee">
+  <div class="wrap">
+    <div class="head">
+      <span class="label reveal">03 — Гарантии</span>
+      <div>
+        <h2 class="reveal">Сроки гарантии <em>в договоре</em>, а не на словах</h2>
+        <p class="lead reveal">Если в течение срока с работой что-то не так — переделаем бесплатно. Условие одно: приходить на осмотр раз в год.</p>
+      </div>
+    </div>
+    <div class="terms">
+      <div class="term reveal"><b>2<small>года</small></b><h3>Пломбы</h3><p>На все пломбы светового отверждения.</p></div>
+      <div class="term reveal"><b>3<small>года</small></b><h3>Коронки и виниры</h3><p>Керамика и цирконий, включая коронки на имплантах.</p></div>
+      <div class="term reveal"><b>5<small>лет</small></b><h3>Установка импланта</h3><p>И пожизненная гарантия производителя на сам имплант.</p></div>
+      <div class="term reveal"><b>1<small>год</small></b><h3>Брекеты и элайнеры</h3><p>После снятия — на результат, если носите ретейнер.</p></div>
+      <div class="term reveal"><b>0 ₽</b><h3>Если план изменится</h3><p>Нашли больше проблем во время лечения — доплата только с вашего согласия.</p></div>
+      <div class="term reveal"><b>12<small>мес.</small></b><h3>Рассрочка 0%</h3><p>Без банка и переплат: платите клинике равными частями.</p></div>
     </div>
   </div>
 </section>
 
 <section id="doctors">
   <div class="wrap">
-    <h2 class="reveal">Наши врачи</h2>
-    <p class="lead reveal">Каждый врач ежегодно проходит повышение квалификации.</p>
+    <div class="head">
+      <span class="label reveal">04 — Врачи</span>
+      <h2 class="reveal">Три врача, <em>к которым</em> вы попадёте</h2>
+    </div>
     <div class="doctors">
-      <div class="doctor reveal"><div class="avatar" aria-hidden="true">ЕС</div><h3>Елена Смирнова</h3><p>Стоматолог-терапевт, главный врач</p><small>стаж 18 лет</small></div>
-      <div class="doctor reveal"><div class="avatar" aria-hidden="true">АК</div><h3>Артём Ковалёв</h3><p>Хирург-имплантолог</p><small>стаж 12 лет</small></div>
-      <div class="doctor reveal"><div class="avatar" aria-hidden="true">ОН</div><h3>Ольга Новикова</h3><p>Ортодонт</p><small>стаж 9 лет</small></div>
+      <article class="doctor reveal">
+        <div class="ph">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=700&q=70" alt="Елена Смирнова, стоматолог-терапевт" loading="lazy">
+          <span class="chip glass">Стаж 18 лет</span>
+        </div>
+        <h3>Елена Смирнова</h3>
+        <p class="role">Терапевт, главный врач</p>
+        <dl><div><dt>Лечит</dt><dd>кариес, каналы, чувствительность</dd></div></dl>
+      </article>
+      <article class="doctor reveal">
+        <div class="ph">
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=700&q=70" alt="Артём Ковалёв, хирург-имплантолог" loading="lazy">
+          <span class="chip glass">Стаж 12 лет</span>
+        </div>
+        <h3>Артём Ковалёв</h3>
+        <p class="role">Хирург-имплантолог</p>
+        <dl><div><dt>Лечит</dt><dd>удаление, имплантация, костная пластика</dd></div></dl>
+      </article>
+      <article class="doctor reveal">
+        <div class="ph">
+          <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=700&q=70" alt="Ольга Новикова, ортодонт" loading="lazy">
+          <span class="chip glass">Стаж 9 лет</span>
+        </div>
+        <h3>Ольга Новикова</h3>
+        <p class="role">Ортодонт</p>
+        <dl><div><dt>Лечит</dt><dd>прикус у детей и взрослых</dd></div></dl>
+      </article>
     </div>
   </div>
 </section>
 
-<section id="reviews" style="background:#fff">
+<section id="faq">
   <div class="wrap">
-    <div class="slider-head">
-      <div>
-        <h2 class="reveal">Отзывы пациентов</h2>
-        <p class="lead reveal">Что говорят о нас на картах и в соцсетях.</p>
-      </div>
-      <div class="arrows">
-        <button type="button" data-dir="-1" aria-label="Предыдущие отзывы">←</button>
-        <button type="button" data-dir="1" aria-label="Следующие отзывы">→</button>
-      </div>
+    <div class="head">
+      <span class="label reveal">05 — Вопросы</span>
+      <h2 class="reveal">То, что обычно <em>спрашивают</em> на первом приёме</h2>
     </div>
-    <div class="slider" tabindex="0" aria-label="Отзывы пациентов">
-      <div class="review"><div class="stars">★★★★★</div><p>Боялась стоматологов с детства. Здесь впервые лечила зуб и вообще ничего не почувствовала.</p><small>Наталья</small></div>
-      <div class="review"><div class="stars">★★★★★</div><p>Поставил имплант. Цена в плане лечения совпала с итоговой до рубля.</p><small>Игорь</small></div>
-      <div class="review"><div class="stars">★★★★★</div><p>Ольга Владимировна подобрала элайнеры дочке, всё объяснила, результат уже заметен.</p><small>Светлана</small></div>
-      <div class="review"><div class="stars">★★★★★</div><p>Записался онлайн на вечер после работы, приняли без ожидания.</p><small>Павел</small></div>
-      <div class="review"><div class="stars">★★★★★</div><p>Сделали чистку быстро и бережно, дали понятные рекомендации по уходу.</p><small>Ксения</small></div>
+    <div class="faq">
+      <details name="faq" class="reveal"><summary>Будет больно?<span class="plus" aria-hidden="true"></span></summary>
+        <p>Нет. Перед уколом обезболиваем десну гелем, а сам укол делаем тонкой иглой. Если что-то чувствуете — поднимите руку, врач остановится.</p></details>
+      <details name="faq" class="reveal"><summary>Что если во время лечения найдут что-то ещё?<span class="plus" aria-hidden="true"></span></summary>
+        <p>Врач остановится и расскажет, что нашёл. Дополнительная работа — только после вашего согласия и с новой суммой в плане.</p></details>
+      <details name="faq" class="reveal"><summary>Как работает рассрочка?<span class="plus" aria-hidden="true"></span></summary>
+        <p>Рассрочку даёт сама клиника, без банка. Сумму из плана делим на равные части до 12 месяцев — без процентов и первого взноса.</p></details>
+      <details name="faq" class="reveal"><summary>Лечите детей?<span class="plus" aria-hidden="true"></span></summary>
+        <p>Да, с 6 лет. Первый визит для ребёнка — знакомство: показываем кабинет и инструменты, лечим со второго раза.</p></details>
+      <details name="faq" class="reveal"><summary>Нужно ли приносить старые снимки?<span class="plus" aria-hidden="true"></span></summary>
+        <p>Если есть — возьмите, врачу будет полезно сравнить. Если нет — ничего страшного, снимок сделаем на месте бесплатно.</p></details>
     </div>
   </div>
 </section>
 
 <section id="contacts">
   <div class="wrap">
-    <div class="cta reveal">
-      <div>
-        <h2>Запишитесь на бесплатную консультацию</h2>
-        <p>Осмотр, снимок и план лечения с ценами — за 40 минут.</p>
+    <div class="cta">
+      <h2 class="reveal">Приходите <em>за планом</em> — это бесплатно</h2>
+      <div class="side reveal">
+        <p>Администратор перезвонит в течение 10 минут и подберёт удобное время.</p>
+        <button class="btn" data-open>Записаться на консультацию
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg></button>
       </div>
-      <button class="btn" data-open>Записаться</button>
     </div>
-    <div class="contacts reveal">
-      <div><b>Адрес</b><a href="https://yandex.ru/maps/?text=пр.+Мира,+25" target="_blank" rel="noopener">пр. Мира, 25</a></div>
-      <div><b>Телефон</b><a href="tel:+79002223344">+7 (900) 222-33-44</a></div>
-      <div><b>Режим работы</b>Пн–Сб 9:00–21:00, Вс 10:00–18:00</div>
+    <div class="info">
+      <a class="reveal" href="https://yandex.ru/maps/?text=пр.+Мира,+25" target="_blank" rel="noopener"><span class="label">Адрес</span><b>пр. Мира, 25</b></a>
+      <a class="reveal" href="tel:+79002223344"><span class="label">Телефон</span><b>+7 (900) 222-33-44</b></a>
+      <div class="reveal"><span class="label">Часы работы</span><b>Пн–Сб 9:00–21:00<br>Вс 10:00–18:00</b></div>
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="wrap">
@@ -247,16 +574,24 @@ footer nav{gap:18px;font-weight:500}
   </div>
 </footer>
 
+<div class="dock glass" id="dock" inert>
+  <a class="dock-call press" href="tel:+79002223344" aria-label="Позвонить в клинику">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
+  <button class="btn press" data-open>Записаться бесплатно</button>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs id="lenses"></defs></svg>
+
 <dialog id="modal" aria-labelledby="modal-title">
-  <button class="close" type="button" aria-label="Закрыть">✕</button>
+  <button class="close" type="button" aria-label="Закрыть"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 1l12 12M13 1L1 13"/></svg></button>
   <form novalidate>
     <h3 id="modal-title">Запись на приём</h3>
-    <p class="sub">Администратор перезвонит в течение 10 минут.</p>
-    <input name="name" aria-label="Ваше имя" placeholder="Ваше имя" autocomplete="name" required>
-    <input name="phone" type="tel" aria-label="Телефон" placeholder="Телефон" autocomplete="tel" required pattern="[\d\s\(\)+\-]{10,}">
+    <p class="sub">Администратор перезвонит в течение 10 минут, чтобы подтвердить время.</p>
+    <label>Имя<input name="name" autocomplete="name" required></label>
+    <label>Телефон<input name="phone" type="tel" placeholder="+7 (900) 000-00-00" autocomplete="tel" required pattern="[\d\s\(\)+\-]{10,}"></label>
     <label>Услуга
       <select name="service">
-        <option>Консультация</option><option>Лечение кариеса</option><option>Гигиена</option>
+        <option>Консультация и план</option><option>Лечение кариеса</option><option>Гигиена</option>
         <option>Имплантация</option><option>Брекеты и элайнеры</option><option>Отбеливание</option>
       </select>
     </label>
@@ -265,7 +600,11 @@ footer nav{gap:18px;font-weight:500}
       <label>Время<input name="time" type="time" min="09:00" max="20:00" required></label>
     </div>
     <button class="btn">Записаться</button>
-    <div class="ok" role="status"><h3>Вы записаны!</h3><p>Перезвоним, чтобы подтвердить время приёма.</p></div>
+    <p class="legal">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+    <div class="ok" role="status">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22"/><path d="M14 25l7 7 13-15"/></svg>
+      <h3>Вы записаны</h3><p>Перезвоним, чтобы подтвердить время. Возьмите с собой паспорт и старые снимки, если они есть.</p>
+    </div>
   </form>
 </dialog>
 
@@ -274,18 +613,91 @@ const nav = document.getElementById('nav'), burger = document.querySelector('.bu
 const setMenu = open => {
   nav.classList.toggle('open', open);
   burger.setAttribute('aria-expanded', open);
-  burger.textContent = open ? '✕' : '☰';
+  burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
 };
 burger.onclick = () => setMenu(!nav.classList.contains('open'));
 nav.querySelectorAll('a').forEach(a => a.onclick = () => setMenu(false));
 
-const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')));
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), {threshold: .15});
+document.querySelectorAll('.reveal, .plan').forEach(el => io.observe(el));
 
-// reviews slider: arrows scroll by one card
-const slider = document.querySelector('.slider');
-document.querySelectorAll('[data-dir]').forEach(b => b.onclick = () =>
-  slider.scrollBy({left: b.dataset.dir * (slider.firstElementChild.offsetWidth + 20), behavior: 'smooth'}));
+// hero plan: count the total up once the rows have arrived (skipped under reduced motion)
+const sum = document.getElementById('sum');
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const to = +sum.dataset.to, fmt = n => n.toLocaleString('ru-RU');
+  sum.textContent = '0';
+  setTimeout(() => {
+    const t0 = performance.now();
+    const tick = now => {
+      const k = Math.min((now - t0) / 700, 1);
+      sum.textContent = fmt(Math.round(to * (1 - (1 - k) ** 3) / 100) * 100);
+      if (k < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }, 900);
+}
+
+// header goes dark over the dark "guarantees" section; mobile dock shows between hero and contacts
+const header = document.querySelector('header'), dock = document.getElementById('dock');
+new IntersectionObserver(([e]) => header.classList.toggle('on-dark', e.isIntersecting), {rootMargin: '-40px 0px -95% 0px'})
+  .observe(document.getElementById('guarantee'));
+const seen = {};
+const dockIo = new IntersectionObserver(es => {
+  es.forEach(e => seen[e.target.id] = e.isIntersecting);
+  const show = !seen.top && !seen.contacts;
+  dock.classList.toggle('show', show);
+  dock.inert = !show;
+});
+['top', 'contacts'].forEach(id => dockIo.observe(document.getElementById(id)));
+
+// liquid glass refraction (Chromium only: backdrop-filter: url() — elsewhere the plain blur stays).
+// Each .glass gets a displacement map: neutral inside, pushing pixels inward near its rounded edge.
+if (window.chrome && !matchMedia('(prefers-reduced-transparency: reduce)').matches) {
+  document.documentElement.classList.add('lens');
+  const defs = document.getElementById('lenses'), NS = 'http://www.w3.org/2000/svg';
+  const map = (w, h, r, edge) => {
+    const c = document.createElement('canvas'); c.width = w; c.height = h;
+    const ctx = c.getContext('2d'), img = ctx.createImageData(w, h), d = img.data;
+    for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+      // signed distance to the rounded rectangle (negative inside) and outward normal
+      const px = x + .5 - w / 2, py = y + .5 - h / 2;
+      const qx = Math.abs(px) - (w / 2 - r), qy = Math.abs(py) - (h / 2 - r);
+      let nx, ny, dist;
+      if (qx > 0 && qy > 0) { const l = Math.hypot(qx, qy) || 1; nx = qx / l; ny = qy / l; dist = r - l; }
+      else if (qx > qy) { nx = 1; ny = 0; dist = r - qx; }
+      else { nx = 0; ny = 1; dist = r - qy; }
+      const k = dist < edge ? (1 - Math.max(dist, 0) / edge) ** 2 : 0, i = (y * w + x) * 4;
+      d[i] = 128 + Math.sign(px) * nx * k * 127;
+      d[i + 1] = 128 + Math.sign(py) * ny * k * 127;
+      d[i + 2] = 128; d[i + 3] = 255;
+    }
+    ctx.putImageData(img, 0, 0);
+    return c.toDataURL();
+  };
+  let n = 0;
+  const lens = el => {
+    const id = 'lens' + n++, f = document.createElementNS(NS, 'filter');
+    f.id = id;
+    f.setAttribute('color-interpolation-filters', 'sRGB');
+    f.innerHTML = '<feImage preserveAspectRatio="none" result="map"/><feDisplacementMap in="SourceGraphic" in2="map" xChannelSelector="R" yChannelSelector="G"/>';
+    defs.append(f);
+    el.style.setProperty('--lens', `url(#${id})`);
+    new ResizeObserver(() => {
+      const w = Math.round(el.offsetWidth), h = Math.round(el.offsetHeight);
+      if (!w || !h) return;
+      const r = Math.min(parseFloat(getComputedStyle(el).borderTopLeftRadius) || 0, h / 2, w / 2);
+      const edge = Math.min(h / 2, 22);
+      for (const a of ['x', 'y']) f.setAttribute(a, 0);
+      f.setAttribute('filterUnits', 'userSpaceOnUse');
+      f.setAttribute('width', w); f.setAttribute('height', h);
+      const fe = f.firstElementChild;
+      fe.setAttribute('width', w); fe.setAttribute('height', h);
+      fe.setAttribute('href', map(w, h, r, edge));
+      f.lastElementChild.setAttribute('scale', -edge * 1.6);
+    }).observe(el);
+  };
+  document.querySelectorAll('.glass').forEach(lens);
+}
 
 // booking modal (native <dialog>: focus trap and Esc for free)
 const modal = document.getElementById('modal'), form = modal.querySelector('form');
@@ -307,6 +719,203 @@ form.onsubmit = e => {
   if (!form.checkValidity()) return form.reportValidity();
   form.classList.add('sent'); // demo: no backend
 };
+</script>
+
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+// Hero: both dental arches in clear glass. Teeth from the plan (36, 25) are tinted; hovering a plan row lifts
+// its tooth, hovering a tooth lights its row. Behind the arches, along the bite, runs the "белая линия".
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+
+const host = document.getElementById('jaw');
+const rows = [...document.querySelectorAll('.plan .line[data-tooth]')];
+const tags = Object.fromEntries([...host.querySelectorAll('[data-tag]')].map(t => [t.dataset.tag, t]));
+const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let renderer;
+try { renderer = new THREE.WebGLRenderer({antialias: true, powerPreference: 'low-power'}); } catch { renderer = null; }
+if (renderer) {
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  host.prepend(renderer.domElement);
+
+  const scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(30, 1, .1, 50);
+  camera.position.set(0, 2.5, 6);
+  camera.lookAt(0, 0, 0);
+
+  // studio environment for reflections: dark ink floor, paper horizon, white sky and two long softbox strips
+  const studio = new THREE.Scene(), dome = new THREE.SphereGeometry(10, 48, 24), col = [];
+  const floor = new THREE.Color('#14272b'), horizon = new THREE.Color('#d4cfc4'), sky = new THREE.Color('#ffffff');
+  for (let i = 0; i < dome.attributes.position.count; i++) {
+    const y = dome.attributes.position.getY(i) / 10, c = new THREE.Color();
+    y < 0 ? c.lerpColors(horizon, floor, Math.min(-y * 3, 1)) : c.lerpColors(horizon, sky, Math.min(y * 1.6, 1));
+    col.push(c.r, c.g, c.b);
+  }
+  dome.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
+  studio.add(new THREE.Mesh(dome, new THREE.MeshBasicMaterial({vertexColors: true, side: THREE.BackSide})));
+  for (const [x, y, z] of [[-5, 4, 3], [6, 1, 2]]) {
+    const strip = new THREE.Mesh(new THREE.PlaneGeometry(7, .7), new THREE.MeshBasicMaterial({color: new THREE.Color(5, 5, 5), side: THREE.DoubleSide}));
+    strip.position.set(x, y, z); strip.lookAt(0, 0, 0);
+    studio.add(strip);
+  }
+  scene.environment = new THREE.PMREMGenerator(renderer).fromScene(studio, .02).texture;
+
+  // backdrop: page colour, two soft colour pools and the line along the bite, fading out before the canvas edge
+  const paper = getComputedStyle(document.documentElement).getPropertyValue('--paper').trim();
+  const tex = new THREE.CanvasTexture(document.createElement('canvas'));
+  tex.colorSpace = THREE.SRGBColorSpace;
+  const backdrop = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({map: tex, toneMapped: false}));
+  const behind = camera.position.length() + 2.6; // on the view axis, past the arches
+  backdrop.position.copy(camera.position).addScaledVector(camera.position.clone().normalize(), -behind);
+  backdrop.quaternion.copy(camera.quaternion);
+  scene.add(backdrop);
+  const paint = (aspect, lineY) => {
+    const c = tex.image, w = c.width = Math.round(1024 * aspect), h = c.height = 1024, g = c.getContext('2d');
+    g.fillStyle = paper; g.fillRect(0, 0, w, h);
+    const pool = (x, y, r, rgb, a) => {
+      const gr = g.createRadialGradient(x, y, 0, x, y, r);
+      gr.addColorStop(0, `rgba(${rgb},${a})`); gr.addColorStop(1, `rgba(${rgb},0)`);
+      g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    };
+    pool(w * .66, h * lineY - h * .1, h * .3, '31,111,100', .4);
+    pool(w * .34, h * lineY + h * .14, h * .24, '184,74,51', .18);
+    const line = g.createLinearGradient(w * .04, 0, w * .96, 0);
+    line.addColorStop(0, 'rgba(20,39,43,0)'); line.addColorStop(.22, 'rgba(20,39,43,.85)');
+    line.addColorStop(.78, 'rgba(20,39,43,.85)'); line.addColorStop(1, 'rgba(20,39,43,0)');
+    g.fillStyle = line; g.fillRect(w * .04, h * lineY - 3, w * .92, 6);
+    tex.needsUpdate = true;
+  };
+
+  const glass = new THREE.MeshPhysicalMaterial({
+    color: 0xffffff, transmission: 1, thickness: .5, roughness: .06, ior: 1.45,
+    iridescence: .45, iridescenceIOR: 1.25, iridescenceThicknessRange: [100, 420],
+    clearcoat: 1, clearcoatRoughness: .04, attenuationColor: new THREE.Color('#e6f1ed'), attenuationDistance: 2,
+    envMapIntensity: .8, emissive: new THREE.Color('#1f6f64'), emissiveIntensity: 0,
+  });
+  const marked = glass.clone();
+  marked.color.set('#cdeee6'); marked.attenuationColor.set('#1f6f64'); marked.attenuationDistance = .45;
+  marked.emissiveIntensity = .1;
+
+  // tooth n (1 = central incisor … 8 = wisdom tooth): width along the arch, depth, height
+  const SIZE = [null, [.34, .24, .46], [.28, .22, .42], [.30, .28, .48], [.29, .32, .38], [.29, .32, .37], [.42, .42, .34], [.39, .40, .32], [.34, .36, .3]];
+  const GAP = .03, BITE = .16;
+  const toothGeo = (n, upper) => {
+    const [w, d, h] = SIZE[n], g = new RoundedBoxGeometry(w, h, d, 3, Math.min(w, d) * .34), p = g.attributes.position;
+    for (let i = 0; i < p.count; i++) { // narrow towards the root so it reads as a tooth, not a cube
+      const t = p.getY(i) / h + .5, root = upper ? t : 1 - t, k = 1 - .3 * root ** 1.6;
+      p.setX(i, p.getX(i) * k); p.setZ(i, p.getZ(i) * k);
+    }
+    return g;
+  };
+  // arch: parabola z = D − C·x², teeth placed by arc length from the midline
+  const along = (D, C) => {
+    const pts = [];
+    for (let x = 0, len = 0, px = 0, pz = D; x <= 3; x += .002) {
+      const z = D - C * x * x; len += Math.hypot(x - px, z - pz); px = x; pz = z; pts.push([len, x]);
+    }
+    return s => { const x = (pts.find(q => q[0] >= s) || pts.at(-1))[1]; return {x, z: D - C * x * x, a: Math.atan(2 * C * x)}; };
+  };
+
+  const jaw = new THREE.Group(), teeth = {};
+  // FDI quadrants: 1 upper right, 2 upper left, 3 lower left, 4 lower right (patient's right = viewer's left)
+  for (const [q, upper, side, D, C] of [[1, true, -1, 1.15, .7], [2, true, 1, 1.15, .7], [3, false, 1, 1.02, .76], [4, false, -1, 1.02, .76]]) {
+    const at = along(D, C);
+    let s = GAP / 2;
+    for (let n = 1; n <= 8; n++) {
+      const [w, , h] = SIZE[n], id = `${q}${n}`, spot = at(s + w / 2);
+      s += w + GAP;
+      const mesh = new THREE.Mesh(toothGeo(n, upper), id === '36' || id === '25' ? marked : glass);
+      mesh.position.set(side * spot.x, upper ? BITE / 2 + h / 2 : -BITE / 2 - h / 2, spot.z - .9);
+      mesh.rotation.y = side * spot.a;
+      mesh.userData = {id, home: mesh.position.clone(), up: upper ? 1 : -1, lift: 0};
+      teeth[id] = mesh;
+      jaw.add(mesh);
+    }
+  }
+  jaw.scale.setScalar(.7);
+  scene.add(jaw);
+  const pick = [teeth[36], teeth[25]];
+
+  // linking: plan rows <-> teeth <-> tags
+  let active = null, dirty = true;
+  const setActive = id => {
+    if (id === active) return;
+    active = id; dirty = true;
+    rows.forEach(r => r.classList.toggle('hot', r.dataset.tooth === id));
+    for (const k in tags) tags[k].classList.toggle('hot', k === id);
+  };
+  rows.forEach(r => {
+    r.addEventListener('pointerenter', e => e.pointerType === 'mouse' && setActive(r.dataset.tooth));
+    r.addEventListener('pointerleave', e => e.pointerType === 'mouse' && setActive(null));
+    r.addEventListener('focus', () => setActive(r.dataset.tooth));
+    r.addEventListener('blur', () => setActive(null));
+    r.addEventListener('click', e => e.pointerType !== 'mouse' && setActive(active === r.dataset.tooth ? null : r.dataset.tooth));
+  });
+
+  const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+  const aim = {x: 0, y: 0}, look = {x: 0, y: 0};
+  let hovering = false;
+  addEventListener('pointermove', e => {
+    aim.x = e.clientX / innerWidth - .5; aim.y = e.clientY / innerHeight - .5;
+    if (e.pointerType !== 'mouse') return;
+    const r = host.getBoundingClientRect();
+    ndc.set((e.clientX - r.left) / r.width * 2 - 1, -(e.clientY - r.top) / r.height * 2 + 1);
+    if (Math.abs(ndc.x) > 1 || Math.abs(ndc.y) > 1) { if (hovering) { hovering = false; setActive(null); } return; }
+    ray.setFromCamera(ndc, camera);
+    const hit = ray.intersectObjects(pick)[0];
+    if (hit) { hovering = true; setActive(hit.object.userData.id); }
+    else if (hovering) { hovering = false; setActive(null); }
+    dirty = true;
+  }, {passive: true});
+
+  const resize = () => {
+    const w = host.clientWidth, h = host.clientHeight;
+    if (!w || !h) return;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h; camera.updateProjectionMatrix();
+    const vh = 2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * behind;
+    backdrop.scale.set(vh * camera.aspect, vh, 1);
+    paint(camera.aspect, .5); // the camera looks at the bite, so the line sits mid-canvas
+    dirty = true;
+  };
+  new ResizeObserver(resize).observe(host);
+
+  const v = new THREE.Vector3();
+  const place = (id, dy) => { // pin a tag above (upper) or below (lower) its tooth
+    const t = teeth[id];
+    v.set(0, t.userData.up * dy, 0);
+    t.localToWorld(v).project(camera);
+    tags[id].style.transform = `translate(${(v.x + 1) / 2 * host.clientWidth}px,${(1 - v.y) / 2 * host.clientHeight}px) translate(-50%,-50%)`;
+  };
+
+  const frame = t => {
+    const ease = still ? 1 : .12;
+    look.x += (aim.x - look.x) * (still ? 0 : .05); look.y += (aim.y - look.y) * (still ? 0 : .05);
+    jaw.rotation.set(.12 + look.y * .2, (still ? -.25 : Math.sin(t * .25) * .4) + look.x * .5, 0);
+    for (const id in teeth) {
+      const m = teeth[id], u = m.userData;
+      const goal = active === id ? 1 : active === 'all' ? .25 + .25 * Math.sin(t * 3 - m.position.x * 2) : 0;
+      u.lift += (goal - u.lift) * ease;
+      m.position.y = u.home.y + u.up * u.lift * .14;
+      m.scale.setScalar(1 + u.lift * .14);
+    }
+    glass.emissiveIntensity += ((active === 'all' ? .12 : 0) - glass.emissiveIntensity) * ease;
+    marked.emissiveIntensity += ((active && active !== 'all' ? .35 : .1) - marked.emissiveIntensity) * ease;
+    jaw.updateMatrixWorld();
+    place('25', .42); place('36', .4);
+    renderer.render(scene, camera);
+  };
+
+  // render while the hero is on screen; with reduced motion only when something changed
+  let visible = false;
+  const loop = ms => {
+    if (!visible) return;
+    if (!still || dirty) { frame(ms / 1000); dirty = active === 'all' && !still; }
+    requestAnimationFrame(loop);
+  };
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) requestAnimationFrame(loop); }).observe(host);
+  resize(); frame(0);
+  host.classList.add('webgl');
+}
 </script>
 </body>
 </html>

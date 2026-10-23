@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Автосервис «Мотор-Про» — демо-лендинг</title>
-<meta name="description" content="Автосервис «Мотор-Про»: ТО, диагностика, ремонт ходовой и двигателя. Фиксированные цены, гарантия 12 месяцев, запись онлайн.">
+<meta name="description" content="Автосервис «Мотор-Про»: ТО, диагностика, ремонт ходовой и двигателя. Смета до начала работ, гарантия 12 месяцев, запись онлайн.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://delalr.github.io/kwork-portfolio/autoservice/">
 <meta property="og:image" content="https://delalr.github.io/kwork-portfolio/shots/autoservice-og.jpg">
 <meta property="og:title" content="Автосервис «Мотор-Про»">
-<meta property="og:description" content="ТО и ремонт с гарантией 12 месяцев. Рассчитайте стоимость онлайн.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23ffd400'/><text x='50' y='72' font-size='64' font-family='Arial Black,sans-serif' text-anchor='middle'>М</text></svg>">
+<meta property="og:description" content="Ремонт по чертежу: смета до начала работ и гарантия 12 месяцев. Соберите заказ-наряд онлайн.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230f3d6e'/><circle cx='16' cy='16' r='9' fill='none' stroke='%23eaf2ff' stroke-width='2'/><circle cx='16' cy='16' r='3' fill='%23ffcf5a'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+Condensed:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wdth,wght@75..112.5,300..600&family=IBM+Plex+Sans+Condensed:wght@400;500&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"AutoRepair","name":"Мотор-Про","telephone":"+7 900 111-22-33",
@@ -21,179 +21,239 @@
  "openingHours":"Mo-Sa 09:00-21:00","priceRange":"₽₽"}
 </script>
 <style>
-:root{--bg:#0b0b0a;--panel:#141412;--ink:#ecebe6;--muted:#9a9890;--line:#2f2e2a;--y:#ffd400;--black:#0b0b0a}
+:root{
+  --blue:#0f3d6e;--blue-deep:#0b3260;--text:#eaf2ff;--muted:#a9c0de;--line:rgba(234,242,255,.85);--faint:rgba(234,242,255,.28);--amber:#ffcf5a;
+  --head:"Martian Mono",ui-monospace,monospace;--body:"IBM Plex Sans Condensed",system-ui,sans-serif;
+}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font:17px/1.55 "IBM Plex Sans Condensed",system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+/* blueprint paper: 16px minor grid, 80px major grid */
+body{font:18px/1.55 var(--body);color:var(--text);background-color:var(--blue);
+  background-image:linear-gradient(rgba(234,242,255,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(234,242,255,.11) 1px,transparent 1px),
+    linear-gradient(rgba(234,242,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(234,242,255,.045) 1px,transparent 1px);
+  background-size:80px 80px,80px 80px,16px 16px,16px 16px;background-position:-1px -1px}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% 30%,transparent 40%,rgba(5,25,50,.45))}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-.mono,.tag,legend,label,.code,.price b,.stats dt,.review small,.review .stars,.contacts dt{font-family:"IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.06em}
-.wrap{max-width:1320px;margin:0 auto;padding:0 32px;border-inline:1px solid var(--line)}
-h1,h2,h3{font-family:"Dela Gothic One",Impact,sans-serif;font-weight:400;text-transform:uppercase;line-height:1.02;word-spacing:.12em}
-h2{font-size:clamp(32px,5vw,64px)}
-h3{font-size:20px;line-height:1.15}
-mark{display:inline-block;line-height:1;background:var(--y);color:var(--black);padding:.06em .12em 0}
-section{border-top:1px solid var(--line);scroll-margin-top:64px}
-section>.wrap{padding-block:96px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:var(--y);color:var(--black);padding:18px 26px;border:2px solid var(--y);font:600 15px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.06em;cursor:pointer}
-.btn:hover{background:var(--black);color:var(--y)}
-.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
-.btn.ghost:hover{background:var(--ink);color:var(--black)}
-:focus-visible{outline:2px solid var(--y);outline-offset:3px}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1320px;margin:0 auto;padding:0 32px}
+h1,h2,h3{font-family:var(--head);font-weight:400;font-stretch:87.5%;text-transform:uppercase;line-height:1.08;letter-spacing:-.02em}
+h2{font-size:clamp(28px,4.2vw,52px)}
+.mono,.label{font:500 12px/1.4 var(--head);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+section{scroll-margin-top:64px;padding:104px 0}
+.head{display:grid;grid-template-columns:200px 1fr;gap:24px;margin-bottom:56px;padding-top:18px;border-top:1px solid var(--faint)}
+.head .label{color:var(--amber)}
+.lead{color:var(--muted);max-width:60ch;margin-top:16px}
 
-/* header: a row of cells, like a spec-sheet title block */
-header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;height:64px;padding:0}
-.logo{display:flex;align-items:center;padding:0 24px;background:var(--y);color:var(--black);font:22px "Dela Gothic One",sans-serif;letter-spacing:.02em}
-nav{display:flex;margin-left:auto}
-header nav a,.phone,.burger{display:flex;align-items:center;padding:0 22px;border-left:1px solid var(--line);font:600 13px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.08em}
-header nav a:hover{background:var(--ink);color:var(--black)}
-header nav a.cta{background:var(--y);color:var(--black)}
-header nav a.cta:hover{background:var(--ink)}
-.burger{display:none;background:none;border:0;border-left:1px solid var(--line);color:var(--ink);font-size:22px;width:64px;justify-content:center;cursor:pointer}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:50px;padding:0 24px;border:1.5px solid var(--amber);background:var(--amber);color:var(--blue-deep);font:500 13px var(--head);text-transform:uppercase;letter-spacing:.08em;cursor:pointer;transition:background .2s,color .2s}
+.btn:hover{background:transparent;color:var(--amber)}
+.btn.ghost{background:transparent;border-color:var(--line);color:var(--text)}
+.btn.ghost:hover{background:var(--text);color:var(--blue-deep)}
 
-/* hero */
-.hero .wrap{padding-block:56px 0}
-.tag{font-size:13px;color:var(--muted);margin-bottom:28px;text-wrap:balance}
-.hero h1{font-size:clamp(38px,8.6vw,124px);margin-bottom:48px}
-.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;border-top:1px solid var(--line)}
-.shot{border-right:1px solid var(--line);padding:32px 32px 32px 0}
-.shot img{width:100%;height:380px;object-fit:cover;filter:grayscale(1) contrast(1.15);transition:filter .3s}
-.shot:hover img{filter:none}
-figcaption{font:12px "IBM Plex Mono",monospace;color:var(--muted);margin-top:10px;letter-spacing:.06em}
-.hero-side{padding:32px 0 32px 32px;display:flex;flex-direction:column;justify-content:space-between;gap:32px}
-.hero-side p{font-size:21px;line-height:1.45}
-.actions{display:grid;gap:12px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
-.stats div{padding:26px 0 30px;border-left:1px solid var(--line);padding-left:24px}
-.stats div:first-child{border-left:0;padding-left:0}
-.stats dt{font-size:12px;color:var(--muted);margin-bottom:6px}
-.stats dd{font:clamp(30px,4vw,48px)/1 "Dela Gothic One",sans-serif;color:var(--y)}
+/* header: a row of cells, like the title block of a drawing */
+header{position:sticky;top:0;z-index:10;background:var(--blue-deep);border-bottom:1px solid var(--faint)}
+header .wrap{display:flex;height:64px;padding:0 32px}
+.logo{display:flex;align-items:center;gap:12px;padding-right:24px;border-right:1px solid var(--faint);font:600 15px var(--head);letter-spacing:.06em;text-transform:uppercase}
+.logo svg{width:28px;height:28px;stroke:var(--text);fill:none;stroke-width:1.5}
+.logo svg circle:last-child{fill:var(--amber);stroke:none}
+header nav{display:flex;margin-left:auto}
+header nav a,.phone{display:flex;align-items:center;padding:0 20px;border-left:1px solid var(--faint);font:500 12px var(--head);text-transform:uppercase;letter-spacing:.08em;transition:background .2s,color .2s}
+header nav a:hover{background:var(--text);color:var(--blue-deep)}
+header nav a.cta{background:var(--amber);color:var(--blue-deep)}
+header nav a.cta:hover{background:var(--text)}
+.phone{border-right:1px solid var(--faint)}
+.burger{display:none;width:64px;margin-right:-32px;border:0;border-left:1px solid var(--faint);background:none;cursor:pointer;position:relative}
+.burger span{position:absolute;left:22px;right:22px;height:1.5px;background:var(--text);transition:transform .25s,top .25s}
+.burger span:first-child{top:27px}.burger span:last-child{top:35px}
+.burger[aria-expanded=true] span:first-child{top:31px;transform:rotate(45deg)}
+.burger[aria-expanded=true] span:last-child{top:31px;transform:rotate(-45deg)}
 
-/* ticker between hazard stripes */
-.ticker{overflow:hidden;background:var(--y);color:var(--black);border-block:12px solid transparent;border-image:repeating-linear-gradient(-45deg,var(--black) 0 12px,var(--y) 12px 24px) 12;font:600 15px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
-.ticker div{display:inline-block;padding:14px 0;animation:run 40s linear infinite}
-@keyframes run{to{transform:translateX(-50%)}}
+/* sheet: drawing frame with the car, the specification (calculator) and the title block (total) */
+.sheet{padding:40px 0 96px}
+.frame{border:1.5px solid var(--line);outline:1px solid var(--faint);outline-offset:8px;margin:8px}
+.sheet-top{display:grid;grid-template-columns:5fr 7fr;border-bottom:1.5px solid var(--line)}
+.intro{padding:40px 36px;border-right:1px solid var(--faint);display:flex;flex-direction:column;gap:24px}
+.intro h1{font-size:clamp(30px,3.4vw,48px);font-weight:300;font-stretch:75%}
+.intro h1 em{font-style:normal;color:var(--amber)}
+.intro p{color:var(--muted);font-size:19px;max-width:42ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:auto}
+.drawing{position:relative;padding:20px 12px 8px}
+.drawing figcaption{position:absolute;left:20px;top:16px}
+.drawing svg{width:100%;height:auto;display:block;overflow:visible}
 
-/* section heads: number column + title */
-.head{display:grid;grid-template-columns:180px 1fr;gap:0 24px;margin-bottom:56px}
-.head .num{font-size:14px;color:var(--y);padding-top:10px}
-.lead{color:var(--muted);max-width:620px;margin-top:18px;font-size:19px}
+/* drawing ink */
+#car{fill:none;stroke:var(--line);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+#car .thin{stroke:var(--faint);stroke-width:1}
+#car .hid{stroke-dasharray:5 4;stroke:var(--muted);stroke-width:1.1}
+#car text{fill:var(--muted);stroke:none;font:500 12px var(--head);letter-spacing:.06em}
+#car .dim text{fill:var(--text)}
+#car .call circle{fill:var(--blue)}
+#car .call text{fill:var(--text);text-anchor:middle}
+#car .part,#car .call{transition:stroke .3s,fill .3s,filter .3s}
+#car .part.on,#car .part.on .hid,#car .call.on{stroke:var(--amber);filter:drop-shadow(0 0 5px rgba(255,207,90,.55))}
+#car .part.on .hid{stroke-dasharray:none}
+#car .call.on circle{fill:var(--amber)}
+#car .call.on text{fill:var(--blue-deep)}
+#car .call.on text.cap{fill:var(--amber)}
+#car .part.peek,#car .part.peek .hid{stroke:var(--text);stroke-width:2.2}
+.shell{transform-box:fill-box;transform-origin:50% 100%;transition:transform .7s cubic-bezier(.3,1.3,.5,1)}
+#car[data-class="1.2"] .shell{transform:scale(1.02,1.12)}
+#car[data-class="1.4"] .shell{transform:scale(1.05,1.24)}
+/* line drawing on load */
+.js .drawing .ink{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.8s cubic-bezier(.5,0,.2,1)}
+.js .drawing .fade{opacity:0;transition:opacity .8s 1.2s}
+.js .drawing.in .ink{stroke-dashoffset:0}
+.js .drawing.in .fade{opacity:1}
 
-/* services: price list */
-.price{list-style:none;border-bottom:1px solid var(--line)}
-.price li{display:grid;grid-template-columns:180px 1fr auto;gap:24px;align-items:baseline;padding:26px 16px;margin:0 -16px;border-top:1px solid var(--line)}
-.price li:hover{background:var(--y);color:var(--black)}
-.price li:hover p,.price li:hover .code{color:var(--black)}
-.code{font-size:14px;color:var(--muted)}
-.price p{color:var(--muted);margin-top:6px;max-width:560px}
-.price b{font-size:20px;white-space:nowrap}
+/* specification table = calculator */
+.spec{display:grid;grid-template-columns:1fr 340px}
+.spec-main{border-right:1.5px solid var(--line)}
+.spec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px;padding:16px 20px;border-bottom:1px solid var(--faint)}
+.spec-head h2{font-size:18px;font-weight:500;letter-spacing:.02em}
+.classes{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--faint)}
+.classes label{position:relative;cursor:pointer}
+.classes input{position:absolute;opacity:0;pointer-events:none}
+.classes span{display:block;padding:9px 14px;font:500 11px var(--head);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);transition:background .2s,color .2s}
+.classes label+label span{border-left:1px solid var(--faint)}
+.classes input:checked+span{background:var(--text);color:var(--blue-deep)}
+.classes input:focus-visible+span{outline:2px solid var(--amber);outline-offset:-2px}
+.cols,.row-w{display:grid;grid-template-columns:64px 1fr 120px 56px;align-items:center}
+.cols{border-bottom:1px solid var(--faint)}
+.cols span{padding:10px 20px;font:500 10px var(--head);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.cols span+span,.row-w>*+*{border-left:1px solid var(--faint)}
+.row-w{position:relative;cursor:pointer;border-bottom:1px solid var(--faint);transition:background .2s}
+.row-w:last-child{border-bottom:0}
+.row-w:hover{background:rgba(234,242,255,.06)}
+.row-w>*{padding:14px 20px;align-self:stretch;display:flex;flex-direction:column;justify-content:center}
+.row-w .pos{font:500 12px var(--head);color:var(--muted)}
+.row-w b{font-weight:500;font-size:18px}
+.row-w small{color:var(--muted);font-size:15px}
+.row-w .sum{font:500 14px var(--head);white-space:nowrap;align-items:flex-end}
+.row-w input{position:absolute;opacity:0;pointer-events:none}
+.box{align-items:center!important}
+.box i{width:20px;height:20px;border:1.5px solid var(--line);position:relative}
+.box i::before,.box i::after{content:"";position:absolute;left:-3px;right:-3px;top:8px;height:2px;background:var(--amber);transform:rotate(45deg) scaleX(0);transition:transform .2s}
+.box i::after{transform:rotate(-45deg) scaleX(0)}
+.row-w input:checked~.box i{border-color:var(--amber)}
+.row-w input:checked~.box i::before{transform:rotate(45deg) scaleX(1)}
+.row-w input:checked~.box i::after{transform:rotate(-45deg) scaleX(1)}
+.row-w input:checked~.name b,.row-w input:checked~.sum{color:var(--amber)}
+.row-w input:focus-visible~.box i{outline:2px solid var(--amber);outline-offset:3px}
 
-/* calculator: control panel */
-.calc{display:grid;grid-template-columns:1.5fr 1fr;border:1px solid var(--line)}
-.calc>div:first-child{padding:36px}
-fieldset{border:0}
-fieldset+fieldset{margin-top:32px}
-legend{font-size:13px;color:var(--muted);margin-bottom:14px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{position:relative}
-.chip input{position:absolute;opacity:0}
-.chip span{display:inline-block;padding:11px 16px;border:1px solid var(--muted);cursor:pointer;user-select:none;font:15px "IBM Plex Mono",monospace}
-.chip [type=checkbox]+span::before{content:"[ ] "}
-.chip [type=checkbox]:checked+span::before{content:"[×] "}
-.chip [type=radio]+span::before{content:"○ "}
-.chip [type=radio]:checked+span::before{content:"● "}
-.chip input:checked+span{background:var(--y);border-color:var(--y);color:var(--black)}
-.chip span:hover{border-color:var(--ink)}
-.chip input:focus-visible+span{outline:2px solid var(--ink);outline-offset:2px}
-.total{background:var(--panel);border-left:1px solid var(--line);padding:36px;display:flex;flex-direction:column;justify-content:flex-end;gap:12px}
-.total small{color:var(--muted);font-size:14px}
-.total .mono{font-size:13px;color:var(--y)}
-.total output{font:clamp(44px,5vw,72px)/1 "Dela Gothic One",sans-serif;color:var(--y)}
-.total .btn{margin-top:14px}
+.stamp{display:grid;grid-template-rows:auto 1fr auto auto}
+.stamp>*{padding:16px 20px;border-bottom:1px solid var(--faint)}
+.stamp>*:last-child{border-bottom:0}
+.stamp .doc{display:flex;justify-content:space-between}
+.stamp .total{display:flex;flex-direction:column;justify-content:center;gap:6px}
+.stamp output{font:300 clamp(40px,4vw,56px)/1 var(--head);font-stretch:80%;color:var(--amber);letter-spacing:-.04em}
+.stamp small{color:var(--muted);font-size:14px}
+.stamp .btn{width:100%}
+.stamp .sheetno{display:grid;grid-template-columns:1fr 1fr 1fr;padding:0}
+.stamp .sheetno span{padding:10px 14px}
+.stamp .sheetno span+span{border-left:1px solid var(--faint)}
 
-/* about */
-.about{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
-.about img{height:520px;width:100%;object-fit:cover;filter:grayscale(1) contrast(1.15)}
-.points{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);margin-top:40px;list-style:none}
-.points li{padding:24px 24px 24px 0;border-bottom:1px solid var(--line)}
-.points li:nth-child(even){padding:24px 0 24px 24px;border-left:1px solid var(--line)}
-.points .code{display:block;color:var(--y);margin-bottom:10px}
-.points b{display:block;font-size:19px;margin-bottom:6px}
-.points span:last-child{color:var(--muted);font-size:16px}
+/* process: a flowchart */
+.flow{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:28px}
+.node{position:relative;border:1.5px solid var(--line);padding:20px 18px 22px;background:var(--blue)}
+.node:not(:last-child)::after{content:"";position:absolute;top:44px;right:-29px;width:28px;height:1.5px;background:var(--line)}
+.node:not(:last-child)::before{content:"";position:absolute;top:40px;right:-30px;border:5px solid transparent;border-left:8px solid var(--line);border-right:0}
+.node .label{display:flex;justify-content:space-between}
+.node h3{font-size:17px;margin:18px 0 10px;font-weight:500}
+.node p{color:var(--muted);font-size:16px;line-height:1.45}
+.node.key{border-color:var(--amber)}
+.node.key h3{color:var(--amber)}
 
-/* reviews */
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--line)}
-.review{padding:32px 28px 32px 0;display:flex;flex-direction:column;gap:20px}
-.review+.review{border-left:1px solid var(--line);padding-left:28px}
-.review .stars{color:var(--y);font-size:13px}
-.review p{font-size:20px;line-height:1.45;flex:1}
-.review small{color:var(--muted);font-size:13px}
+/* workshop: cyanotype photo + technical requirements */
+.shop{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.cyan{position:relative;background:var(--blue-deep);border:1.5px solid var(--line)}
+.cyan img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(1) contrast(1.25) brightness(1.05);mix-blend-mode:screen;opacity:.9}
+.cyan svg{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:var(--amber);stroke-width:1.5}
+.cyan svg text{fill:var(--amber);stroke:none;font:500 12px var(--head);letter-spacing:.06em}
+.cyan figcaption{padding:12px 16px;border-top:1px solid var(--faint)}
+.reqs{list-style:none;counter-reset:r;border-top:1.5px solid var(--line)}
+.reqs li{counter-increment:r;display:grid;grid-template-columns:56px 1fr;gap:8px;padding:22px 0;border-bottom:1px solid var(--faint)}
+.reqs li::before{content:counter(r) ".";font:500 14px var(--head);color:var(--amber)}
+.reqs b{display:block;font-weight:500;font-size:20px;margin-bottom:4px}
+.reqs span{color:var(--muted)}
 
-/* booking: the form is a yellow work-order ticket */
-.booking>.wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
-.booking .head{display:block;margin-bottom:40px}
-.booking .head .num{display:block;margin-bottom:16px}
-.contacts{border-top:1px solid var(--line)}
-.contacts div{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
-.contacts dt{font-size:12px;color:var(--muted);padding-top:3px}
-.contacts a{border-bottom:1px solid var(--y)}
-form#bookForm{background:var(--y);color:var(--black);padding:36px;display:grid;gap:18px;color-scheme:light}
-.ticket{display:flex;justify-content:space-between;gap:16px;font:600 13px "IBM Plex Mono",monospace;letter-spacing:.06em;padding-bottom:16px;border-bottom:3px solid var(--black);margin-bottom:6px}
-label{display:grid;gap:4px;font-size:12px}
-input,select{font:17px "IBM Plex Sans Condensed",sans-serif;color:var(--black);padding:10px 0;border:0;border-bottom:2px solid var(--black);border-radius:0;width:100%;background:transparent}
-input::placeholder{color:#6b5a00}
-#bookForm :focus-visible{outline:2px solid var(--black);outline-offset:4px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-#bookForm .btn{background:var(--black);color:var(--y);border-color:var(--black);margin-top:10px}
-#bookForm .btn:hover{background:transparent;color:var(--black)}
-.ok{display:none;padding:30px 0}
-.ok h3{font-size:32px;margin-bottom:12px}
+/* booking: the form is a work order */
+.booking{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+.contacts{border-top:1.5px solid var(--line);margin-top:8px}
+.contacts div{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--faint)}
+.contacts dt{font:500 11px var(--head);text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding-top:4px}
+.contacts a{border-bottom:1px solid var(--amber)}
+form#bookForm{border:1.5px solid var(--line);outline:1px solid var(--faint);outline-offset:6px;padding:32px;display:grid;gap:22px;background:rgba(11,50,96,.6)}
+.order{display:flex;justify-content:space-between;gap:16px;padding-bottom:16px;border-bottom:1.5px solid var(--line)}
+.order h3{font-size:20px;font-weight:500}
+label.f{display:grid;gap:4px;font:500 11px var(--head);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+input,select{font:18px var(--body);color:var(--text);padding:8px 0;border:0;border-bottom:1.5px solid var(--faint);border-radius:0;width:100%;background:transparent;color-scheme:dark;transition:border-color .2s}
+input:hover,select:hover{border-color:var(--muted)}
+input:focus,select:focus{outline:none;border-color:var(--amber)}
+input::placeholder{color:rgba(169,192,222,.55)}
+select option{background:var(--blue-deep)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+#bookForm .btn{margin-top:8px}
+.legal{font-size:13px;color:var(--muted)}
+.ok{display:none;padding:24px 0}
+.ok h3{font-size:26px;color:var(--amber);margin-bottom:10px}
+.ok p{color:var(--muted)}
 form.sent>*:not(.ok){display:none}
 form.sent .ok{display:block}
 
-footer .wrap{padding-block:40px 32px;border-top:1px solid var(--line)}
-.mark{font:min(10vw,148px)/.9 "Dela Gothic One",sans-serif;color:transparent;-webkit-text-stroke:1px var(--muted);margin-bottom:32px;white-space:nowrap;overflow:hidden}
-.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:14px}
-.foot nav{gap:20px}
-.foot nav a:hover{color:var(--y)}
+footer{padding:56px 0 32px;border-top:1px solid var(--faint)}
+.mark{font:300 min(12vw,160px)/.9 var(--head);font-stretch:75%;color:transparent;-webkit-text-stroke:1px var(--faint);white-space:nowrap;overflow:hidden;margin-bottom:28px;letter-spacing:-.04em}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:15px}
+.foot nav{display:flex;gap:20px}
+.foot nav a:hover{color:var(--amber)}
 
-/* reveal on scroll (only opacity/transform animate, so hover colours stay instant) */
-.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+/* reveal on scroll */
+.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
 .js .reveal.in{opacity:1;transform:none}
-.reveal:nth-child(2),.reveal:nth-child(5){transition-delay:.08s}
-.reveal:nth-child(3),.reveal:nth-child(6){transition-delay:.16s}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}.ticker div{animation:none}}
+.reveal:nth-child(2){transition-delay:.07s}.reveal:nth-child(3){transition-delay:.14s}.reveal:nth-child(4){transition-delay:.21s}
+.reveal:nth-child(5){transition-delay:.28s}.reveal:nth-child(6){transition-delay:.35s}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .reveal,.js .drawing .ink,.js .drawing .fade{opacity:1;transform:none;transition:none;stroke-dashoffset:0}
+  .shell{transition:none}
+}
 
-@media (max-width:1000px){
-  .burger{display:flex}
-  .phone{display:none!important}
-  header nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg);flex-direction:column;border-bottom:1px solid var(--line)}
+@media (max-width:1100px){
+  .sheet-top,.spec,.shop,.booking{grid-template-columns:1fr}
+  .intro{border-right:0;border-bottom:1px solid var(--faint)}
+  .spec-main{border-right:0;border-bottom:1.5px solid var(--line)}
+  .flow{grid-template-columns:repeat(3,1fr)}
+  .node:nth-child(3)::after,.node:nth-child(3)::before{display:none}
+}
+@media (max-width:900px){
+  .burger{display:block}
+  .phone{display:none}
+  header nav{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--blue-deep);border-bottom:1px solid var(--faint)}
   header nav.open{display:flex}
-  header nav a{padding:18px 20px;border-left:0;border-top:1px solid var(--line)}
-  .wrap{padding:0 16px}
-  section>.wrap{padding-block:64px}
-  .hero-grid,.calc,.about,.booking>.wrap,.reviews{grid-template-columns:1fr}
-  .shot{border-right:0;padding:24px 0 0}
-  .shot img{height:240px}
-  .hero-side{padding:24px 0 32px}
-  .hero-side p{font-size:19px}
-  .stats{grid-template-columns:1fr}
-  .stats div,.stats div:first-child{border-left:0;padding:18px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px}
-  .stats div:first-child{border-top:0}
-  .head{grid-template-columns:1fr;margin-bottom:36px}
-  .head .num{padding:0 0 12px}
-  .price li{grid-template-columns:1fr;gap:8px}
-  .price b{margin-top:4px}
-  .calc>div:first-child,.total{padding:24px}
-  .total{border-left:0;border-top:1px solid var(--line)}
-  .about img{height:280px}
-  .points{grid-template-columns:1fr}
-  .points li,.points li:nth-child(even){padding:20px 0;border-left:0}
-  .review,.review+.review{padding:28px 0;border-left:0}
-  .review+.review{border-top:1px solid var(--line)}
-  form#bookForm{padding:24px}
-  .row{grid-template-columns:1fr}
+  header nav a{padding:18px 32px;border-left:0;border-top:1px solid var(--faint)}
+  .head{grid-template-columns:1fr;gap:12px;margin-bottom:40px}
+}
+@media (max-width:640px){
+  body{font-size:17px}
+  .wrap,header .wrap{padding:0 16px}
+  .burger{margin-right:-16px}
+  section{padding:72px 0}
+  .sheet{padding:20px 0 64px}
+  .frame{margin:4px;outline-offset:4px}
+  .intro{padding:28px 20px}
+  .drawing{padding:44px 0 4px}
+  .cols{display:none}
+  .row-w{grid-template-columns:44px 1fr auto}
+  .row-w>*+*{border-left:0}
+  .row-w>*{padding:14px 12px}
+  .row-w .pos{display:none}
+  .row-w .box{order:-1;padding-right:0}
+  .spec-head{padding:14px 12px}
+  .flow{grid-template-columns:1fr;gap:28px}
+  .node:not(:last-child)::after{top:auto;bottom:-29px;right:auto;left:32px;width:1.5px;height:28px}
+  .node:not(:last-child)::before{top:auto;bottom:-30px;right:auto;left:28px;border:5px solid transparent;border-top:8px solid var(--line);border-bottom:0}
+  .node:nth-child(3)::after,.node:nth-child(3)::before{display:block}
+  .pair{grid-template-columns:1fr}
+  form#bookForm{padding:22px}
   .contacts div{grid-template-columns:1fr;gap:4px}
 }
 </style>
@@ -201,171 +261,198 @@ footer .wrap{padding-block:40px 32px;border-top:1px solid var(--line)}
 <body>
 <header>
   <div class="wrap">
-    <a href="#" class="logo">Мотор-Про</a>
+    <a href="#" class="logo"><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="12"/><circle cx="14" cy="14" r="7"/><circle cx="14" cy="14" r="3"/></svg>Мотор-Про</a>
     <nav id="nav">
-      <a href="#services">Услуги</a>
-      <a href="#calc">Калькулятор</a>
-      <a href="#about">О сервисе</a>
-      <a href="#reviews">Отзывы</a>
+      <a href="#services">Работы и цены</a>
+      <a href="#process">Порядок работ</a>
+      <a href="#shop">Гарантии</a>
       <a href="#booking" class="cta">Записаться</a>
     </nav>
     <a class="phone" href="tel:+79001112233">+7 900 111-22-33</a>
-    <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">☰</button>
+    <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
   </div>
 </header>
 
-<section class="hero">
+<main>
+<section class="sheet" id="services">
   <div class="wrap">
-    <p class="tag">[ Автосервис · ул.&nbsp;Промышленная,&nbsp;7 · Пн–Сб&nbsp;9:00–21:00 ]</p>
-    <h1>Ремонт авто без сюрпризов <mark>в&nbsp;чеке</mark></h1>
-    <div class="hero-grid">
-      <figure class="shot">
-        <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=1200&q=70" alt="Автомобиль в ремонтном цехе" fetchpriority="high">
-        <figcaption>ФОТО 01 — ЦЕХ, ПОСТ № 3</figcaption>
-      </figure>
-      <div class="hero-side">
-        <p>Называем цену до начала работ и не меняем её. Показываем старые детали и присылаем видео-отчёт о ремонте.</p>
-        <div class="actions">
-          <a href="#booking" class="btn">Записаться на диагностику →</a>
-          <a href="#calc" class="btn ghost">Рассчитать стоимость</a>
+    <div class="frame">
+      <div class="sheet-top">
+        <div class="intro">
+          <span class="label">Автосервис · ул. Промышленная, 7 · Пн–Сб 9:00–21:00</span>
+          <h1>Ремонт <em>по чертежу</em>: смета до начала работ</h1>
+          <p>Отметьте работы в спецификации ниже — на схеме подсветятся узлы, а в штампе появится цена. Её же мастер подтвердит после осмотра и не изменит.</p>
+          <div class="actions">
+            <a href="#booking" class="btn">Записаться на диагностику</a>
+            <a href="#process" class="btn ghost">Как мы работаем</a>
+          </div>
         </div>
+
+        <figure class="drawing" id="drawing">
+          <figcaption class="label">Вид сбоку · М 1:25</figcaption>
+          <svg id="car" viewBox="0 0 1000 440" data-class="1" role="img" aria-label="Чертёж легкового автомобиля с отмеченными узлами">
+            <!-- overall dimensions -->
+            <g class="dim thin fade">
+              <path d="M94 250V48M932 240V48M80 60h866M86 66l16-12M924 66l16-12"/>
+              <text x="513" y="52" text-anchor="middle" id="dimL">4 420</text>
+              <path d="M340 121H28M934 334H28M40 121v213M34 127l12-12M34 340l12-12"/>
+              <text x="0" y="0" text-anchor="middle" transform="translate(30 228) rotate(-90)" id="dimH">1 470</text>
+              <path d="M250 340v42M760 340v42M250 372h510M244 378l12-12M754 378l12-12"/>
+              <text x="505" y="364" text-anchor="middle">2 610</text>
+            </g>
+            <path class="thin ink" pathLength="1" d="M60 334H960"/>
+
+            <!-- body shell (reshaped by car class) -->
+            <g class="shell">
+              <path class="ink" pathLength="1" d="M100 305L94 258Q96 216 124 206L242 190Q292 142 340 129L556 121Q604 123 642 152L692 188L858 204Q914 213 927 240L932 282Q931 301 916 305L812 305A54 54 0 1 0 708 305L302 305A54 54 0 1 0 198 305Z"/>
+              <path class="ink" pathLength="1" d="M262 189L338 142Q350 137 362 136L448 134V189Z"/>
+              <path class="ink" pathLength="1" d="M460 133L552 131Q590 133 622 156L664 187L460 189Z"/>
+              <path class="ink thin" pathLength="1" d="M454 128V300M680 192Q684 250 690 300M300 194Q296 250 302 300M250 198H700M302 292H708"/>
+              <path class="ink" pathLength="1" d="M400 214h26M612 214h26M884 214Q912 218 922 236H896ZM96 232L118 222L122 244L97 246ZM668 182l14-10 10 4-4 12ZM932 268H900M96 270H130"/>
+            </g>
+
+            <!-- wheels (always) -->
+            <g class="ink-wheels">
+              <circle class="ink" pathLength="1" cx="250" cy="290" r="30"/><circle class="ink" pathLength="1" cx="760" cy="290" r="30"/>
+              <circle class="ink" pathLength="1" cx="250" cy="290" r="7"/><circle class="ink" pathLength="1" cx="760" cy="290" r="7"/>
+              <path class="thin ink" pathLength="1" d="M250 283V260M256 293l20 7M244 293l-20 7M254 284l15-18M246 284l-15-18M760 283V260M766 293l20 7M754 293l-20 7M764 284l15-18M756 284l-15-18"/>
+            </g>
+
+            <!-- parts, linked to the specification rows -->
+            <g class="part fade" data-part="tyres"><circle cx="250" cy="290" r="44"/><circle cx="760" cy="290" r="44"/></g>
+            <g class="part fade" data-part="brakes"><circle cx="250" cy="290" r="22"/><circle cx="760" cy="290" r="22"/><path d="M732 270a34 34 0 0 1 14-10M222 270a34 34 0 0 1 14-10" stroke-width="5"/></g>
+            <g class="part fade" data-part="chassis"><path class="hid" d="M760 216v46M752 226l16 6-16 6 16 6-16 6 16 6M250 216v46M242 226l16 6-16 6 16 6-16 6 16 6M700 300l60-6M310 300l-60-6"/></g>
+            <g class="part fade" data-part="engine"><rect class="hid" x="716" y="210" width="118" height="60" rx="4"/><path class="hid" d="M724 222h102"/><circle class="hid" cx="742" cy="242" r="8"/><circle class="hid" cx="766" cy="242" r="8"/><circle class="hid" cx="790" cy="242" r="8"/><circle class="hid" cx="814" cy="242" r="8"/></g>
+            <g class="part fade" data-part="oil"><path class="hid" d="M730 274h90l-8 16h-74Z"/><circle cx="775" cy="293" r="3"/><rect class="hid" x="838" y="248" width="12" height="22" rx="2"/></g>
+            <g class="part fade" data-part="diag"><rect x="634" y="234" width="20" height="11" rx="2"/><path class="hid" d="M654 240h30q14 0 20-20"/></g>
+            <g class="part fade" data-part="ac"><rect class="hid" x="902" y="242" width="10" height="38"/><circle class="hid" cx="852" cy="282" r="9"/><path class="hid" d="M852 273q20-40 50-28"/></g>
+
+            <!-- callouts -->
+            <g class="call fade" data-part="oil"><path d="M780 292L852 410"/><circle cx="860" cy="418" r="14"/><text x="860" y="422">01</text><text class="cap" x="882" y="422" style="text-anchor:start">МАСЛО</text></g>
+            <g class="call fade" data-part="diag"><path d="M644 236L612 108"/><circle cx="608" cy="94" r="14"/><text x="608" y="98">02</text><text class="cap" x="630" y="98" style="text-anchor:start">ДИАГНОСТИКА</text></g>
+            <g class="call fade" data-part="brakes"><path d="M236 306L176 404"/><circle cx="168" cy="418" r="14"/><text x="168" y="422">03</text><text class="cap" x="190" y="422" style="text-anchor:start">ТОРМОЗА</text></g>
+            <g class="call fade" data-part="chassis"><path d="M766 228L812 108"/><circle cx="816" cy="94" r="14"/><text x="816" y="98">04</text><text class="cap" x="838" y="98" style="text-anchor:start">ХОДОВАЯ</text></g>
+            <g class="call fade" data-part="ac"><path d="M912 254L956 180"/><circle cx="962" cy="166" r="14"/><text x="962" y="170">05</text><text class="cap" x="932" y="140" style="text-anchor:start">КОНД.</text></g>
+            <g class="call fade" data-part="tyres"><path d="M226 324L300 410"/><circle cx="308" cy="418" r="14"/><text x="308" y="422">06</text><text class="cap" x="330" y="422" style="text-anchor:start">ШИНЫ</text></g>
+            <g class="call fade" data-part="engine"><path d="M720 214L470 70"/><circle cx="456" cy="62" r="14"/><text x="456" y="66">07</text><text class="cap" x="392" y="30" style="text-anchor:start">ДВИГАТЕЛЬ</text></g>
+          </svg>
+        </figure>
       </div>
+
+      <form class="spec" id="calcForm">
+        <div class="spec-main">
+          <div class="spec-head">
+            <h2>Спецификация работ</h2>
+            <div class="classes" role="radiogroup" aria-label="Класс автомобиля">
+              <label><input type="radio" name="class" value="1" checked><span>Легковой</span></label>
+              <label><input type="radio" name="class" value="1.2"><span>Кроссовер</span></label>
+              <label><input type="radio" name="class" value="1.4"><span>Внедорожник</span></label>
+            </div>
+          </div>
+          <div class="cols" aria-hidden="true"><span>Поз.</span><span>Наименование</span><span>Цена, от</span><span>✓</span></div>
+          <label class="row-w"><input type="checkbox" name="work" value="900" data-part="oil" checked><span class="pos">01</span><span class="name"><b>Замена масла и фильтра</b><small>Масло ваше или наше, 30 минут</small></span><span class="sum">900 ₽</span><span class="box"><i></i></span></label>
+          <label class="row-w"><input type="checkbox" name="work" value="1200" data-part="diag"><span class="pos">02</span><span class="name"><b>Компьютерная диагностика</b><small>Считываем ошибки, объясняем, что срочно</small></span><span class="sum">1 200 ₽</span><span class="box"><i></i></span></label>
+          <label class="row-w"><input type="checkbox" name="work" value="1100" data-part="brakes"><span class="pos">03</span><span class="name"><b>Тормозные колодки</b><small>Колодки, проверка дисков и жидкости</small></span><span class="sum">1 100 ₽</span><span class="box"><i></i></span></label>
+          <label class="row-w"><input type="checkbox" name="work" value="1500" data-part="chassis"><span class="pos">04</span><span class="name"><b>Ходовая часть</b><small>Рычаги, сайлентблоки, амортизаторы</small></span><span class="sum">1 500 ₽</span><span class="box"><i></i></span></label>
+          <label class="row-w"><input type="checkbox" name="work" value="2000" data-part="ac"><span class="pos">05</span><span class="name"><b>Кондиционер</b><small>Диагностика, заправка, антибактериальная обработка</small></span><span class="sum">2 000 ₽</span><span class="box"><i></i></span></label>
+          <label class="row-w"><input type="checkbox" name="work" value="700" data-part="tyres"><span class="pos">06</span><span class="name"><b>Шиномонтаж</b><small>Снятие, монтаж, балансировка 4 колёс</small></span><span class="sum">700 ₽</span><span class="box"><i></i></span></label>
+          <label class="row-w"><input type="checkbox" name="work" value="3500" data-part="engine"><span class="pos">07</span><span class="name"><b>Ремонт двигателя</b><small>ГРМ, прокладки, свечи — до капитального</small></span><span class="sum">3 500 ₽</span><span class="box"><i></i></span></label>
+        </div>
+        <div class="stamp">
+          <div class="doc"><span class="label">Заказ-наряд</span><span class="label">предварительный</span></div>
+          <div class="total">
+            <span class="label">Итого, ориентировочно</span>
+            <output id="total" aria-live="polite">900 ₽</output>
+            <small>Запчасти оплачиваются отдельно. Точную цену назовём после бесплатного осмотра.</small>
+          </div>
+          <div><a href="#booking" class="btn">Записаться с этим набором</a></div>
+          <div class="sheetno"><span class="label">Лист 1</span><span class="label">Листов 4</span><span class="label">Мотор-Про</span></div>
+        </div>
+      </form>
     </div>
-    <dl class="stats">
-      <div><dt>На рынке</dt><dd>12 лет</dd></div>
-      <div><dt>Постов без очередей</dt><dd>8</dd></div>
-      <div><dt>Гарантия на работы</dt><dd>12 мес.</dd></div>
-    </dl>
   </div>
 </section>
 
-<div class="ticker" aria-hidden="true"><div>ТО ✱ Диагностика ✱ Ходовая ✱ Тормоза ✱ Двигатель ✱ Кондиционер ✱ Шиномонтаж ✱ Видео-отчёт ✱ Гарантия 12 месяцев ✱&nbsp;ТО ✱ Диагностика ✱ Ходовая ✱ Тормоза ✱ Двигатель ✱ Кондиционер ✱ Шиномонтаж ✱ Видео-отчёт ✱ Гарантия 12 месяцев ✱&nbsp;</div></div>
-
-<section id="services">
+<section id="process">
   <div class="wrap">
-    <div class="head reveal">
-      <span class="num mono">§ 01</span>
-      <div><h2>Услуги и цены</h2><p class="lead">Цены для легкового автомобиля. Точную стоимость назовём после бесплатного осмотра.</p></div>
+    <div class="head">
+      <span class="label reveal">Лист 2 — Порядок работ</span>
+      <div><h2 class="reveal">Ни одной работы без вашего согласия</h2>
+        <p class="lead reveal">Цена фиксируется на третьем шаге. Если в ремонте нашлось что-то ещё — мы звоним, показываем и ждём «да».</p></div>
     </div>
-    <ol class="price">
-      <li class="reveal"><span class="code">01 / ТО</span><div><h3>Замена масла</h3><p>Масло и фильтр — ваши или наши, за 30 минут.</p></div><b>от 900 ₽</b></li>
-      <li class="reveal"><span class="code">02 / ДИАГ</span><div><h3>Компьютерная диагностика</h3><p>Считываем ошибки и объясняем, что срочно, а что подождёт.</p></div><b>от 1 200 ₽</b></li>
-      <li class="reveal"><span class="code">03 / ХОД</span><div><h3>Ходовая часть</h3><p>Рычаги, сайлентблоки, амортизаторы, ступичные подшипники.</p></div><b>от 1 500 ₽</b></li>
-      <li class="reveal"><span class="code">04 / ТОРМ</span><div><h3>Тормозная система</h3><p>Колодки, диски, замена тормозной жидкости.</p></div><b>от 1 100 ₽</b></li>
-      <li class="reveal"><span class="code">05 / ДВС</span><div><h3>Ремонт двигателя</h3><p>ГРМ, прокладки, свечи — от мелкого ремонта до капитального.</p></div><b>от 3 500 ₽</b></li>
-      <li class="reveal"><span class="code">06 / КОНД</span><div><h3>Кондиционер</h3><p>Диагностика, заправка фреоном, антибактериальная обработка.</p></div><b>от 2 000 ₽</b></li>
+    <ol class="flow">
+      <li class="node reveal"><span class="label"><span>01</span><span>15 мин</span></span><h3>Приёмка</h3><p>Осматриваем машину вместе с вами и записываем жалобы.</p></li>
+      <li class="node reveal"><span class="label"><span>02</span><span>30 мин</span></span><h3>Диагностика</h3><p>Подъёмник, сканер, тест-драйв. Фотографируем, что нашли.</p></li>
+      <li class="node key reveal"><span class="label"><span>03</span><span>5 мин</span></span><h3>Смета</h3><p>Называем цену работ и запчастей. Вы подписываете — она не меняется.</p></li>
+      <li class="node reveal"><span class="label"><span>04</span><span>по смете</span></span><h3>Ремонт</h3><p>Присылаем видео в мессенджер: что сняли и что поставили.</p></li>
+      <li class="node reveal"><span class="label"><span>05</span><span>15 мин</span></span><h3>Контроль</h3><p>Старший мастер проверяет работу и делает тест-драйв.</p></li>
+      <li class="node reveal"><span class="label"><span>06</span><span>10 мин</span></span><h3>Выдача</h3><p>Отдаём старые детали и гарантийный талон на 12 месяцев.</p></li>
     </ol>
   </div>
 </section>
 
-<section id="calc">
-  <div class="wrap">
-    <div class="head reveal">
-      <span class="num mono">§ 02</span>
-      <div><h2>Калькулятор стоимости</h2><p class="lead">Отметьте нужные работы — посчитаем ориентировочную цену с учётом класса автомобиля.</p></div>
-    </div>
-    <form class="calc reveal" id="calcForm">
-      <div>
-        <fieldset>
-          <legend>01 — Класс автомобиля</legend>
-          <div class="chips">
-            <label class="chip"><input type="radio" name="class" value="1" checked><span>Легковой</span></label>
-            <label class="chip"><input type="radio" name="class" value="1.2"><span>Кроссовер</span></label>
-            <label class="chip"><input type="radio" name="class" value="1.4"><span>Внедорожник / минивэн</span></label>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>02 — Работы</legend>
-          <div class="chips">
-            <label class="chip"><input type="checkbox" name="work" value="900" checked><span>Замена масла</span></label>
-            <label class="chip"><input type="checkbox" name="work" value="1200"><span>Диагностика</span></label>
-            <label class="chip"><input type="checkbox" name="work" value="1100"><span>Тормозные колодки</span></label>
-            <label class="chip"><input type="checkbox" name="work" value="1500"><span>Ходовая</span></label>
-            <label class="chip"><input type="checkbox" name="work" value="2000"><span>Кондиционер</span></label>
-            <label class="chip"><input type="checkbox" name="work" value="700"><span>Шиномонтаж</span></label>
-          </div>
-        </fieldset>
-      </div>
-      <div class="total">
-        <span class="mono">Итого, ориентировочно</span>
-        <output id="total" aria-live="polite">900 ₽</output>
-        <small>Запчасти оплачиваются отдельно. Точную цену назовём после осмотра.</small>
-        <a href="#booking" class="btn">Записаться →</a>
-      </div>
-    </form>
-  </div>
-</section>
-
-<section id="about">
-  <div class="wrap about">
-    <figure class="reveal">
+<section id="shop">
+  <div class="wrap shop">
+    <figure class="cyan reveal">
       <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=1000&q=70" alt="Мастер заливает масло в двигатель" loading="lazy">
-      <figcaption>ФОТО 02 — ЗАМЕНА МАСЛА, 30 МИНУТ</figcaption>
+      <svg viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M24 40h352M24 34v12M376 34v12"/><text x="200" y="30" text-anchor="middle">8 ПОСТОВ · БЕЗ ОЧЕРЕДИ</text>
+        <circle cx="236" cy="268" r="34"/><path d="M262 246l58-60h56"/><text x="290" y="178">ПОДЪЁМНИК 3,5 Т</text>
+      </svg>
+      <figcaption class="label">Лист 3 — Цех, пост № 3</figcaption>
     </figure>
     <div>
-      <div class="head reveal" style="display:block;margin-bottom:0">
-        <span class="num mono" style="display:block;margin-bottom:16px">§ 03</span>
-        <h2>Почему нам доверяют</h2>
-        <p class="lead">Работаем открыто: вы видите, что и зачем меняем.</p>
+      <div class="head" style="grid-template-columns:1fr;gap:12px">
+        <span class="label reveal">Технические требования</span>
+        <h2 class="reveal">Гарантии, записанные в заказ-наряд</h2>
       </div>
-      <ul class="points">
-        <li class="reveal"><span class="code">01</span><b>Фиксированная цена</b><span>Согласуем смету до начала работ. Без «а ещё мы нашли…» по телефону.</span></li>
-        <li class="reveal"><span class="code">02</span><b>Видео-отчёт</b><span>Снимаем ремонт на телефон и отправляем вам в мессенджер.</span></li>
-        <li class="reveal"><span class="code">03</span><b>Гарантия 12 месяцев</b><span>На все работы и запчасти, купленные у нас.</span></li>
-        <li class="reveal"><span class="code">04</span><b>Зона ожидания</b><span>Кофе, Wi-Fi и окно в цех — можно наблюдать за работой.</span></li>
-      </ul>
+      <ol class="reqs">
+        <li class="reveal"><div><b>Цена фиксируется до начала работ</b><span>Смета подписывается на приёмке. Доплата — только с вашего письменного согласия.</span></div></li>
+        <li class="reveal"><div><b>12 месяцев гарантии</b><span>На все работы и на запчасти, купленные у нас. Без ограничения пробега.</span></div></li>
+        <li class="reveal"><div><b>Старые детали — вам</b><span>Возвращаем всё, что сняли, чтобы было видно, за что вы заплатили.</span></div></li>
+        <li class="reveal"><div><b>Видео-отчёт о ремонте</b><span>Снимаем ключевые этапы и отправляем в Telegram или WhatsApp.</span></div></li>
+        <li class="reveal"><div><b>Окно в цех</b><span>Из зоны ожидания с кофе и Wi-Fi видно ваш пост — можно наблюдать за работой.</span></div></li>
+      </ol>
     </div>
   </div>
 </section>
 
-<section id="reviews">
-  <div class="wrap">
-    <div class="head reveal">
-      <span class="num mono">§ 04</span>
-      <div><h2>Отзывы клиентов</h2><p class="lead">4,8 ★ по оценкам клиентов на картах.</p></div>
-    </div>
-    <div class="reviews">
-      <div class="review reveal"><span class="stars">★★★★★ 5/5</span><p>Поменяли колодки и диски за полтора часа, как и обещали по цене. Прислали видео со старыми дисками — приятно.</p><small>— Алексей / Kia Rio</small></div>
-      <div class="review reveal"><span class="stars">★★★★★ 5/5</span><p>Другой сервис насчитал 40 тысяч на ходовую. Здесь честно сказали, что срочно нужен только один рычаг.</p><small>— Ирина / Hyundai Creta</small></div>
-      <div class="review reveal"><span class="stars">★★★★★ 5/5</span><p>Записался онлайн на субботу, приняли минута в минуту. Кондиционер снова холодит.</p><small>— Сергей / Toyota RAV4</small></div>
-    </div>
-  </div>
-</section>
-
-<section id="booking" class="booking">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="head">
-        <span class="num mono">§ 05</span>
-        <h2>Запись на сервис</h2>
-        <p class="lead">Оставьте заявку — мастер-приёмщик перезвонит в течение 15 минут и подберёт удобное время.</p>
+<section id="booking">
+  <div class="wrap booking">
+    <div>
+      <div class="head" style="grid-template-columns:1fr;gap:12px">
+        <span class="label reveal">Лист 4 — Запись</span>
+        <h2 class="reveal">Запишитесь на бесплатный осмотр</h2>
+        <p class="lead reveal">Мастер-приёмщик перезвонит в течение 15 минут и подберёт удобное время.</p>
       </div>
-      <dl class="contacts">
+      <dl class="contacts reveal">
         <div><dt>Адрес</dt><dd><a href="https://yandex.ru/maps/?text=ул.+Промышленная,+7" target="_blank" rel="noopener">ул. Промышленная, 7</a></dd></div>
         <div><dt>График</dt><dd>Пн–Сб 9:00 — 21:00, воскресенье — выходной</dd></div>
         <div><dt>Телефон</dt><dd><a href="tel:+79001112233">+7 (900) 111-22-33</a></dd></div>
       </dl>
     </div>
     <form class="reveal" id="bookForm" novalidate>
-      <div class="ticket"><span>ЗАКАЗ-НАРЯД</span><span>ЗАПИСЬ НА СЕРВИС</span></div>
-      <input name="name" aria-label="Ваше имя" placeholder="Ваше имя" autocomplete="name" required>
-      <input name="phone" type="tel" aria-label="Телефон" placeholder="Телефон" autocomplete="tel" required pattern="[\d\s\(\)+\-]{10,}">
-      <input name="car" aria-label="Марка и модель автомобиля" placeholder="Марка и модель, например Kia Rio 2019" required>
-      <label>Услуга
+      <div class="order"><h3>Заказ-наряд</h3><span class="label">№ ______ / запись</span></div>
+      <label class="f">Имя<input name="name" autocomplete="name" required></label>
+      <label class="f">Телефон<input name="phone" type="tel" placeholder="+7 (900) 000-00-00" autocomplete="tel" required pattern="[\d\s\(\)+\-]{10,}"></label>
+      <label class="f">Автомобиль<input name="car" placeholder="Марка, модель и год, например Kia Rio 2019" required></label>
+      <label class="f">Работы
         <select name="service">
-          <option>Диагностика</option><option>Замена масла</option><option>Ходовая часть</option>
-          <option>Тормозная система</option><option>Ремонт двигателя</option><option>Кондиционер</option><option>Другое</option>
+          <option>Диагностика</option><option>Замена масла</option><option>Ходовая часть</option><option>Тормозная система</option>
+          <option>Ремонт двигателя</option><option>Кондиционер</option><option>Шиномонтаж</option><option>Другое</option>
         </select>
       </label>
-      <div class="row">
-        <label>Дата<input name="date" type="date" required></label>
-        <label>Время<input name="time" type="time" min="09:00" max="20:00" required></label>
+      <div class="pair">
+        <label class="f">Дата<input name="date" type="date" required></label>
+        <label class="f">Время<input name="time" type="time" min="09:00" max="20:00" required></label>
       </div>
-      <button class="btn">Записаться →</button>
+      <button class="btn">Записаться</button>
+      <p class="legal">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
       <div class="ok" role="status"><h3>Заявка принята</h3><p>Перезвоним в течение 15 минут, чтобы подтвердить время.</p></div>
     </form>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="wrap">
@@ -382,32 +469,42 @@ const nav = document.getElementById('nav'), burger = document.querySelector('.bu
 const setMenu = open => {
   nav.classList.toggle('open', open);
   burger.setAttribute('aria-expanded', open);
-  burger.textContent = open ? '✕' : '☰';
+  burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
 };
 burger.onclick = () => setMenu(!nav.classList.contains('open'));
 nav.querySelectorAll('a').forEach(a => a.onclick = () => setMenu(false));
 
-const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')));
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), {threshold: .15});
+document.querySelectorAll('.reveal, .drawing').forEach(el => io.observe(el));
 
-// calculator: sum of selected works × car class, rounded to 10 ₽
-const calc = document.getElementById('calcForm'), total = document.getElementById('total');
+// specification = calculator: sum of ticked works × car class, rounded to 10 ₽.
+// Ticked works light their parts on the drawing; the class reshapes the body and its dimensions.
+const calc = document.getElementById('calcForm'), total = document.getElementById('total'), car = document.getElementById('car');
+const DIMS = {'1': ['4 420', '1 470'], '1.2': ['4 510', '1 650'], '1.4': ['4 870', '1 830']};
+const parts = id => car.querySelectorAll(`[data-part="${id}"]`);
 const recalc = () => {
-  const sum = [...calc.querySelectorAll('[name=work]:checked')].reduce((s, i) => s + +i.value, 0);
-  const price = Math.round(sum * +calc.elements['class'].value / 10) * 10;
-  total.textContent = price.toLocaleString('ru-RU') + ' ₽';
+  const works = [...calc.querySelectorAll('[name=work]')], k = calc.elements['class'].value;
+  const sum = works.filter(i => i.checked).reduce((s, i) => s + +i.value, 0);
+  total.textContent = (Math.round(sum * k / 10) * 10).toLocaleString('ru-RU') + ' ₽';
+  works.forEach(i => parts(i.dataset.part).forEach(p => p.classList.toggle('on', i.checked)));
+  car.dataset.class = k;
+  [document.getElementById('dimL').textContent, document.getElementById('dimH').textContent] = DIMS[k];
 };
 calc.onchange = recalc;
 calc.onsubmit = e => e.preventDefault();
+calc.querySelectorAll('.row-w').forEach(row => {
+  const id = row.querySelector('input').dataset.part;
+  row.onmouseenter = () => parts(id).forEach(p => p.classList.add('peek'));
+  row.onmouseleave = () => parts(id).forEach(p => p.classList.remove('peek'));
+});
 recalc();
 
 const form = document.getElementById('bookForm');
-const today = new Date(Date.now() - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10); // local date
-form.date.min = today;
+form.date.min = new Date(Date.now() - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10); // local date
 form.date.oninput = () => form.date.setCustomValidity('');
 form.onsubmit = e => {
   e.preventDefault();
-  if (new Date(form.date.value + 'T00:00').getDay() === 0) form.date.setCustomValidity('В воскресенье мы не работаем');
+  if (form.date.value && new Date(form.date.value + 'T00:00').getDay() === 0) form.date.setCustomValidity('В воскресенье мы не работаем');
   if (!form.checkValidity()) return form.reportValidity();
   form.classList.add('sent'); // demo: no backend
 };
