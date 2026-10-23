@@ -67,24 +67,58 @@ header nav a:hover{color:var(--light)}
 .burger[aria-expanded=true] span:first-child{top:21.5px;transform:rotate(45deg)}
 .burger[aria-expanded=true] span:last-child{top:21.5px;transform:rotate(-45deg)}
 
-/* cover */
-.cover{padding:72px 0 0}
-.cover-top{display:grid;grid-template-columns:8fr 4fr;gap:40px;align-items:end;margin-bottom:56px}
-.cover h1{font-size:clamp(52px,8.4vw,136px);font-weight:300;letter-spacing:-.05em}
-.cover h1 em{font-style:normal;color:var(--light)}
-.cover-side p{color:var(--muted);font-size:18px;margin-bottom:28px}
-.cover-side .actions{display:flex;flex-direction:column;gap:10px}
-.cover figure{position:relative}
-.cover figure img{width:100%;aspect-ratio:21/9;object-fit:cover}
-.js .cover figure img{animation:dusk 2.4s .2s both var(--ease)}
-@keyframes dusk{from{filter:brightness(.55) saturate(.6)}}
-.cover figcaption{display:flex;justify-content:space-between;gap:20px;padding:12px 0}
-.facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);margin-top:28px}
-.facts div{padding:22px 24px 0 0}
-.facts div+div{padding-left:24px;border-left:1px solid var(--line)}
-.facts b{display:block;font-size:clamp(34px,3.4vw,52px);font-weight:300;letter-spacing:-.04em;line-height:1}
-.facts span{font-size:15px;color:var(--muted)}
-
+/* configurator: the whole first screen is the 3D plot; title over it, controls in a side panel */
+.config{position:relative;height:calc(100svh - 68px);min-height:640px;max-height:980px;overflow:hidden;
+  background:linear-gradient(180deg,#cfdfe8 0%,#e7edee 52%,var(--paper) 100%);transition:color .8s}
+.config::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#121a2a 0%,#25304a 55%,#3a3550 100%);opacity:0;transition:opacity 1.2s var(--ease)}
+.config.night::before{opacity:1}
+.scene{position:absolute;inset:0}
+.scene canvas{position:absolute;inset:0;width:100%!important;height:100%!important;cursor:grab;opacity:0;transition:opacity 1s}
+.scene canvas:active{cursor:grabbing}
+.scene.webgl canvas{opacity:1}
+.scene .fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.scene.webgl .fallback{display:none}
+.config-head{position:absolute;left:max(40px,calc((100vw - 1320px)/2 + 40px));top:44px;max-width:460px;pointer-events:none;transition:color 1s}
+.config-head h1{font-size:clamp(46px,5.6vw,88px);font-weight:300;letter-spacing:-.05em;margin:12px 0 16px}
+.config-head h1 em{font-style:normal;color:var(--light)}
+.config-head p{color:var(--muted);font-size:17px;max-width:38ch;transition:color 1s}
+.config-head .hint{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:13px;color:var(--muted)}
+.config-head .hint svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.5}
+.config.night .config-head,.config.night .config-head .kicker{color:#f4f2ee}
+.config.night .config-head p,.config.night .config-head .hint{color:#c9cfdb}
+.panel{position:absolute;right:max(24px,calc((100vw - 1320px)/2 + 24px));top:24px;bottom:24px;width:360px;display:flex;flex-direction:column;
+  background:rgba(251,250,248,.86);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border:1px solid var(--line);
+  box-shadow:0 30px 60px -30px rgba(28,28,26,.35);overflow:auto;scrollbar-width:thin}
+.grp{padding:18px 20px;border-bottom:1px solid var(--line)}
+.grp>.kicker{display:flex;justify-content:space-between;margin-bottom:12px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink)}
+.seg button{font:500 13px var(--sans);padding:9px 6px;min-height:40px;border:0;background:none;color:var(--ink);cursor:pointer;transition:background .2s,color .2s}
+.seg button+button{border-left:1px solid var(--ink)}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.mods{list-style:none;display:grid;gap:6px}
+.mod{width:100%;display:grid;grid-template-columns:22px 1fr auto;gap:2px 12px;align-items:center;text-align:left;padding:10px 12px;min-height:52px;border:1px solid var(--line);background:var(--white);color:var(--ink);font:inherit;cursor:pointer;transition:border-color .2s,background .2s,transform .15s}
+.mod:hover{border-color:var(--ink)}
+.mod:active{transform:scale(.985)}
+.mod i{grid-row:span 2;width:18px;height:18px;border:1.5px solid var(--ink);position:relative;transition:background .2s}
+.mod i::after{content:"";position:absolute;left:4px;top:1px;width:5px;height:9px;border:solid var(--paper);border-width:0 2px 2px 0;transform:rotate(45deg) scale(0);transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
+.mod[aria-pressed=true]{border-color:var(--ink);background:#fff}
+.mod[aria-pressed=true] i{background:var(--light);border-color:var(--light)}
+.mod[aria-pressed=true] i::after{transform:rotate(45deg) scale(1)}
+.mod b{font-weight:500;font-size:15px}
+.mod small{grid-column:2;font-size:12.5px;color:var(--muted)}
+.mod .pr{grid-row:1/span 2;grid-column:3;font-size:14px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.mod[aria-pressed=true] .pr{color:var(--ink)}
+.sum{margin-top:auto;border-bottom:0;background:var(--white)}
+.sum dl{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;margin-bottom:14px}
+.sum dt{font-size:12px;color:var(--muted)}
+.sum dd{font-size:24px;font-weight:300;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.sum .total{grid-column:1/-1;padding-top:10px;border-top:1px solid var(--line)}
+.sum .total dd{font-size:40px;line-height:1}
+.sum .btn{width:100%}
+.sum .facts{margin-top:12px;font-size:12.5px;color:var(--muted)}
+.daynight{position:absolute;left:max(40px,calc((100vw - 1320px)/2 + 40px));bottom:32px;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 18px 0 8px;border:1px solid var(--line);border-radius:999px;background:rgba(251,250,248,.86);backdrop-filter:blur(10px);font:500 14px var(--sans);color:var(--ink);cursor:pointer}
+.daynight span{width:28px;height:28px;border-radius:50%;background:var(--light);box-shadow:inset -8px -6px 0 0 #f0c069;transition:box-shadow .6s,background .6s}
+.daynight[aria-pressed=true] span{background:#dfe6f2;box-shadow:inset 8px -6px 0 0 #8e9bb8}
 /* projects: book spreads with a plan viewer */
 .spreads{display:grid;gap:140px}
 .spread{display:grid;grid-template-columns:7fr 5fr;gap:56px;align-items:start}
@@ -191,19 +225,23 @@ footer a:hover{color:var(--ink)}
   .js .reveal{opacity:1;transform:none;transition:none}
   .progress i,.bar{transition:none}
   .js .gantt:not(.in) .bar{transform:none}
-  .js .cover figure img{animation:none}
+  .scene canvas{transition:none}
 }
 
 @media (max-width:1000px){
-  .cover-top,.quiz-box{grid-template-columns:1fr}
-  .cover-side .actions{flex-direction:row;flex-wrap:wrap}
+  .quiz-box{grid-template-columns:1fr}
   .spread,.spread:nth-child(even){grid-template-columns:1fr;gap:32px}
   .spread:nth-child(even) .shot{order:0}
   .shot img{aspect-ratio:3/2}
   .chapter{grid-template-columns:1fr;gap:16px;margin-bottom:48px}
-  .facts{grid-template-columns:1fr 1fr}
-  .facts div:nth-child(3){padding-left:0;border-left:0}
-  .facts div:nth-child(n+3){border-top:1px solid var(--line);padding-top:22px;margin-top:22px}
+  .config{height:auto;max-height:none;min-height:0;display:flex;flex-direction:column}
+  .scene{position:relative;height:62svh;min-height:420px;max-height:600px}
+  .config-head{position:absolute;left:24px;right:24px;top:24px}
+  .config-head h1{font-size:clamp(38px,9vw,56px);margin:8px 0 10px}
+  .config-head p{display:none}
+  .daynight{left:auto;right:16px;bottom:auto;top:calc(clamp(420px,62svh,600px) - 60px)}
+  .panel{position:relative;inset:auto;width:auto;margin:0;border-left:0;border-right:0;box-shadow:none;backdrop-filter:none;background:var(--white);overflow:visible}
+  .mods{grid-template-columns:1fr 1fr}
 }
 @media (max-width:860px){
   .burger{display:block}
@@ -216,9 +254,8 @@ footer a:hover{color:var(--ink)}
   .wrap{padding:0 16px}
   header nav{padding:16px}
   section{padding:80px 0}
-  .cover{padding-top:40px}
-  .cover figure img{aspect-ratio:4/3}
-  .cover figcaption{flex-direction:column;gap:4px}
+  .mods{grid-template-columns:1fr}
+  .config-head .hint{display:none}
   .spreads{gap:96px}
   .info .no{font-size:64px}
   .rooms{columns:1}
@@ -246,29 +283,47 @@ footer a:hover{color:var(--ink)}
 </header>
 
 <main>
-<section class="cover">
-  <div class="wrap">
-    <div class="cover-top">
-      <h1>Дом, в который хочется <em>возвращаться</em></h1>
-      <div class="cover-side">
-        <p>Строим загородные дома под ключ по фиксированной смете. Без доплат по ходу стройки и с гарантией 10 лет.</p>
-        <div class="actions">
-          <a href="#quiz-section" class="btn">Подобрать проект за 4 вопроса</a>
-          <a href="#projects" class="btn ghost">Смотреть планировки</a>
-        </div>
+<section class="config" id="build">
+  <div class="scene" id="stage" aria-hidden="true">
+    <img class="fallback" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1800&q=70" alt="" fetchpriority="high">
+  </div>
+  <div class="config-head">
+    <span class="kicker">Конфигуратор дома</span>
+    <h1>Соберите <em>свой</em> дом</h1>
+    <p>Добавьте второй этаж, гараж или баню — цена, площадь и срок стройки пересчитаются сразу. Эту же цену зафиксируем в смете.</p>
+    <span class="hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3M18 3v4h-4M6 21v-4h4"/></svg>Тяните, чтобы повернуть</span>
+  </div>
+  <button class="daynight" type="button" id="daynight" aria-pressed="false"><span aria-hidden="true"></span>Вечер</button>
+  <aside class="panel" aria-label="Параметры дома">
+    <div class="grp">
+      <span class="kicker"><span>Стены</span><span id="rate">74 000 ₽/м²</span></span>
+      <div class="seg" role="group" aria-label="Материал стен">
+        <button type="button" data-mat="brus" aria-pressed="true">Брус</button>
+        <button type="button" data-mat="gas" aria-pressed="false">Газобетон</button>
+        <button type="button" data-mat="frame" aria-pressed="false">Каркас</button>
       </div>
     </div>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1800&q=70" srcset="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=70 900w, https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1800&q=70 1800w" sizes="100vw" alt="Современный загородный дом вечером, в окнах горит свет" fetchpriority="high">
-      <figcaption><span class="cap">Илл. 1. Дом по проекту «Модерн», вечер. Ленинградская область.</span><span class="kicker">Загородные дома · 2012–2026</span></figcaption>
-    </figure>
-    <div class="facts">
-      <div><b>14 лет</b><span>строим дома</span></div>
-      <div><b>230+</b><span>сданных домов</span></div>
-      <div><b>10 лет</b><span>гарантия по договору</span></div>
-      <div><b>0 ₽</b><span>доплат сверх сметы</span></div>
+    <div class="grp">
+      <span class="kicker"><span>Модули</span><span>база — 96 м²</span></span>
+      <ul class="mods">
+        <li><button type="button" class="mod" data-mod="floor2" aria-pressed="false"><i aria-hidden="true"></i><b>Второй этаж</b><small>+62 м², 3 спальни</small><span class="pr"></span></button></li>
+        <li><button type="button" class="mod" data-mod="garage" aria-pressed="false"><i aria-hidden="true"></i><b>Гараж</b><small>+24 м², на одну машину</small><span class="pr"></span></button></li>
+        <li><button type="button" class="mod" data-mod="terrace" aria-pressed="false"><i aria-hidden="true"></i><b>Терраса</b><small>20 м², с перголой</small><span class="pr"></span></button></li>
+        <li><button type="button" class="mod" data-mod="glass" aria-pressed="false"><i aria-hidden="true"></i><b>Панорамные окна</b><small>гостиная в пол</small><span class="pr"></span></button></li>
+        <li><button type="button" class="mod" data-mod="bath" aria-pressed="false"><i aria-hidden="true"></i><b>Баня</b><small>+16 м², отдельный сруб</small><span class="pr"></span></button></li>
+        <li><button type="button" class="mod" data-mod="pool" aria-pressed="false"><i aria-hidden="true"></i><b>Бассейн</b><small>6 × 3 м, с подогревом</small><span class="pr"></span></button></li>
+      </ul>
     </div>
-  </div>
+    <div class="grp sum">
+      <dl>
+        <div><dt>Площадь</dt><dd><span id="sumArea">96</span> м²</dd></div>
+        <div><dt>Срок стройки</dt><dd><span id="sumWeeks">22</span> нед.</dd></div>
+        <div class="total"><dt>Под ключ, по смете</dt><dd>от <span id="sumPrice">7,1</span> млн ₽</dd></div>
+      </dl>
+      <button type="button" class="btn" id="toQuiz">Отправить в подборку</button>
+      <p class="facts">14 лет строим · 230+ домов сдано · 10 лет гарантии</p>
+    </div>
+  </aside>
 </section>
 
 <section id="projects">
@@ -571,6 +626,370 @@ quiz.onsubmit = e => {
   if (!quiz.checkValidity()) return quiz.reportValidity();
   quiz.classList.add('sent'); // demo: no backend
 };
+
+// configurator: walls material sets the price per m², modules add area, money and weeks.
+// The 3D scene (module script below) listens to 'house:change'; without WebGL the panel still counts.
+const RATE = {brus: 74000, gas: 66000, frame: 52000};
+const MAT_WEEKS = {brus: 0, gas: 4, frame: -4};
+const MAT_QUIZ = {brus: 'клеёный брус', gas: 'газобетон', frame: 'каркас'};
+const MODS = { // area counts into the house; k = share of the wall rate per m²; fixed = flat price
+  floor2: {area: 62, k: 1, weeks: 6},
+  garage: {area: 24, k: .6, weeks: 3},
+  terrace: {open: 20, k: .35, weeks: 1},
+  glass: {fixed: 500000, weeks: 0},
+  bath: {area: 16, k: .9, weeks: 3},
+  pool: {fixed: 1800000, weeks: 2},
+};
+const BASE_AREA = 96, BASE_WEEKS = 22;
+const house = window.houseState = {mat: 'brus', mods: new Set(), night: false};
+const modPrice = id => { const m = MODS[id]; return m.fixed || ((m.area || m.open) * RATE[house.mat] * m.k); };
+const totals = () => ({
+  area: BASE_AREA + [...house.mods].reduce((s, id) => s + (MODS[id].area || 0), 0),
+  weeks: BASE_WEEKS + MAT_WEEKS[house.mat] + [...house.mods].reduce((s, id) => s + MODS[id].weeks, 0),
+  price: BASE_AREA * RATE[house.mat] + [...house.mods].reduce((s, id) => s + modPrice(id), 0),
+});
+const mln = n => (n / 1e6).toFixed(1).replace('.', ',');
+const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const roll = (el, to, fmt) => { // count the number over to its new value
+  const from = +el.dataset.v || to; el.dataset.v = to;
+  if (calm || from === to) return el.textContent = fmt(to);
+  const t0 = performance.now();
+  const step = now => { const k = Math.min((now - t0) / 450, 1), e = 1 - (1 - k) ** 3; el.textContent = fmt(from + (to - from) * e); if (k < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+};
+const render = () => {
+  const t = totals();
+  roll(document.getElementById('sumArea'), t.area, Math.round);
+  roll(document.getElementById('sumWeeks'), t.weeks, Math.round);
+  roll(document.getElementById('sumPrice'), t.price, mln);
+  document.getElementById('rate').textContent = RATE[house.mat].toLocaleString('ru-RU') + ' ₽/м²';
+  document.querySelectorAll('.mod').forEach(b => {
+    b.setAttribute('aria-pressed', house.mods.has(b.dataset.mod));
+    b.querySelector('.pr').textContent = '+' + mln(modPrice(b.dataset.mod)) + ' млн';
+  });
+  document.querySelectorAll('[data-mat]').forEach(b => b.setAttribute('aria-pressed', b.dataset.mat === house.mat));
+  dispatchEvent(new CustomEvent('house:change'));
+};
+document.querySelectorAll('.mod').forEach(b => b.onclick = () => {
+  house.mods.has(b.dataset.mod) ? house.mods.delete(b.dataset.mod) : house.mods.add(b.dataset.mod);
+  render();
+});
+document.querySelectorAll('[data-mat]').forEach(b => b.onclick = () => { house.mat = b.dataset.mat; render(); });
+const dayNight = document.getElementById('daynight');
+dayNight.onclick = () => {
+  house.night = !house.night;
+  dayNight.setAttribute('aria-pressed', house.night);
+  dayNight.lastChild.textContent = house.night ? 'День' : 'Вечер';
+  document.getElementById('build').classList.toggle('night', house.night);
+  dispatchEvent(new CustomEvent('house:change'));
+};
+// "Отправить в подборку": answer the quiz from the built house and jump to the contact step
+document.getElementById('toQuiz').onclick = () => {
+  const t = totals(), sq = BASE_AREA + (house.mods.has('floor2') ? MODS.floor2.area : 0);
+  const pick = (name, value) => quiz.querySelector(`input[name=${name}][value="${value}"]`).checked = true;
+  pick('area', sq <= 120 ? 'до 120 м²' : sq <= 180 ? '120–180 м²' : sq <= 250 ? '180–250 м²' : 'больше 250 м²');
+  pick('floors', house.mods.has('floor2') ? '2 этажа' : '1 этаж');
+  pick('material', MAT_QUIZ[house.mat]);
+  pick('budget', t.price <= 8e6 ? 'до 8 млн ₽' : t.price <= 12e6 ? '8–12 млн ₽' : t.price <= 20e6 ? '12–20 млн ₽' : 'больше 20 млн ₽');
+  show(steps.length - 1);
+  document.getElementById('quiz-section').scrollIntoView({behavior: calm ? 'auto' : 'smooth'});
+  setTimeout(() => quiz.elements.name.focus({preventScroll: true}), calm ? 0 : 600);
+};
+render();
+</script>
+
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+// 3D plot for the configurator: an orthographic, isometric-ish view of the house on its plot.
+// Modules drop in with a bounce and a puff of dust; the 2nd floor lifts the roof; evening lights the windows.
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const stage = document.getElementById('stage'), state = window.houseState;
+const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let renderer;
+try { renderer = new THREE.WebGLRenderer({antialias: true, alpha: true, powerPreference: 'low-power'}); } catch { renderer = null; }
+if (renderer) {
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.05;
+  stage.append(renderer.domElement);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, .1, 200);
+  const target = new THREE.Vector3(0, 2, 1);
+  camera.position.set(30, 25, 30).add(target);
+
+  // ---- materials ---------------------------------------------------------------
+  const tex = (w, h, paint, rx = 1, ry = 1) => {
+    const c = document.createElement('canvas'); c.width = w; c.height = h;
+    paint(c.getContext('2d'), w, h);
+    const t = new THREE.CanvasTexture(c);
+    t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(rx, ry); t.anisotropy = 4;
+    return t;
+  };
+  const facade = {
+    brus: tex(256, 256, (g, w, h) => { // horizontal glued-timber logs with a rounded highlight
+      for (let y = 0; y < h; y += 32) {
+        const gr = g.createLinearGradient(0, y, 0, y + 32);
+        gr.addColorStop(0, '#c99662'); gr.addColorStop(.45, '#b9844f'); gr.addColorStop(1, '#8a5c34');
+        g.fillStyle = gr; g.fillRect(0, y, w, 32);
+      }
+    }, 4, 2),
+    gas: tex(256, 256, (g, w, h) => { // light plaster over blocks
+      g.fillStyle = '#ebe7df'; g.fillRect(0, 0, w, h);
+      g.strokeStyle = 'rgba(0,0,0,.05)'; g.lineWidth = 2;
+      for (let y = 0; y <= h; y += 32) { g.beginPath(); g.moveTo(0, y); g.lineTo(w, y); g.stroke(); for (let x = (y / 32) % 2 * 32; x < w; x += 64) { g.beginPath(); g.moveTo(x, y); g.lineTo(x, y + 32); g.stroke(); } }
+    }, 3, 2),
+    frame: tex(256, 256, (g, w, h) => { // dark board-and-batten
+      g.fillStyle = '#3b434c'; g.fillRect(0, 0, w, h);
+      g.fillStyle = '#4a535d'; for (let x = 0; x < w; x += 32) g.fillRect(x, 0, 6, h);
+    }, 5, 1),
+  };
+  const wallMat = new THREE.MeshStandardMaterial({map: facade[state.mat], roughness: .9});
+  const roofMat = new THREE.MeshStandardMaterial({roughness: .6, metalness: .1, // standing-seam metal
+    map: tex(128, 128, (g, w, h) => { g.fillStyle = '#5d646c'; g.fillRect(0, 0, w, h); g.fillStyle = '#454b52'; for (let x = 0; x < w; x += 16) g.fillRect(x, 0, 3, h); }, 8, 1)});
+  const M = (color, o = {}) => new THREE.MeshStandardMaterial({color, roughness: .85, ...o});
+  const plinth = M('#8d8a84'), trim = M('#262a2f'), sillMat = M('#e9e5dc'), wood = M('#8a5a36'), deckMat = M('#a77a52'),
+    stone = M('#d9d4ca'), leaf = M('#5f7d46'), pine = M('#3f5b3c'), bark = M('#5a4130'), white = M('#f1efe9');
+  const glassMat = new THREE.MeshStandardMaterial({color: '#9db7c6', roughness: .08, metalness: .3, emissive: '#ffb45e', emissiveIntensity: 0});
+  const bulbMat = new THREE.MeshStandardMaterial({color: '#fff3d6', emissive: '#ffcf7a', emissiveIntensity: 0});
+  const waterMat = new THREE.MeshStandardMaterial({color: '#4aa8cf', roughness: .1, metalness: .2, transparent: true, opacity: .9,
+    map: tex(128, 128, (g, w, h) => { g.fillStyle = '#5ab7da'; g.fillRect(0, 0, w, h); g.strokeStyle = 'rgba(255,255,255,.35)'; g.lineWidth = 2;
+      for (let y = 8; y < h; y += 16) { g.beginPath(); for (let x = 0; x <= w; x += 8) g.lineTo(x, y + Math.sin(x / 10 + y) * 3); g.stroke(); } }, 3, 2)});
+
+  // ---- builders ----------------------------------------------------------------
+  const add = (parent, geo, mat, x, y, z) => { const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); m.castShadow = m.receiveShadow = true; parent.add(m); return m; };
+  const box = (parent, w, h, d, mat, x, y, z) => add(parent, new THREE.BoxGeometry(w, h, d), mat, x, y + h / 2, z); // y = bottom
+  const facades = [];
+  const walls = (parent, w, h, d, x, y, z) => { const m = box(parent, w, h, d, wallMat, x, y, z); facades.push(m); return m; };
+  // gable roof along x: triangle profile extruded over the length; gable ends take the wall material
+  const gable = (parent, L, D, rise, ov, x, y, z) => {
+    const s = new THREE.Shape(); s.moveTo(-D / 2 - ov, 0); s.lineTo(0, rise); s.lineTo(D / 2 + ov, 0); s.lineTo(-D / 2 - ov, 0);
+    const geo = new THREE.ExtrudeGeometry(s, {depth: L + 2 * ov, bevelEnabled: false});
+    geo.rotateY(Math.PI / 2); geo.translate(-(L + 2 * ov) / 2, 0, 0);
+    return add(parent, geo, [wallMat, roofMat], x, y, z);
+  };
+  // window on a wall face: side 'z' (normal +z), '-z', 'x' or '-x'; (u = position along the wall, v = sill height)
+  const win = (parent, side, wallPos, u, v, w, h) => {
+    const g = new THREE.Group();
+    box(g, w + .16, h + .16, .1, trim, 0, -.08, 0);
+    box(g, w, h, .12, glassMat, 0, 0, 0);
+    box(g, .06, h, .16, trim, 0, 0, 0);
+    box(g, w + .32, .07, .26, sillMat, 0, -.12, .06);
+    g.position.y = v;
+    if (side === 'z' || side === '-z') { g.position.x = u; g.position.z = wallPos; if (side === '-z') g.rotation.y = Math.PI; }
+    else { g.position.z = u; g.position.x = wallPos; g.rotation.y = side === 'x' ? Math.PI / 2 : -Math.PI / 2; }
+    parent.add(g); return g;
+  };
+  const module = (x = 0, z = 0) => { const g = new THREE.Group(); g.position.set(x, 0, z); g.visible = false; g.userData.on = false; scene.add(g); return g; };
+
+  // ---- plot ----------------------------------------------------------------------
+  const PW = 32, PD = 26;
+  const plotShape = new THREE.Shape(), r = 2.5, hw = PW / 2, hd = PD / 2;
+  plotShape.moveTo(-hw + r, -hd); plotShape.lineTo(hw - r, -hd); plotShape.quadraticCurveTo(hw, -hd, hw, -hd + r);
+  plotShape.lineTo(hw, hd - r); plotShape.quadraticCurveTo(hw, hd, hw - r, hd); plotShape.lineTo(-hw + r, hd);
+  plotShape.quadraticCurveTo(-hw, hd, -hw, hd - r); plotShape.lineTo(-hw, -hd + r); plotShape.quadraticCurveTo(-hw, -hd, -hw + r, -hd);
+  const plotGeo = new THREE.ExtrudeGeometry(plotShape, {depth: .8, bevelEnabled: false});
+  plotGeo.rotateX(-Math.PI / 2); plotGeo.translate(0, -.8, 0);
+  const plot = add(scene, plotGeo, [M('#86a764', {roughness: 1}), M('#6e5440', {roughness: 1})], 0, 0, 0);
+  plot.castShadow = false;
+  // path of slabs from the door to the gate, lamps along it
+  for (let z = 4.9; z < hd - .5; z += 1.15) box(scene, 1.3, .08, .8, stone, 2, 0, z);
+  const lamps = [];
+  for (const z of [6.5, 9.2, 11.9]) for (const x of [.9, 3.1]) {
+    box(scene, .1, 1.1, .1, trim, x, 0, z);
+    lamps.push(add(scene, new THREE.SphereGeometry(.14, 12, 8), bulbMat, x, 1.18, z));
+  }
+  // picket fence round the plot with a gate gap at the path and the drive
+  const fence = new THREE.Group(); scene.add(fence);
+  const picket = new THREE.BoxGeometry(.08, .9, .08);
+  const rail = (x0, z0, x1, z1) => {
+    const len = Math.hypot(x1 - x0, z1 - z0), n = Math.floor(len / .35);
+    for (let i = 0; i <= n; i++) { const k = i / n; const m = new THREE.Mesh(picket, white); m.position.set(x0 + (x1 - x0) * k, .45, z0 + (z1 - z0) * k); fence.add(m); }
+    const b = new THREE.Mesh(new THREE.BoxGeometry(Math.abs(x1 - x0) || .06, .06, Math.abs(z1 - z0) || .06), white);
+    b.position.set((x0 + x1) / 2, .65, (z0 + z1) / 2); fence.add(b);
+  };
+  const e = .6;
+  rail(-hw + e, -hd + e, hw - e, -hd + e); rail(-hw + e, -hd + e, -hw + e, hd - e); rail(hw - e, -hd + e, hw - e, hd - e);
+  rail(-hw + e, hd - e, .6, hd - e); rail(3.4, hd - e, 6.2, hd - e); rail(10.6, hd - e, hw - e, hd - e);
+  // trees
+  const tree = (x, z, kind, s = 1) => {
+    box(scene, .3 * s, 1.2 * s, .3 * s, bark, x, 0, z);
+    if (kind === 'pine') for (let i = 0; i < 3; i++) add(scene, new THREE.ConeGeometry((1.5 - i * .35) * s, 1.8 * s, 7), pine, x, (1.6 + i * .9) * s, z);
+    else add(scene, new THREE.IcosahedronGeometry(1.5 * s, 0), leaf, x, 2.4 * s, z);
+  };
+  tree(-13.5, -10, 'pine', 1.1); tree(-10.5, -11.2, 'pine', .9); tree(13.5, -10.2, 'pine', 1.2); tree(13.8, -2, 'leaf', .9);
+  tree(-14, 1.5, 'leaf', 1.1); tree(-3.6, 11.6, 'pine', .8);
+  // mailbox
+  box(scene, .08, 1, .08, trim, 3.9, 0, hd - 1); box(scene, .5, .35, .3, M('#c8892f'), 3.9, 1, hd - 1);
+
+  // ---- base house: 12 × 8 m, one storey ---------------------------------------
+  const HL = 12, HD = 8, H1 = 3, P = .35;
+  const base = new THREE.Group(); scene.add(base);
+  box(base, HL + .5, P, HD + .5, plinth, 0, 0, 0);
+  walls(base, HL, H1, HD, 0, P, 0);
+  const liveWin = new THREE.Group(); base.add(liveWin);                               // living-room windows (swapped for glass)
+  win(liveWin, 'z', HD / 2 + .02, -4.3, P + 1.7, 1.4, 1.5); win(liveWin, 'z', HD / 2 + .02, -1.8, P + 1.7, 1.4, 1.5);
+  win(base, 'z', HD / 2 + .02, 4.3, P + 1.7, 1.2, 1.3);
+  for (const u of [-3.5, 0, 3.5]) win(base, '-z', -HD / 2 - .02, u, P + 1.7, 1.3, 1.3);
+  win(base, '-x', -HL / 2 - .02, -1.5, P + 1.7, 1.3, 1.3); win(base, '-x', -HL / 2 - .02, 1.5, P + 1.7, 1.3, 1.3);
+  win(base, 'x', HL / 2 + .02, 1.8, P + 1.7, 1.1, 1.2);
+  box(base, 1.1, 2.2, .12, wood, 2, P, HD / 2 + .04);                                // door
+  box(base, 1.8, .12, 1.1, trim, 2, P + 2.5, HD / 2 + .5);                          // canopy
+  box(base, .06, H1, .06, trim, HL / 2 - .05, P, HD / 2 + .05); box(base, .06, H1, .06, trim, -HL / 2 + .05, P, HD / 2 + .05); // downpipes
+  const roof = new THREE.Group(); scene.add(roof);                                   // lifted by the 2nd floor
+  gable(roof, HL, HD, 2.7, .5, 0, 0, 0);
+  box(roof, .7, 1.6, .7, M('#6b625a'), 3.2, 1.2, -1.2);                              // chimney
+  roof.position.y = P + H1;
+  const doorLight = new THREE.PointLight('#ffb764', 0, 10, 1.6); doorLight.position.set(2, P + 2.3, HD / 2 + 1); scene.add(doorLight);
+
+  // ---- modules -----------------------------------------------------------------------
+  const mods = {};
+  // 2nd floor: grows out of the first; the roof rides on top
+  mods.floor2 = (() => { const g = module(); g.position.y = P + H1;
+    walls(g, HL, 2.8, HD, 0, 0, 0);
+    for (const u of [-4, -1, 3.5]) win(g, 'z', HD / 2 + .02, u, 1.3, 1.3, 1.3);
+    for (const u of [-3.5, 0, 3.5]) win(g, '-z', -HD / 2 - .02, u, 1.3, 1.3, 1.3);
+    win(g, 'x', HL / 2 + .02, 0, 1.3, 1.2, 1.3); win(g, '-x', -HL / 2 - .02, 0, 1.3, 1.2, 1.3);
+    box(g, 3.4, .1, 1.2, trim, -2.5, 0, HD / 2 + .6);                                   // balcony slab
+    for (let i = 0; i < 9; i++) box(g, .05, .9, .05, trim, -4.1 + i * .4, .1, HD / 2 + 1.15);
+    return g; })();
+  mods.garage = (() => { const g = module(HL / 2 + 2.4, -.5);
+    box(g, 4.8, P, 6.4, plinth, 0, 0, 0); walls(g, 4.6, 2.8, 6.2, 0, P, 0);
+    box(g, 5.1, .3, 6.7, trim, 0, P + 2.8, 0);                                         // flat roof
+    box(g, 3.2, 2.3, .1, M('#cfd2d4'), 0, P, 3.12);                                    // sectional door
+    for (let i = 1; i < 5; i++) box(g, 3.2, .03, .14, M('#a9adb1'), 0, P + i * .46, 3.12);
+    for (let z = 3.6; z < hd - .4; z += .9) box(g, 3.6, .06, .8, M('#bdb7ab'), 0, 0, z);   // drive
+    return g; })();
+  mods.terrace = (() => { const g = module(-3.1, HD / 2 + 1.9);
+    for (let i = 0; i < 12; i++) box(g, 5.6, .18, .26, deckMat, 0, 0, -1.5 + i * .275);
+    for (const [x, z] of [[-2.6, 1.5], [2.6, 1.5], [-2.6, -1.4], [2.6, -1.4]]) box(g, .16, 2.6, .16, wood, x, .18, z);
+    for (const z of [1.5, -1.4]) box(g, 5.6, .18, .16, wood, 0, 2.7, z);
+    for (let i = 0; i < 9; i++) box(g, .1, .12, 3.3, wood, -2.4 + i * .6, 2.88, 0);
+    box(g, 1.1, .7, .7, wood, -.8, .18, .2); box(g, .5, .45, .5, white, -1.8, .18, .2); box(g, .5, .45, .5, white, .2, .18, .2);
+    return g; })();
+  const glassWall = new THREE.Group(); glassWall.scale.y = 0; base.add(glassWall);   // panoramic glazing of the living room
+  box(glassWall, 5.2, 2.6, .14, glassMat, -3.05, P + .15, HD / 2 + .05);
+  for (let i = 0; i < 5; i++) box(glassWall, .08, 2.6, .2, trim, -5.6 + i * 1.28, P + .15, HD / 2 + .06);
+  box(glassWall, 5.3, .08, .2, trim, -3.05, P + 2.75, HD / 2 + .06);
+  mods.bath = (() => { const g = module(-10.3, -4.6);
+    box(g, 4.4, .3, 3.9, plinth, 0, 0, 0);
+    const logs = box(g, 4, 2.3, 3.5, new THREE.MeshStandardMaterial({map: facade.brus, roughness: .9}), 0, .3, 0);
+    gable(g, 4, 3.5, 1.5, .35, 0, 2.6, 0).material = [logs.material, roofMat];
+    box(g, .9, 1.9, .1, wood, 1, .3, 1.8);
+    win(g, 'z', 1.77, -1, 1.3, .7, .5);
+    box(g, .4, 1.6, .4, M('#55504a'), -1.2, 2.9, -.6);                                    // chimney
+    box(g, 2, .15, 1.2, deckMat, 1, 0, 2.4);
+    return g; })();
+  mods.pool = (() => { const g = module(-9.6, 9);
+    box(g, 7, .25, 3.8, stone, 0, 0, 0);
+    add(g, new THREE.BoxGeometry(6.2, .05, 3), waterMat, 0, .26, 0).castShadow = false;
+    for (const x of [1.4, 2.8]) { box(g, .7, .25, 1.8, white, x, 0, -2.95); box(g, .7, .5, .1, white, x, .25, -3.8).rotation.x = .5; }
+    return g; })();
+  // bath smoke: a few puffs cycling up from the chimney
+  const smokeMat = new THREE.MeshStandardMaterial({color: '#e6e6e6', transparent: true, opacity: .5, roughness: 1});
+  const smoke = [...Array(6)].map((_, i) => { const m = add(mods.bath, new THREE.SphereGeometry(.28, 10, 8), smokeMat.clone(), -1.2, 4.7, -.6); m.castShadow = false; m.userData.t = i / 6; return m; });
+
+  // ---- lights --------------------------------------------------------------------
+  const hemi = new THREE.HemisphereLight('#e4f0ff', '#6f7f4c', 1.15); scene.add(hemi);
+  const sun = new THREE.DirectionalLight('#fff6e8', 2.4);
+  sun.position.set(14, 26, 12); sun.castShadow = true;
+  Object.assign(sun.shadow.camera, {left: -22, right: 22, top: 22, bottom: -22, near: 1, far: 70});
+  sun.shadow.mapSize.set(1024, 1024); sun.shadow.bias = -.0006; sun.shadow.radius = 3;
+  scene.add(sun);
+
+  // ---- tweens -------------------------------------------------------------------
+  const tweens = new Set();
+  const easeOut = k => 1 - (1 - k) ** 3, easeIn = k => k * k * k, easeInOut = k => k < .5 ? 4 * k ** 3 : 1 - (-2 * k + 2) ** 3 / 2;
+  const back = k => 1 + 2.7 * (k - 1) ** 3 + 1.7 * (k - 1) ** 2;
+  const tween = (ms, fn, ease = easeInOut, done) => {
+    if (still) { fn(1); done && done(); return; }
+    tweens.add({t0: performance.now(), ms, fn, ease, done});
+  };
+  const dust = (g, w = 5, d = 5) => { // a ring of puffs where a module lands
+    if (still) return;
+    const puffs = [...Array(14)].map((_, i) => {
+      const a = i / 14 * Math.PI * 2, m = new THREE.Mesh(new THREE.SphereGeometry(.35, 8, 6), new THREE.MeshStandardMaterial({color: '#d8cfbd', transparent: true, opacity: .7}));
+      m.position.set(g.position.x + Math.cos(a) * w / 2, .3, g.position.z + Math.sin(a) * d / 2); m.userData.a = a; scene.add(m); return m;
+    });
+    tween(800, k => puffs.forEach(m => { m.position.x += Math.cos(m.userData.a) * .04; m.position.z += Math.sin(m.userData.a) * .04; m.position.y = .3 + k * .6; m.material.opacity = .7 * (1 - k); m.scale.setScalar(1 + k * 1.4); }),
+      easeOut, () => puffs.forEach(m => { scene.remove(m); m.geometry.dispose(); m.material.dispose(); }));
+  };
+  const drop = (g, on, w, d) => {
+    if (g.userData.on === on) return; g.userData.on = on;
+    const y0 = g.userData.y ?? (g.userData.y = g.position.y);
+    if (on) { g.visible = true; tween(750, k => { g.position.y = y0 + (1 - easeOut(k)) * 9; g.scale.setScalar(.7 + .3 * back(k)); }, k => k, () => dust(g, w, d)); }
+    else tween(380, k => { g.position.y = y0 - k * .6; g.scale.setScalar(1 - k * .98); }, easeIn, () => { g.visible = false; g.position.y = y0; });
+  };
+  const SIZES = {garage: [5.5, 7], terrace: [6, 4], bath: [5, 4.5], pool: [7.5, 4.5]}; // dust ring size
+  let floor2On = false, glassOn = false, night = null;
+  const apply = () => {
+    for (const id of ['garage', 'terrace', 'bath', 'pool']) drop(mods[id], state.mods.has(id), ...SIZES[id]);
+    if (state.mods.has('floor2') !== floor2On) { // the 2nd floor grows up and pushes the roof
+      floor2On = !floor2On; const on = floor2On, f = mods.floor2; f.visible = true;
+      tween(900, k => { const s = on ? k : 1 - k; f.scale.y = Math.max(s, .001); roof.position.y = P + H1 + 2.8 * s; }, on ? back : easeInOut, () => { if (!on) f.visible = false; else dust(base, 13, 9); });
+    }
+    if (state.mods.has('glass') !== glassOn) {
+      glassOn = !glassOn; const on = glassOn;
+      tween(600, k => { const s = on ? k : 1 - k; liveWin.children.forEach(c => c.scale.setScalar(Math.max(1 - s, .001))); glassWall.scale.y = Math.max(s, .001); }, easeInOut);
+    }
+    if (wallMat.map !== facade[state.mat]) { // walls change material: a quick squash so the swap reads
+      wallMat.map = facade[state.mat]; wallMat.needsUpdate = true;
+      tween(420, k => facades.forEach(m => m.scale.set(1 + Math.sin(k * Math.PI) * .03, 1, 1 + Math.sin(k * Math.PI) * .03)), k => k);
+    }
+    if (state.night !== night) {
+      const from = night === null ? +state.night : +night, to = +state.night; night = state.night;
+      const day = {hemi: 1.15, sun: 2.4, glass: 0, bulb: 0, door: 0}, eve = {hemi: .32, sun: .35, glass: 1.8, bulb: 3, door: 18};
+      const c = {hemiSky: [new THREE.Color('#e4f0ff'), new THREE.Color('#5b6c9c')], sun: [new THREE.Color('#fff6e8'), new THREE.Color('#9fb2ff')]};
+      tween(night === null ? 0 : 1300, k => {
+        const t = from + (to - from) * k, mix = (a, b) => a + (b - a) * t;
+        hemi.intensity = mix(day.hemi, eve.hemi); sun.intensity = mix(day.sun, eve.sun);
+        glassMat.emissiveIntensity = mix(day.glass, eve.glass); bulbMat.emissiveIntensity = mix(day.bulb, eve.bulb); doorLight.intensity = mix(day.door, eve.door);
+        hemi.color.copy(c.hemiSky[0]).lerp(c.hemiSky[1], t); sun.color.copy(c.sun[0]).lerp(c.sun[1], t);
+      });
+    }
+  };
+  addEventListener('house:change', apply);
+  apply();
+
+  // ---- camera + controls -----------------------------------------------------------
+  const controls = new OrbitControls(camera, renderer.domElement);
+  Object.assign(controls, {enablePan: false, enableDamping: true, dampingFactor: .08, minPolarAngle: .72, maxPolarAngle: 1.18, minZoom: .75, maxZoom: 2.2, autoRotate: !still, autoRotateSpeed: .55});
+  controls.target.copy(target); controls.update();
+  controls.addEventListener('start', () => controls.autoRotate = false);
+  renderer.domElement.style.touchAction = 'pan-y'; // let the page scroll vertically on phones; horizontal drags still turn the house
+  const resize = () => {
+    const w = stage.clientWidth, h = stage.clientHeight; if (!w || !h) return;
+    renderer.setSize(w, h, false);
+    const desk = w > 900, view = desk ? 30 : 34, a = w / h;
+    camera.left = -view * a / 2; camera.right = view * a / 2; camera.top = view / 2; camera.bottom = -view / 2;
+    camera.zoom = desk ? .74 : 1.12; camera.updateProjectionMatrix();
+    // desktop: the title sits top-left and the panel on the right, so the house goes left of centre and lower
+    camera.setViewOffset(w, h, desk ? Math.min(150, w * .1) : 0, desk ? -h * .12 : -h * .03, w, h);
+  };
+  new ResizeObserver(resize).observe(stage); resize();
+
+  // ---- loop: only while the configurator is on screen ------------------------------
+  let visible = false, last = performance.now();
+  const loop = now => {
+    if (!visible) return;
+    const dt = Math.min((now - last) / 1000, .05); last = now;
+    for (const t of tweens) { const k = Math.min((now - t.t0) / t.ms, 1); t.fn(t.ease(k)); if (k === 1) { tweens.delete(t); t.done && t.done(); } }
+    if (mods.bath.visible && !still) smoke.forEach(m => { m.userData.t = (m.userData.t + dt * .25) % 1; const t = m.userData.t;
+      m.position.set(-1.2 + t * .8, 4.6 + t * 2.6, -.6 - t * .4); m.scale.setScalar(.6 + t * 1.6); m.material.opacity = .45 * (1 - t); });
+    else smoke.forEach(m => m.material.opacity = 0);
+    if (mods.pool.visible) waterMat.map.offset.x = (waterMat.map.offset.x + dt * .03) % 1;
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  };
+  new IntersectionObserver(([en]) => { visible = en.isIntersecting; if (visible) { last = performance.now(); requestAnimationFrame(loop); } }).observe(stage);
+  renderer.render(scene, camera);
+  stage.classList.add('webgl');
+}
 </script>
 </body>
 </html>
