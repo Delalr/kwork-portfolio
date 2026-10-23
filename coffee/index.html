@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Кофейня «Зерно и пар» — демо-лендинг</title>
-<meta name="description" content="Кофейня «Зерно и пар»: обжариваем зерно каждый понедельник, три моносорта недели, завтраки весь день. Забронируйте столик онлайн.">
+<meta name="description" content="Кофейня «Зерно и пар»: каждый день новое зерно на воронке, обжарка по понедельникам, завтраки весь день. Забронируйте столик онлайн.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://delalr.github.io/kwork-portfolio/coffee/">
 <meta property="og:image" content="https://delalr.github.io/kwork-portfolio/shots/coffee-og.jpg">
 <meta property="og:title" content="Кофейня «Зерно и пар»">
-<meta property="og:description" content="Кофе — это ягода. Мы обжариваем её косточки каждый понедельник.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23f3ecdc'/><ellipse cx='16' cy='16' rx='8' ry='11' fill='none' stroke='%232b1d14' stroke-width='2'/><path d='M16 6c-4 6 4 14 0 20' fill='none' stroke='%23a3311f' stroke-width='2'/></svg>">
+<meta property="og:description" content="Сегодня на воронке — смотрите на доске. Обжарка по понедельникам, завтраки весь день.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23232826'/><path d='M8 13h14v5a6 6 0 0 1-6 6h-2a6 6 0 0 1-6-6zM22 15h2a2.5 2.5 0 0 1 0 5h-2.5M12 9c0-2 2-2 2-4M17 9c0-2 2-2 2-4' fill='none' stroke='%23ecebe4' stroke-width='1.6' stroke-linecap='round'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..600;1,400..600&family=Golos+Text:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Neucha&family=Golos+Text:wght@400;500&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"Зерно и пар","telephone":"+7 900 000-00-00",
@@ -21,224 +21,232 @@
  "openingHours":"Mo-Su 07:30-22:00","servesCuisine":"Кофе, завтраки, десерты","priceRange":"₽₽"}
 </script>
 <style>
-/* a botanical journal crossed with a roaster's bag label: printed paper, engraved plates, data in typewriter mono */
+/* the café's chalkboard as a poster: dark slate, chalk lettering, coloured chalk for accents, paper notes taped on */
 :root{
-  --paper:#f3ecdc;--kraft:#e9dec4;--ink:#2b1d14;--muted:#6b5645;--line:rgba(43,29,20,.2);--cherry:#a3311f;--leaf:#4f5d33;
-  --serif:"Cormorant Garamond",Georgia,serif;--sans:"Golos Text",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;
-  --ease:cubic-bezier(.2,.7,.2,1);
+  --slate:#202523;--slate-2:#262c29;--chalk:#ecebe4;--dim:#b4b8b0;--yellow:#f2d46b;--pink:#f3a493;--blue:#9fd0ea;--green:#b5d79f;
+  --paper:#f4efe2;--ink:#2a2420;--wood:#6b4a2f;
+  --sign:"Amatic SC",fantasy;--hand:Neucha,cursive;--sans:"Golos Text",system-ui,sans-serif;--ease:cubic-bezier(.2,.7,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font:17px/1.65 var(--sans);color:var(--ink);background:var(--paper)}
-/* paper grain */
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.35;mix-blend-mode:multiply;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .45 0 0 0 0 .35 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+body{font:17px/1.6 var(--sans);color:var(--chalk);background:var(--slate);
+  background-image:radial-gradient(ellipse at 30% 0%,rgba(255,255,255,.06),transparent 55%),radial-gradient(ellipse at 80% 60%,rgba(255,255,255,.04),transparent 50%)}
+/* chalk dust left by wiping the board */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.16;mix-blend-mode:screen;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 -.25'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid var(--cherry);outline-offset:3px}
-.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
-h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.02;letter-spacing:-.01em}
-h1 em,h2 em{font-style:italic;color:var(--cherry);font-weight:400}
-h2{font-size:clamp(40px,5.4vw,72px)}
-.label{font:500 12px/1.5 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
-.lead{color:var(--muted);max-width:56ch;margin-top:18px;font-size:18px}
-section{padding:110px 0;scroll-margin-top:72px}
-.head{display:grid;grid-template-columns:220px 1fr;gap:24px;margin-bottom:56px;padding-top:16px;border-top:1px solid var(--ink)}
+:focus-visible{outline:2px dashed var(--yellow);outline-offset:4px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.chalk{filter:url(#chalk)}
+h1,h2,h3{font-family:var(--sign);font-weight:700;line-height:.9;letter-spacing:.02em;text-transform:uppercase}
+h2{font-size:clamp(56px,8vw,112px);text-align:center}
+.hand{font-family:var(--hand)}
+.note{font:20px/1.3 var(--hand);color:var(--dim)}
+section{padding:96px 0;scroll-margin-top:72px}
+.sub{display:block;text-align:center;font:24px var(--hand);color:var(--yellow);margin-bottom:6px}
+.lead{text-align:center;color:var(--dim);max-width:52ch;margin:18px auto 0}
+/* chalk underline / circle drawn with an SVG stroke */
+.swash{display:block;width:min(340px,70%);height:18px;margin:10px auto 0;color:var(--yellow)}
+.swash path{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round}
 
-.btn{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 26px;border:1.5px solid var(--ink);border-radius:999px;background:var(--ink);color:var(--paper);font:500 16px var(--sans);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
-.btn:hover{background:var(--cherry);border-color:var(--cherry)}
-.btn.ghost{background:transparent;color:var(--ink)}
-.btn.ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;font:700 28px/1 var(--sign);letter-spacing:.04em;text-transform:uppercase;color:var(--slate);background:var(--chalk);border:0;border-radius:3px;cursor:pointer;
+  box-shadow:3px 3px 0 rgba(0,0,0,.35);transition:transform .15s,background .2s}
+.btn:hover{transform:rotate(-1.5deg) scale(1.03);background:var(--yellow)}
+.btn.line{background:none;color:var(--chalk);box-shadow:none;border:2px solid var(--chalk);border-radius:40% 6% 30% 8%/10% 40% 8% 30%}
+.btn.line:hover{background:rgba(236,235,228,.08);color:var(--yellow);border-color:var(--yellow)}
 
-/* header */
-header{position:sticky;top:0;z-index:10;background:rgba(243,236,220,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
-.logo{font:500 26px var(--serif);display:flex;align-items:baseline;gap:6px}
-.logo i{font-style:italic;color:var(--cherry)}
-header nav{display:flex;gap:28px;align-items:center;font-size:15px}
-header nav a:not(.btn){position:relative}
-header nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease)}
-header nav a:not(.btn):hover::after{transform:scaleX(1)}
-header nav .btn{min-height:42px;padding:0 20px;font-size:15px}
-.burger{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer;position:relative}
-.burger span{position:absolute;left:11px;right:11px;height:1.5px;background:var(--ink);transition:transform .25s,top .25s}
-.burger span:first-child{top:18px}.burger span:last-child{top:25px}
-.burger[aria-expanded=true] span:first-child{top:21.5px;transform:rotate(45deg)}
-.burger[aria-expanded=true] span:last-child{top:21.5px;transform:rotate(-45deg)}
+/* header: logo in the middle, chalk words either side */
+header{position:sticky;top:0;z-index:20;background:rgba(32,37,35,.94);backdrop-filter:blur(6px);border-bottom:1px dashed rgba(236,235,228,.2)}
+header .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:72px;gap:20px}
+.logo{grid-column:2;font:700 40px/1 var(--sign);letter-spacing:.04em;white-space:nowrap}
+.logo i{font-style:normal;color:var(--pink)}
+header nav{display:contents;font:22px var(--hand)}
+header nav .l{grid-column:1;grid-row:1;display:flex;gap:28px}
+header nav .r{grid-column:3;grid-row:1;display:flex;gap:28px;justify-content:flex-end;align-items:center}
+header nav a{position:relative}
+header nav a:not(.btn)::after{content:"";position:absolute;left:-2px;right:-2px;bottom:-2px;height:2px;background:var(--yellow);border-radius:2px;transform:scaleX(0) rotate(-2deg);transform-origin:left;transition:transform .3s var(--ease)}
+header nav a:not(.btn):hover::after{transform:scaleX(1) rotate(-2deg)}
+header nav .btn{min-height:42px;padding:0 16px;font-size:22px}
+.burger{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer;position:relative;justify-self:end}
+.burger span{position:absolute;left:10px;right:10px;height:2px;background:var(--chalk);border-radius:2px;transition:transform .25s,top .25s}
+.burger span:first-child{top:17px;transform:rotate(-3deg)}.burger span:last-child{top:26px;transform:rotate(2deg)}
+.burger[aria-expanded=true] span:first-child{top:21px;transform:rotate(45deg)}
+.burger[aria-expanded=true] span:last-child{top:21px;transform:rotate(-45deg)}
 
-/* hero: a botanical plate */
-.hero{padding:56px 0 96px;overflow-x:clip}
-.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.hero h1{font-size:clamp(44px,5vw,74px);margin:22px 0 26px}
-.hero p{font-size:19px;color:var(--muted);max-width:44ch;margin-bottom:34px}
-.actions{display:flex;gap:12px;flex-wrap:wrap}
-.meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:40px;padding-top:18px;border-top:1px solid var(--line)}
-.plate{position:relative;border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:6px;margin:6px;padding:20px 24px 16px;background:rgba(255,252,244,.45)}
-.plate-top{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:10px}
-.plate-top i{font:italic 500 22px var(--serif)}
-.plate svg.botany{width:100%;height:auto;display:block}
-.botany{fill:none;stroke:var(--ink);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
-.botany .vein{stroke-width:.8}
-.botany .berry{fill:var(--cherry);fill-opacity:.82;stroke:var(--ink)}
-.botany .shine{stroke:rgba(255,255,255,.75);stroke-width:2}
-.botany .ptr{stroke-width:.7;stroke-dasharray:2 3}
-.botany text{fill:var(--ink);stroke:none;font:italic 500 20px var(--serif)}
-.legend{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;border-top:1px solid var(--line);padding-top:10px;font-size:14px;color:var(--muted)}
-.legend i{font:italic 500 17px var(--serif);color:var(--ink);margin-right:6px}
-.js .botany .draw{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.2s var(--ease)}
-.js .botany .bloom{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.6);transition:opacity .6s,transform .8s cubic-bezier(.3,1.5,.5,1)}
-.js .plate.in .draw{stroke-dashoffset:0}
-.js .plate.in .bloom{opacity:1;transform:none}
-.seal{position:absolute;right:-26px;bottom:70px;width:132px;height:132px;border-radius:50%;background:var(--paper);border:1.5px solid var(--cherry);color:var(--cherry);transform:rotate(-12deg)}
-.seal svg{width:100%;height:100%}
-.seal text{font:500 10.5px var(--mono);letter-spacing:.12em;fill:var(--cherry);text-transform:uppercase}
-.seal b{position:absolute;inset:0;display:grid;place-items:center;font:italic 600 26px/1 var(--serif);text-align:center}
-.seal b small{display:block;font:500 9px var(--mono);letter-spacing:.14em;margin-top:2px}
+/* hero: today's special, lettered on the board */
+.board{position:relative;border:16px solid var(--wood);border-image:linear-gradient(135deg,#7b5434,#5a3b23 40%,#80593a 60%,#4e331f) 1;
+  background:var(--slate-2);box-shadow:inset 0 0 120px rgba(0,0,0,.45),0 30px 60px -30px rgba(0,0,0,.8)}
+.hero{padding:40px 0 64px}
+.hero .board{padding:56px 40px 64px;text-align:center;overflow:hidden}
+.hero .top{font:22px var(--hand);color:var(--dim);letter-spacing:.04em}
+.hero .day{display:block;font:30px var(--hand);color:var(--yellow);margin-top:26px}
+.hero .what{display:block;font:700 clamp(54px,7vw,96px)/.9 var(--sign);letter-spacing:.03em}
+.hero h1{font-size:clamp(120px,19vw,260px);line-height:.82;color:var(--chalk);margin:4px 0 0}
+.hero .notes{display:block;font:clamp(26px,2.8vw,36px)/1.2 var(--hand);color:var(--pink);margin-top:14px}
+.price{position:relative;display:inline-block;margin-top:22px;font:700 72px/1 var(--sign);color:var(--yellow);padding:4px 26px}
+.price svg{position:absolute;inset:-14px -22px;width:calc(100% + 44px);height:calc(100% + 28px);overflow:visible}
+.price svg path{fill:none;stroke:var(--yellow);stroke-width:3;stroke-linecap:round}
+.hero .actions{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+.doodle{position:absolute;pointer-events:none;color:var(--chalk)}
+.doodle path,.doodle circle,.doodle ellipse{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.doodle .berry{fill:var(--pink);fill-opacity:.85;stroke:var(--chalk)}
+.cup{left:3%;bottom:6%;width:min(250px,22vw)}
+.branch{right:1%;top:6%;width:min(300px,25vw);color:var(--green)}
+.stars{left:7%;top:10%;width:110px;color:var(--yellow)}
+.arrow{right:13%;bottom:16%;width:150px;color:var(--blue)}
+.arrow text{fill:var(--blue);font:22px var(--hand);stroke:none}
+/* chalk writes itself on load */
+.js .draw{stroke-dasharray:1;stroke-dashoffset:1;animation:write 1.6s var(--ease) forwards}
+.js .d2{animation-delay:.3s}.js .d3{animation-delay:.6s}.js .d4{animation-delay:.9s}.js .d5{animation-delay:1.2s}
+@keyframes write{to{stroke-dashoffset:0}}
+.js .steam{animation:steam 3.2s ease-in-out infinite}
+.js .steam:nth-of-type(2){animation-delay:-1.1s}.js .steam:nth-of-type(3){animation-delay:-2.2s}
+@keyframes steam{0%,100%{transform:translateY(0);opacity:.9}50%{transform:translateY(-6px);opacity:.4}}
 
-/* bean passports: three bag labels */
-.lots{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.lot{background:var(--kraft);border:1px solid var(--ink);padding:26px 24px 22px;position:relative;display:flex;flex-direction:column}
-.lot::before{content:"";position:absolute;inset:6px;border:1px dashed rgba(43,29,20,.35);pointer-events:none}
-.lot .label{display:flex;justify-content:space-between}
-.lot h3{font-size:40px;margin:18px 0 2px}
-.lot .region{font:italic 500 22px var(--serif);color:var(--muted)}
-.lot dl{margin:20px 0;border-top:1px solid var(--line)}
-.lot dl div{display:grid;grid-template-columns:110px 1fr;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:15px}
-.lot dt{font:500 11px/2 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
-.notes{font:italic 500 24px/1.2 var(--serif);color:var(--cherry);margin-bottom:18px}
-.scale{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:10px;margin-top:6px}
-.scale span{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
-.scale ol{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
-.scale li{height:8px;border:1px solid var(--ink);transform-origin:left;transition:background .3s}
-.scale li.on{background:var(--ink)}
-.js .lot:not(.in) .scale li.on{background:transparent}
-.lot .for{margin-top:auto;padding-top:18px;font-size:14px;color:var(--muted)}
-.lot .for b{color:var(--ink);font-weight:500}
+/* running chalk line under the hero */
+.ticker{overflow:hidden;border-block:1px dashed rgba(236,235,228,.25);white-space:nowrap;font:26px var(--hand);color:var(--dim)}
+.ticker div{display:inline-block;padding:14px 0;animation:run 60s linear infinite}
+.ticker b{font-weight:400;color:var(--yellow)}
+@keyframes run{to{transform:translateX(-50%)}}
 
-/* freshness: this week's batch, counted from the real date */
-.fresh{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:center}
-.fresh p.big{font:500 clamp(30px,3.6vw,46px)/1.15 var(--serif)}
-.fresh p.big em{font-style:italic;color:var(--cherry)}
-.week{list-style:none;display:grid;grid-template-columns:repeat(7,1fr);border:1px solid var(--ink)}
-.week li{padding:14px 10px 16px;min-height:132px;display:flex;flex-direction:column;gap:6px;position:relative}
-.week li+li{border-left:1px solid var(--line)}
-.week .d{font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
-.week .n{font:500 34px/1 var(--serif)}
-.week .s{font-size:12.5px;line-height:1.3;color:var(--muted);margin-top:auto}
-.week li.rest{background:repeating-linear-gradient(-45deg,transparent 0 6px,rgba(43,29,20,.06) 6px 7px)}
-.week li.peak{background:rgba(79,93,51,.12)}
-.week li.roast .n{color:var(--cherry)}
-.week li.today{outline:2px solid var(--cherry);outline-offset:-2px}
-.week li.today::after{content:"сегодня";position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--cherry);color:var(--paper);font:500 10px var(--mono);letter-spacing:.1em;padding:3px 8px;text-transform:uppercase;white-space:nowrap}
-.keys{display:flex;gap:20px;flex-wrap:wrap;margin-top:14px;font-size:14px;color:var(--muted)}
-.keys span::before{content:"";display:inline-block;width:12px;height:12px;border:1px solid var(--ink);margin-right:6px;vertical-align:-1px}
-.keys .k-rest::before{background:repeating-linear-gradient(-45deg,transparent 0 3px,rgba(43,29,20,.25) 3px 4px)}
-.keys .k-peak::before{background:rgba(79,93,51,.3)}
-
-/* menu: printed card with tabs */
-#menu{background:var(--kraft);border-block:1px solid var(--line)}
-.card{max-width:960px;margin:0 auto;background:var(--paper);border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:-8px;padding:56px 64px 48px}
-.card-head{text-align:center;margin-bottom:34px}
-.card-head h2{font-size:clamp(44px,5vw,64px)}
-.tabs{display:flex;justify-content:center;gap:0;margin:28px auto 40px;border-block:1px solid var(--ink);width:max-content;max-width:100%}
-.tab{padding:12px 26px;border:0;background:none;font:italic 500 22px var(--serif);color:var(--muted);cursor:pointer;position:relative;transition:color .2s}
-.tab+.tab{border-left:1px solid var(--line)}
-.tab:hover{color:var(--ink)}
-.tab[aria-selected=true]{color:var(--cherry)}
-.tab[aria-selected=true]::after{content:"";position:absolute;left:26px;right:26px;bottom:6px;height:1.5px;background:var(--cherry)}
-.menu-list{display:grid;grid-template-columns:1fr 1fr;gap:6px 56px}
+/* menu: the big board */
+.menu .board{padding:56px 56px 48px}
+.tabs{display:flex;justify-content:center;gap:12px;margin:22px auto 44px}
+.tab{position:relative;padding:4px 16px 10px;border:0;background:none;color:var(--dim);font:700 40px/1 var(--sign);letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:color .2s}
+.tab:hover{color:var(--chalk)}
+.tab[aria-selected=true]{color:var(--yellow)}
+.tab svg{position:absolute;left:4px;right:4px;bottom:0;width:calc(100% - 8px);height:12px;opacity:0;transition:opacity .2s}
+.tab svg path{fill:none;stroke:var(--yellow);stroke-width:3;stroke-linecap:round}
+.tab[aria-selected=true] svg{opacity:1}
+.menu-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 72px;max-width:1000px;margin:0 auto}
 .menu-list[hidden]{display:none}
-.item{display:grid;grid-template-columns:auto 1fr auto;column-gap:10px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
-.item .name{font:500 26px var(--serif)}
-.item i{border-bottom:1px dotted rgba(43,29,20,.45);transform:translateY(-6px)}
-.item strong{font:500 15px var(--mono);white-space:nowrap}
-.item small{grid-column:1/-1;color:var(--muted);font-size:15px}
-.item small b{font-weight:500;color:var(--leaf)}
+.item{display:grid;grid-template-columns:auto 1fr auto;column-gap:12px;align-items:baseline;padding:10px 0}
+.item .name{font:700 40px/1 var(--sign);letter-spacing:.02em}
+.item i{border-bottom:2px dotted rgba(236,235,228,.4);transform:translateY(-8px)}
+.item strong{font:700 40px/1 var(--sign);color:var(--yellow)}
+.item small{grid-column:1/-1;font:19px var(--hand);color:var(--dim);margin-top:2px}
+.item small b{font-weight:400;color:var(--green)}
+.menu .foot{text-align:center;margin-top:36px}
 
-/* gallery: herbarium sheets */
-.sheets{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px;align-items:start}
-.sheet{background:#fbf7ec;padding:14px 14px 0;box-shadow:0 1px 0 var(--line),0 20px 40px -24px rgba(43,29,20,.4);position:relative;transition:transform .5s var(--ease)}
-.sheet:nth-child(1){transform:rotate(-1.2deg)}
-.sheet:nth-child(2){transform:rotate(1deg) translateY(36px)}
-.sheet:nth-child(3){transform:rotate(-.6deg) translateY(12px)}
-.sheet:hover{transform:rotate(0) translateY(-4px)}
-.sheet::before,.sheet::after{content:"";position:absolute;top:-10px;width:70px;height:22px;background:rgba(233,222,196,.85);border:1px solid rgba(43,29,20,.08)}
-.sheet::before{left:-14px;transform:rotate(-30deg)}
-.sheet::after{right:-14px;transform:rotate(30deg)}
-.sheet img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:sepia(.18) saturate(.9)}
-.sheet figcaption{display:flex;justify-content:space-between;gap:12px;padding:12px 2px 14px;font:italic 500 19px var(--serif)}
-.sheet figcaption .label{font-style:normal}
+/* beans of the week: three mini boards, flavour marked with tally strokes */
+.lots{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px}
+.lot{position:relative;padding:30px 28px 26px;border:2px solid rgba(236,235,228,.55);border-radius:6px 3px 8px 4px/4px 8px 3px 6px;transition:transform .3s var(--ease)}
+.lot:nth-child(1){transform:rotate(-1deg)}.lot:nth-child(3){transform:rotate(1deg)}
+.lot:hover{transform:rotate(0) translateY(-4px)}
+.lot .no{position:absolute;top:-22px;left:22px;padding:0 10px;background:var(--slate);font:22px var(--hand);color:var(--yellow)}
+.lot h3{font-size:64px}
+.lot .region{font:22px var(--hand);color:var(--dim)}
+.lot .notes{font:24px/1.25 var(--hand);color:var(--pink);margin:16px 0 18px}
+.lot dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:15px;color:var(--dim);margin-bottom:18px}
+.lot dt{font:18px var(--hand);color:var(--chalk)}
+.tally{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:8px;margin-top:4px;font:19px var(--hand)}
+.tally svg{height:26px;width:auto;overflow:visible}
+.tally path{fill:none;stroke:var(--chalk);stroke-width:2.4;stroke-linecap:round}
+.lot .for{margin-top:16px;font-size:14px;color:var(--dim)}
+.lot .for b{font-weight:500;color:var(--chalk)}
 
-/* booking: a reservation card */
-.booking{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
-.contacts{margin-top:32px;border-top:1px solid var(--ink)}
-.contacts div{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
-.contacts dt{font:500 11px/2 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
-.contacts a{border-bottom:1px solid var(--cherry)}
-form{background:#fbf7ec;border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:-8px;padding:40px 40px 36px;display:grid;gap:18px}
-form h3{font-size:36px}
-label{display:grid;gap:6px;font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
-input,select{font:17px var(--sans);color:var(--ink);padding:10px 0;border:0;border-bottom:1px solid var(--ink);border-radius:0;width:100%;background:transparent;transition:border-color .2s}
-input:focus,select:focus{outline:none;border-color:var(--cherry);box-shadow:0 1px 0 var(--cherry)}
-input::placeholder{color:rgba(107,86,69,.6)}
-.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
-form .btn{justify-content:center;margin-top:6px}
-.legal{font-size:13px;color:var(--muted)}
-.ok{display:none;text-align:center;padding:24px 0}
-.ok h3{color:var(--cherry);margin-bottom:8px}
-.ok p{color:var(--muted)}
+/* freshness: this week chalked as a row of days */
+.fresh{text-align:center}
+.fresh p.big{font:clamp(28px,3vw,40px)/1.25 var(--hand);max-width:28ch;margin:20px auto 0}
+.fresh p.big em{font-style:normal;color:var(--yellow)}
+.week{list-style:none;display:grid;grid-template-columns:repeat(7,1fr);max-width:900px;margin:48px auto 0}
+.week li{position:relative;padding:16px 4px 22px;display:grid;gap:2px;justify-items:center}
+.week li+li{border-left:2px dashed rgba(236,235,228,.18)}
+.week .d{font:20px var(--hand);color:var(--dim)}
+.week .n{font:700 54px/1 var(--sign)}
+.week .s{font:16px var(--hand);color:var(--dim)}
+.week li.roast .n{color:var(--pink)}
+.week li.peak .s{color:var(--green)}
+.week li.today .ring{position:absolute;left:50%;top:44%;width:96px;height:84px;transform:translate(-50%,-50%) rotate(-6deg);overflow:visible}
+.week li.today .ring path{fill:none;stroke:var(--yellow);stroke-width:3;stroke-linecap:round}
+.week li.today::after{content:"сегодня";position:absolute;top:-24px;left:50%;transform:translateX(-50%) rotate(-4deg);font:20px var(--hand);color:var(--yellow)}
+
+/* gallery: polaroids taped along the board, scrolled sideways */
+.strip{display:flex;gap:36px;overflow-x:auto;scroll-snap-type:x mandatory;padding:36px max(28px,calc((100vw - 1240px)/2 + 28px)) 30px;scrollbar-width:thin;scrollbar-color:rgba(236,235,228,.3) transparent}
+.strip figure{flex:none;width:min(340px,78vw);scroll-snap-align:center;background:#fbf8f1;color:var(--ink);padding:12px 12px 6px;box-shadow:0 18px 30px -16px rgba(0,0,0,.7);position:relative;transition:transform .3s var(--ease)}
+.strip figure:nth-child(odd){transform:rotate(-2deg)}.strip figure:nth-child(even){transform:rotate(1.6deg) translateY(14px)}
+.strip figure:hover{transform:rotate(0) scale(1.02)}
+.strip figure::before{content:"";position:absolute;top:-14px;left:50%;width:96px;height:26px;transform:translateX(-50%) rotate(-3deg);background:rgba(240,226,180,.75)}
+.strip img{width:100%;aspect-ratio:1;object-fit:cover}
+.strip figcaption{font:24px var(--hand);text-align:center;padding:8px 0 4px}
+.swipe{text-align:center;font:22px var(--hand);color:var(--dim)}
+
+/* booking: a paper slip pinned to the board */
+.book{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.book h2{text-align:left}
+.book .lead{text-align:left;margin-left:0}
+.contacts{margin-top:30px;display:grid;gap:12px;font-size:17px}
+.contacts div{display:grid;grid-template-columns:120px 1fr;gap:16px}
+.contacts dt{font:20px var(--hand);color:var(--yellow)}
+.contacts a{border-bottom:1px dashed var(--dim)}
+.slip{position:relative;background:var(--paper);color:var(--ink);padding:44px 40px 34px;transform:rotate(1.2deg);box-shadow:0 30px 50px -24px rgba(0,0,0,.8)}
+.slip::before,.slip::after{content:"";position:absolute;top:-14px;width:110px;height:30px;background:rgba(240,226,180,.8)}
+.slip::before{left:24px;transform:rotate(-6deg)}.slip::after{right:24px;transform:rotate(5deg)}
+form{display:grid;gap:16px}
+.slip h3{font-size:56px;color:var(--ink)}
+.slip label{display:grid;gap:4px;font:19px var(--hand);color:#6b5d50}
+.slip input,.slip select{font:17px var(--sans);color:var(--ink);padding:8px 0;min-height:44px;border:0;border-bottom:2px solid var(--ink);border-radius:0;width:100%;background:transparent}
+.slip input:focus,.slip select:focus{outline:none;border-color:#c2412b}
+.slip :focus-visible{outline-color:#c2412b}
+.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.slip .btn{background:var(--ink);color:var(--paper);box-shadow:none;margin-top:6px}
+.slip .btn:hover{background:#c2412b}
+.legal{font-size:13px;color:#7a6c5e}
+.ok{display:none;text-align:center;padding:20px 0}
+.ok h3{margin-bottom:8px}
+.ok p{color:#6b5d50}
 form.sent>*:not(.ok){display:none}
 form.sent .ok{display:block}
 
-footer{padding:36px 0;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+footer{padding:36px 0;border-top:1px dashed rgba(236,235,228,.2);color:var(--dim);font-size:15px}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-footer nav{display:flex;gap:20px}
-footer a:hover{color:var(--cherry)}
+footer nav{display:flex;gap:20px;font:20px var(--hand)}
+footer a:hover{color:var(--yellow)}
 
 /* content stays visible without JS; with JS blocks fade in once */
-.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .js .reveal.in{opacity:1;transform:none}
-.reveal:nth-child(2){transition-delay:.1s}.reveal:nth-child(3){transition-delay:.2s}
+.js .lot.reveal.in:nth-child(1){transform:rotate(-1deg)}.js .lot.reveal.in:nth-child(3){transform:rotate(1deg)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .js .reveal,.js .botany .draw,.js .botany .bloom{opacity:1;transform:none;transition:none;stroke-dashoffset:0}
-  .sheet{transition:none}
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .js .draw{animation:none;stroke-dashoffset:0}
+  .js .steam,.ticker div{animation:none}
 }
 
-@media (max-width:1000px){
-  .hero .wrap,.fresh,.booking{grid-template-columns:1fr}
-  .lots{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-  .sheets{grid-template-columns:1fr 1fr}
-  .sheet:nth-child(1){grid-column:1/-1}
-  .head{grid-template-columns:1fr;gap:12px;margin-bottom:40px}
-}
-@media (max-width:860px){
+@media (max-width:960px){
   .burger{display:block}
-  header nav{display:none;position:absolute;top:72px;left:0;right:0;background:var(--paper);flex-direction:column;align-items:flex-start;gap:6px;padding:16px 28px 24px;border-bottom:1px solid var(--line)}
+  header .wrap{grid-template-columns:1fr auto}
+  .logo{grid-column:1;font-size:36px}
+  header nav{display:none;position:absolute;top:72px;left:0;right:0;background:var(--slate);flex-direction:column;padding:18px 28px 26px;gap:12px;border-bottom:1px dashed rgba(236,235,228,.25)}
   header nav.open{display:flex}
-  header nav a:not(.btn){font:500 26px var(--serif);padding:6px 0}
+  header nav .l,header nav .r{flex-direction:column;align-items:flex-start;gap:12px;font-size:26px}
+  .lots{grid-template-columns:1fr;max-width:520px;margin-inline:auto}
+  .book{grid-template-columns:1fr;gap:48px}
+  .branch{opacity:.45}
+  .arrow{display:none}
+  .cup{width:130px;left:-6px;bottom:-4px;opacity:.55}
 }
 @media (max-width:640px){
-  body{font-size:16px}
-  .wrap{padding:0 16px}
-  header nav{padding:16px}
-  section{padding:76px 0}
-  .hero{padding:32px 0 64px}
-  .plate{padding:14px 14px 12px}
-  .seal{right:-8px;bottom:56px;width:104px;height:104px}
-  .seal b{font-size:20px}
-  .legend{grid-template-columns:1fr}
-  .week{grid-template-columns:repeat(7,minmax(0,1fr))}
-  .week li{padding:10px 4px 12px;min-height:110px}
-  .week .n{font-size:24px}
-  .week .s{font-size:10.5px}
-  .card{padding:36px 18px 28px;outline-offset:-6px}
-  .tab{padding:10px 14px;font-size:19px}
-  .tab[aria-selected=true]::after{left:14px;right:14px}
-  .menu-list{grid-template-columns:1fr}
-  .sheets{grid-template-columns:1fr}
-  .sheet:nth-child(n){transform:none}
-  form{padding:28px 20px}
+  .wrap{padding:0 14px}
+  header nav{padding:18px 14px 26px}
+  section{padding:72px 0}
+  .hero{padding:20px 0 48px}
+  .hero .board{padding:40px 16px 48px;border-width:10px}
+  .cup{width:110px;left:-10px;bottom:-6px;opacity:.6}
+  .branch{width:150px;right:-30px;top:-10px}
+  .stars,.arrow{display:none}
+  .price{font-size:60px}
+  .menu .board{padding:36px 16px 32px;border-width:10px}
+  .tab{font-size:32px;padding:4px 8px 10px}
+  .menu-list{grid-template-columns:1fr;gap:4px}
+  .item .name,.item strong{font-size:34px}
+  .week li{padding:14px 0 18px}
+  .week .n{font-size:38px}
+  .week .s{font-size:12px}
+  .week li.today .ring{width:64px;height:62px}
+  .slip{padding:36px 20px 26px;transform:none}
   .row{grid-template-columns:1fr 1fr}
   .row label:last-child{grid-column:span 2}
   .contacts div{grid-template-columns:1fr;gap:2px}
@@ -246,15 +254,23 @@ footer a:hover{color:var(--cherry)}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- chalk: eat into the strokes with noise, then roughen the edges -->
+  <filter id="chalk" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.45" result="mask"/>
+    <feComposite in="SourceGraphic" in2="mask" operator="in" result="grain"/>
+    <feDisplacementMap in="grain" in2="n" scale="2.2"/>
+  </filter>
+</svg>
+
 <header>
   <div class="wrap">
-    <a href="#" class="logo">Зерно <i>&amp;</i> пар</a>
+    <a href="#" class="logo chalk">Зерно <i>&amp;</i> пар</a>
     <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
     <nav id="nav">
-      <a href="#beans">Зерно недели</a>
-      <a href="#menu">Меню</a>
-      <a href="#gallery">Кофейня</a>
-      <a href="#booking" class="btn">Забронировать</a>
+      <span class="l"><a href="#menu">Меню</a><a href="#beans">Зерно недели</a></span>
+      <span class="r"><a href="#gallery">Кофейня</a><a href="#booking" class="btn">Забронировать</a></span>
     </nav>
   </div>
 </header>
@@ -262,205 +278,168 @@ footer a:hover{color:var(--cherry)}
 <main>
 <section class="hero">
   <div class="wrap">
-    <div>
-      <span class="label">Табл. I · Coffea arabica L.</span>
-      <h1>Кофе — это <em>ягода.</em> Мы обжариваем её косточки каждый понедельник</h1>
-      <p>Три моносорта недели, обжарка в нашем ростере на Садовой и завтраки до закрытия. Зерну в вашей чашке — не больше семи дней.</p>
+    <div class="board">
+      <svg class="doodle stars chalk" viewBox="0 0 110 80" aria-hidden="true"><path class="draw" pathLength="1" d="M20 10l4 12 12 1-10 7 4 12-10-7-10 7 4-12-10-7 12-1zM78 34l3 8 8 1-6 5 2 8-7-5-7 5 2-8-6-5 8-1zM60 8l2 5 5 1-4 3 1 5-4-3-4 3 1-5-4-3 5-1z"/></svg>
+      <svg class="doodle cup chalk" viewBox="0 0 220 200" aria-hidden="true">
+        <path class="draw" pathLength="1" d="M40 92h120v44a46 46 0 0 1-46 46H86a46 46 0 0 1-46-46z"/>
+        <path class="draw d2" pathLength="1" d="M160 104h14a20 20 0 0 1 0 40h-18"/>
+        <path class="draw d3" pathLength="1" d="M20 186h180"/>
+        <path class="draw d3" pathLength="1" d="M70 120q30 20 60 0"/>
+        <path class="steam" d="M78 76c-10-14 10-22 0-38"/><path class="steam" d="M100 74c-10-14 10-22 0-38"/><path class="steam" d="M122 76c-10-14 10-22 0-38"/>
+      </svg>
+      <svg class="doodle branch chalk" viewBox="0 0 300 300" aria-hidden="true">
+        <path class="draw" pathLength="1" d="M20 290C80 230 120 180 150 130S220 50 280 10"/>
+        <path class="draw d2" pathLength="1" d="M95 220C70 180 40 175 20 190C40 215 70 222 95 220M95 220Q60 205 25 192"/>
+        <path class="draw d2" pathLength="1" d="M120 190C150 160 185 160 205 172C185 195 150 198 120 190M120 190Q160 178 200 174"/>
+        <path class="draw d3" pathLength="1" d="M168 110C140 80 108 82 92 96C112 118 142 120 168 110M168 110Q130 98 96 96"/>
+        <path class="draw d4" pathLength="1" d="M205 72C230 44 262 44 278 56C258 78 230 82 205 72M205 72Q240 60 274 58"/>
+        <circle class="berry" cx="140" cy="150" r="10"/><circle class="berry" cx="157" cy="158" r="11"/><circle class="berry" cx="152" cy="140" r="9"/>
+        <circle class="berry" cx="222" cy="92" r="9"/><circle class="berry" cx="236" cy="99" r="10"/>
+      </svg>
+      <svg class="doodle arrow chalk" viewBox="0 0 150 90" aria-hidden="true"><path class="draw d4" pathLength="1" d="M140 80C100 80 60 60 34 22M34 22l2 20M34 22l18 6"/><text x="70" y="88">свежак!</text></svg>
+
+      <p class="top chalk">★ кофейня на Садовой, 12 · ежедневно 7:30–22:00 ★</p>
+      <span class="day chalk" id="day">Сегодня, пятница</span>
+      <span class="what chalk">на воронке</span>
+      <h1 class="chalk" id="special">Кения</h1>
+      <span class="notes chalk" id="specialNotes">чёрная смородина · грейпфрут · ревень</span>
+      <div><span class="price chalk"><span id="specialPrice">280</span> ₽<svg viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true"><path class="draw d5" pathLength="1" d="M30 18C80 -4 170 0 190 40S150 98 90 96S6 76 10 46S50 10 120 8"/></svg></span></div>
       <div class="actions">
         <a href="#booking" class="btn">Забронировать столик</a>
-        <a href="#beans" class="btn ghost">Зерно этой недели</a>
-      </div>
-      <div class="meta">
-        <span class="label">ул. Садовая, 12</span>
-        <span class="label">ежедневно 7:30–22:00</span>
+        <a href="#menu" class="btn line">Всё меню ↓</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <figure class="plate" id="plate">
-      <div class="plate-top"><span class="label">Tab. I</span><i>Coffea arabica L.</i><span class="label">Rubiaceae</span></div>
-      <svg class="botany" viewBox="0 0 520 600" aria-hidden="true">
-        <defs>
-          <symbol id="leaf" overflow="visible">
-            <path class="draw" pathLength="1" d="M0 0C40-30 112-34 164 0C112 34 40 30 0 0Z"/>
-            <path class="draw vein" pathLength="1" d="M0 0H160M30 0l18-13M60 0l20-16M92 0l18-14M122 0l14-9M30 0l18 13M60 0l20 16M92 0l18 14M122 0l14 9"/>
-          </symbol>
-        </defs>
-        <path class="draw" pathLength="1" d="M70 590C150 500 196 420 244 330S330 140 430 40" stroke-width="2.4"/>
-        <path class="draw" pathLength="1" d="M190 450q-26 10-40 4M296 220q20 4 30-6"/>
-        <use href="#leaf" transform="translate(150 470) rotate(-150) scale(.95)"/>
-        <use href="#leaf" transform="translate(168 462) rotate(-12) scale(1.02)"/>
-        <use href="#leaf" transform="translate(240 345) rotate(-165) scale(1.1)"/>
-        <use href="#leaf" transform="translate(256 330) rotate(4) scale(.95)"/>
-        <use href="#leaf" transform="translate(330 196) rotate(-140) scale(.88)"/>
-        <use href="#leaf" transform="translate(344 188) rotate(18) scale(.82)"/>
-        <use href="#leaf" transform="translate(418 58) rotate(-95) scale(.55)"/>
-        <!-- cherries -->
-        <g class="bloom">
-          <circle class="berry" cx="228" cy="372" r="14"/><circle class="berry" cx="252" cy="380" r="15"/><circle class="berry" cx="272" cy="366" r="13"/><circle class="berry" cx="244" cy="356" r="12"/>
-          <path class="shine" d="M222 366a8 8 0 0 1 6-4M246 374a8 8 0 0 1 6-4M267 360a7 7 0 0 1 5-3"/>
-        </g>
-        <g class="bloom">
-          <circle class="berry" cx="318" cy="226" r="12"/><circle class="berry" cx="338" cy="232" r="13"/><circle class="berry" cx="330" cy="212" r="11"/>
-          <path class="shine" d="M313 221a7 7 0 0 1 5-3M333 227a7 7 0 0 1 5-3"/>
-        </g>
-        <!-- flower -->
-        <g class="bloom">
-          <path d="M392 108c-6-16 0-28 8-30 6 10 2 22-8 30ZM392 108c14-10 28-8 32-1-8 8-20 9-32 1ZM392 108c10 12 8 26 2 30-8-6-10-18-2-30ZM392 108c-14 8-26 4-30-3 8-8 20-8 30 3ZM392 108c-16-2-24-12-22-20 10-2 20 6 22 20Z"/>
-          <circle cx="392" cy="108" r="3"/>
-        </g>
-        <!-- bean, cut -->
-        <g class="bloom"><ellipse cx="430" cy="470" rx="44" ry="60"/><path d="M430 412c-18 22 18 46 0 70s16 34 0 46"/></g>
-        <!-- pointers -->
-        <g class="bloom">
-          <path class="ptr" d="M286 380l70 44"/><text x="362" y="434">a</text>
-          <path class="ptr" d="M474 470h26"/><text x="502" y="476">b</text>
-          <path class="ptr" d="M380 96l-44-40"/><text x="318" y="52">c</text>
-          <path class="ptr" d="M96 448l-38 62"/><text x="40" y="530">d</text>
-        </g>
-      </svg>
-      <figcaption class="legend">
-        <span><i>a</i>плод — кофейная вишня</span><span><i>b</i>зерно в разрезе</span>
-        <span><i>c</i>цветок, пахнет жасмином</span><span><i>d</i>лист</span>
-      </figcaption>
-      <div class="seal" role="img" id="seal" aria-label="Свежая обжарка">
-        <svg viewBox="0 0 132 132" aria-hidden="true"><defs><path id="ring" d="M66 66m-50 0a50 50 0 1 1 100 0a50 50 0 1 1-100 0"/></defs>
-          <text><textPath href="#ring" textLength="300" lengthAdjust="spacing" id="roast">обжарено на Садовой · свежая партия ·</textPath></text></svg>
-        <b><span id="roastDay">пн</span><small>обжарка</small></b>
+<div class="ticker" aria-hidden="true"><div>обжарка по понедельникам ✦ <b>завтраки весь день</b> ✦ розетки у каждого столика ✦ тишина до полудня ✦ <b>своя выпечка с 7:00</b> ✦ можно с собаками ✦ обжарка по понедельникам ✦ <b>завтраки весь день</b> ✦ розетки у каждого столика ✦ тишина до полудня ✦ <b>своя выпечка с 7:00</b> ✦ можно с собаками ✦&nbsp;</div></div>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="board reveal">
+      <span class="sub chalk">написано мелом, обновляем по сезону</span>
+      <h2 class="chalk">Меню</h2>
+      <div class="tabs" role="tablist" aria-label="Разделы меню">
+        <button class="tab chalk" role="tab" aria-selected="true" aria-controls="coffee">Кофе<svg viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8C30 2 70 12 98 5"/></svg></button>
+        <button class="tab chalk" role="tab" aria-selected="false" aria-controls="breakfast">Завтраки<svg viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 6C35 11 65 1 98 7"/></svg></button>
+        <button class="tab chalk" role="tab" aria-selected="false" aria-controls="desserts">Десерты<svg viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 7C28 1 72 11 98 4"/></svg></button>
       </div>
-    </figure>
+      <div class="menu-list" id="coffee" role="tabpanel">
+        <div class="item chalk"><span class="name">Капучино</span><i></i><strong>220</strong><small>эспрессо и молоко · зерно <b>Колумбия</b></small></div>
+        <div class="item chalk"><span class="name">Флэт уайт</span><i></i><strong>250</strong><small>двойной ристретто · зерно <b>Колумбия</b></small></div>
+        <div class="item chalk"><span class="name">Эспрессо-тоник</span><i></i><strong>280</strong><small>тоник, лёд, цедра · зерно <b>Эфиопия</b></small></div>
+        <div class="item chalk"><span class="name">Воронка V60</span><i></i><strong>280</strong><small>зерно дня — смотрите на доске выше</small></div>
+        <div class="item chalk"><span class="name">Раф лавандовый</span><i></i><strong>290</strong><small>сливки, ваниль, лаванда</small></div>
+        <div class="item chalk"><span class="name">Какао на кокосовом</span><i></i><strong>260</strong><small>без кофе, для тех, кто уже выпил три</small></div>
+      </div>
+      <div class="menu-list" id="breakfast" role="tabpanel" hidden>
+        <div class="item chalk"><span class="name">Сырники</span><i></i><strong>340</strong><small>со сметаной и ягодным соусом</small></div>
+        <div class="item chalk"><span class="name">Скрэмбл с лососем</span><i></i><strong>460</strong><small>на тосте из чиабатты</small></div>
+        <div class="item chalk"><span class="name">Овсянка</span><i></i><strong>290</strong><small>на кокосовом молоке, банан, орехи</small></div>
+        <div class="item chalk"><span class="name">Круассан с ветчиной</span><i></i><strong>390</strong><small>сыр, яйцо пашот</small></div>
+      </div>
+      <div class="menu-list" id="desserts" role="tabpanel" hidden>
+        <div class="item chalk"><span class="name">Чизкейк Сан-Себастьян</span><i></i><strong>320</strong><small>по фирменному рецепту</small></div>
+        <div class="item chalk"><span class="name">Морковный торт</span><i></i><strong>300</strong><small>с крем-чизом и грецким орехом</small></div>
+        <div class="item chalk"><span class="name">Миндальный круассан</span><i></i><strong>210</strong><small>выпекаем каждое утро</small></div>
+        <div class="item chalk"><span class="name">Тирамису</span><i></i><strong>330</strong><small>с эспрессо из <b>Колумбии</b></small></div>
+      </div>
+      <p class="foot note chalk">цены в рублях · альтернативное молоко +40</p>
+    </div>
   </div>
 </section>
 
 <section id="beans">
   <div class="wrap">
-    <div class="head">
-      <span class="label reveal">Табл. II — Зерно недели</span>
-      <div><h2 class="reveal">Три лота <em>на этой неделе</em></h2>
-        <p class="lead reveal">Пишем на пачке то, что важно для вкуса: откуда зерно, на какой высоте росло, как его обработали и как мы его обжарили.</p></div>
-    </div>
+    <span class="sub chalk reveal">обжарили в понедельник на Садовой</span>
+    <h2 class="chalk reveal">Зерно недели</h2>
+    <svg class="swash reveal" viewBox="0 0 340 18" preserveAspectRatio="none" aria-hidden="true"><path d="M4 12C90 2 220 18 336 6"/></svg>
     <div class="lots">
-      <article class="lot reveal">
-        <span class="label"><span>Лот 01</span><span>мытая</span></span>
-        <h3>Эфиопия</h3><p class="region">Иргачеффе, Гедео</p>
-        <dl><div><dt>Сорт</dt><dd>местные heirloom</dd></div><div><dt>Высота</dt><dd>1 900–2 200 м</dd></div><div><dt>Обжарка</dt><dd>светлая</dd></div></dl>
+      <article class="lot chalk reveal">
+        <span class="no">лот 01</span>
+        <h3>Эфиопия</h3><p class="region">Иргачеффе · 1 900–2 200 м</p>
         <p class="notes">жасмин, бергамот, белый персик</p>
-        <div class="scale"><span>Кислотность</span><ol><li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li><li></li></ol></div>
-        <div class="scale"><span>Тело</span><ol><li class="on"></li><li class="on"></li><li></li><li></li><li></li></ol></div>
-        <div class="scale"><span>Сладость</span><ol><li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li><li></li></ol></div>
+        <dl><dt>обработка</dt><dd>мытая</dd><dt>обжарка</dt><dd>светлая</dd></dl>
+        <div class="tally"><span>кислотность</span><svg viewBox="0 0 60 26" data-n="4" aria-label="4 из 5"></svg></div>
+        <div class="tally"><span>тело</span><svg viewBox="0 0 60 26" data-n="2" aria-label="2 из 5"></svg></div>
+        <div class="tally"><span>сладость</span><svg viewBox="0 0 60 26" data-n="4" aria-label="4 из 5"></svg></div>
         <p class="for">Лучше всего: <b>воронка V60, эспрессо-тоник</b></p>
       </article>
-      <article class="lot reveal">
-        <span class="label"><span>Лот 02</span><span>мытая</span></span>
-        <h3>Колумбия</h3><p class="region">Уила, Питалито</p>
-        <dl><div><dt>Сорт</dt><dd>катурра, кастильо</dd></div><div><dt>Высота</dt><dd>1 600–1 900 м</dd></div><div><dt>Обжарка</dt><dd>средняя</dd></div></dl>
+      <article class="lot chalk reveal">
+        <span class="no">лот 02</span>
+        <h3>Колумбия</h3><p class="region">Уила · 1 600–1 900 м</p>
         <p class="notes">молочный шоколад, карамель, красное яблоко</p>
-        <div class="scale"><span>Кислотность</span><ol><li class="on"></li><li class="on"></li><li class="on"></li><li></li><li></li></ol></div>
-        <div class="scale"><span>Тело</span><ol><li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li><li></li></ol></div>
-        <div class="scale"><span>Сладость</span><ol><li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li><li></li></ol></div>
+        <dl><dt>обработка</dt><dd>мытая</dd><dt>обжарка</dt><dd>средняя</dd></dl>
+        <div class="tally"><span>кислотность</span><svg viewBox="0 0 60 26" data-n="3" aria-label="3 из 5"></svg></div>
+        <div class="tally"><span>тело</span><svg viewBox="0 0 60 26" data-n="4" aria-label="4 из 5"></svg></div>
+        <div class="tally"><span>сладость</span><svg viewBox="0 0 60 26" data-n="4" aria-label="4 из 5"></svg></div>
         <p class="for">Лучше всего: <b>капучино, флэт уайт, раф</b></p>
       </article>
-      <article class="lot reveal">
-        <span class="label"><span>Лот 03</span><span>мытая</span></span>
-        <h3>Кения</h3><p class="region">Ньери, Карату</p>
-        <dl><div><dt>Сорт</dt><dd>SL28, SL34</dd></div><div><dt>Высота</dt><dd>1 700–1 900 м</dd></div><div><dt>Обжарка</dt><dd>светлая</dd></div></dl>
+      <article class="lot chalk reveal">
+        <span class="no">лот 03</span>
+        <h3>Кения</h3><p class="region">Ньери · 1 700–1 900 м</p>
         <p class="notes">чёрная смородина, грейпфрут, ревень</p>
-        <div class="scale"><span>Кислотность</span><ol><li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li></ol></div>
-        <div class="scale"><span>Тело</span><ol><li class="on"></li><li class="on"></li><li class="on"></li><li></li><li></li></ol></div>
-        <div class="scale"><span>Сладость</span><ol><li class="on"></li><li class="on"></li><li class="on"></li><li></li><li></li></ol></div>
+        <dl><dt>обработка</dt><dd>мытая</dd><dt>обжарка</dt><dd>светлая</dd></dl>
+        <div class="tally"><span>кислотность</span><svg viewBox="0 0 60 26" data-n="5" aria-label="5 из 5"></svg></div>
+        <div class="tally"><span>тело</span><svg viewBox="0 0 60 26" data-n="3" aria-label="3 из 5"></svg></div>
+        <div class="tally"><span>сладость</span><svg viewBox="0 0 60 26" data-n="3" aria-label="3 из 5"></svg></div>
         <p class="for">Лучше всего: <b>воронка, аэропресс, холодный кофе</b></p>
       </article>
     </div>
   </div>
 </section>
 
-<section id="fresh">
-  <div class="wrap fresh">
-    <div class="reveal">
-      <span class="label">Табл. III — Свежесть</span>
-      <p class="big" id="freshText" style="margin-top:18px">Обжариваем по понедельникам. Два дня зерно <em>отдыхает</em>, потом пять дней — в лучшей форме.</p>
-    </div>
-    <div class="reveal">
-      <ol class="week" id="week" aria-label="Неделя обжарки"></ol>
-      <div class="keys"><span class="k-rest">отдыхает после обжарки</span><span class="k-peak">в лучшей форме</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="menu">
+<section class="fresh" id="fresh">
   <div class="wrap">
-    <div class="card reveal">
-      <div class="card-head">
-        <span class="label">Табл. IV</span>
-        <h2>Меню</h2>
-        <p class="lead" style="margin:12px auto 0">Популярное у наших гостей. Полное меню и сезонные напитки — в кофейне.</p>
-      </div>
-      <div class="tabs" role="tablist" aria-label="Разделы меню">
-        <button class="tab" role="tab" aria-selected="true" aria-controls="coffee">Кофе</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="breakfast">Завтраки</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="desserts">Десерты</button>
-      </div>
-      <div class="menu-list" id="coffee" role="tabpanel">
-        <div class="item"><span class="name">Капучино</span><i></i><strong>220 ₽</strong><small>эспрессо и молоко · зерно <b>Колумбия</b></small></div>
-        <div class="item"><span class="name">Флэт уайт</span><i></i><strong>250 ₽</strong><small>двойной ристретто · зерно <b>Колумбия</b></small></div>
-        <div class="item"><span class="name">Эспрессо-тоник</span><i></i><strong>280 ₽</strong><small>тоник, лёд, цедра · зерно <b>Эфиопия</b></small></div>
-        <div class="item"><span class="name">Воронка V60</span><i></i><strong>280 ₽</strong><small>фильтр на выбор · <b>Эфиопия или Кения</b></small></div>
-      </div>
-      <div class="menu-list" id="breakfast" role="tabpanel" hidden>
-        <div class="item"><span class="name">Сырники</span><i></i><strong>340 ₽</strong><small>со сметаной и ягодным соусом</small></div>
-        <div class="item"><span class="name">Скрэмбл с лососем</span><i></i><strong>460 ₽</strong><small>на тосте из чиабатты</small></div>
-        <div class="item"><span class="name">Овсянка</span><i></i><strong>290 ₽</strong><small>на кокосовом молоке, банан, орехи</small></div>
-        <div class="item"><span class="name">Круассан с ветчиной</span><i></i><strong>390 ₽</strong><small>сыр, яйцо пашот</small></div>
-      </div>
-      <div class="menu-list" id="desserts" role="tabpanel" hidden>
-        <div class="item"><span class="name">Чизкейк Сан-Себастьян</span><i></i><strong>320 ₽</strong><small>по фирменному рецепту</small></div>
-        <div class="item"><span class="name">Морковный торт</span><i></i><strong>300 ₽</strong><small>с крем-чизом и грецким орехом</small></div>
-        <div class="item"><span class="name">Миндальный круассан</span><i></i><strong>210 ₽</strong><small>выпекаем каждое утро</small></div>
-        <div class="item"><span class="name">Тирамису</span><i></i><strong>330 ₽</strong><small>с эспрессо из <b>Колумбии</b></small></div>
-      </div>
-    </div>
+    <span class="sub chalk reveal">два дня зерно отдыхает, потом пять — в лучшей форме</span>
+    <h2 class="chalk reveal">Свежесть</h2>
+    <p class="big chalk reveal" id="freshText">Обжариваем по понедельникам.</p>
+    <ol class="week chalk reveal" id="week" aria-label="Неделя обжарки"></ol>
   </div>
 </section>
 
 <section id="gallery">
   <div class="wrap">
-    <div class="head">
-      <span class="label reveal">Табл. V — Кофейня</span>
-      <div><h2 class="reveal">Место, где <em>не торопят</em></h2>
-        <p class="lead reveal">Столики у окна, розетки у каждого места и тишина до полудня — можно поработать или просто выпить кофе.</p></div>
-    </div>
-    <div class="sheets">
-      <figure class="sheet reveal"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=900&q=70" alt="Зал кофейни со столиками у окна" loading="lazy"><figcaption>Зал у окна<span class="label">Лист 1</span></figcaption></figure>
-      <figure class="sheet reveal"><img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=700&q=70" alt="Барная стойка с кофемашиной" loading="lazy"><figcaption>Бар<span class="label">Лист 2</span></figcaption></figure>
-      <figure class="sheet reveal"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=70" alt="Чашка капучино на деревянном столе" loading="lazy"><figcaption>Капучино<span class="label">Лист 3</span></figcaption></figure>
-    </div>
+    <span class="sub chalk reveal">столики у окна, розетки и тишина до полудня</span>
+    <h2 class="chalk reveal">Кофейня</h2>
   </div>
+  <div class="strip" tabindex="0" aria-label="Фото кофейни, листаются вбок">
+    <figure><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=700&q=70" alt="Зал кофейни со столиками у окна" loading="lazy"><figcaption>зал у окна</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=700&q=70" alt="Барная стойка с кофемашиной" loading="lazy"><figcaption>наш бар</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=70" alt="Чашка капучино на деревянном столе" loading="lazy"><figcaption>капучино на колумбии</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&q=70" alt="Чашки кофе с латте-артом" loading="lazy"><figcaption>латте-арт по субботам</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=700&q=70" alt="Обжаренные кофейные зёрна" loading="lazy"><figcaption>понедельничная обжарка</figcaption></figure>
+  </div>
+  <p class="swipe chalk">листайте вбок →</p>
 </section>
 
 <section id="booking">
-  <div class="wrap booking">
+  <div class="wrap book">
     <div class="reveal">
-      <span class="label">Табл. VI — Бронь</span>
-      <h2 style="margin-top:14px">Забронируйте <em>столик</em></h2>
-      <p class="lead">Перезвоним в течение 15 минут и подтвердим бронь. Для компаний от пяти человек соберём стол у окна.</p>
+      <span class="sub chalk" style="text-align:left">оставим стол у окна</span>
+      <h2 class="chalk">Бронь</h2>
+      <p class="lead">Перезвоним в течение 15 минут и подтвердим. Для компаний от пяти человек сдвинем столы.</p>
       <dl class="contacts">
-        <div><dt>Адрес</dt><dd><a href="https://yandex.ru/maps/?text=ул.+Садовая,+12" target="_blank" rel="noopener">ул. Садовая, 12</a></dd></div>
-        <div><dt>Открыты</dt><dd>ежедневно с 7:30 до 22:00</dd></div>
-        <div><dt>Телефон</dt><dd><a href="tel:+79000000000">+7 (900) 000-00-00</a></dd></div>
+        <div><dt>адрес</dt><dd><a href="https://yandex.ru/maps/?text=ул.+Садовая,+12" target="_blank" rel="noopener">ул. Садовая, 12</a></dd></div>
+        <div><dt>открыты</dt><dd>ежедневно с 7:30 до 22:00</dd></div>
+        <div><dt>телефон</dt><dd><a href="tel:+79000000000">+7 (900) 000-00-00</a></dd></div>
       </dl>
     </div>
-    <form class="reveal" novalidate>
-      <h3>Бронь столика</h3>
-      <label>Имя<input name="name" autocomplete="name" required></label>
-      <label>Телефон<input name="phone" type="tel" placeholder="+7 (900) 000-00-00" autocomplete="tel" required pattern="[\d\s\(\)+\-]{10,}"></label>
-      <div class="row">
-        <label>Дата<input name="date" type="date" required></label>
-        <label>Время<input name="time" type="time" min="07:30" max="21:30" required></label>
-        <label>Гостей<select name="guests"><option>2</option><option>3–4</option><option>5+</option></select></label>
-      </div>
-      <button class="btn">Забронировать столик</button>
-      <p class="legal">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
-      <div class="ok" role="status"><h3>Столик почти ваш</h3><p>Перезвоним в течение 15 минут, чтобы подтвердить бронь.</p></div>
-    </form>
+    <div class="slip reveal">
+      <form novalidate>
+        <h3>Бронь столика</h3>
+        <label>Имя<input name="name" autocomplete="name" required></label>
+        <label>Телефон<input name="phone" type="tel" placeholder="+7 (900) 000-00-00" autocomplete="tel" required pattern="[\d\s\(\)+\-]{10,}"></label>
+        <div class="row">
+          <label>Дата<input name="date" type="date" required></label>
+          <label>Время<input name="time" type="time" min="07:30" max="21:30" required></label>
+          <label>Гостей<select name="guests"><option>2</option><option>3–4</option><option>5+</option></select></label>
+        </div>
+        <button class="btn">Забронировать</button>
+        <p class="legal">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+        <div class="ok" role="status"><h3>Столик почти ваш</h3><p>Перезвоним в течение 15 минут, чтобы подтвердить бронь.</p></div>
+      </form>
+    </div>
   </div>
 </section>
 </main>
@@ -490,25 +469,45 @@ document.querySelectorAll('[role=tab]').forEach(t => t.onclick = () => {
 });
 
 const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), {threshold: .15});
-document.querySelectorAll('.reveal, .plate').forEach(el => io.observe(el));
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// we roast every Monday: date the seal and lay out this week (rest 2 days, then at its best)
-const today = new Date(), age = (today.getDay() + 6) % 7, roasted = new Date(today);
+// today's special on the board: the brew-bar lot changes with the weekday
+const SPECIALS = [
+  {lot: 'Колумбия', notes: 'молочный шоколад · карамель · яблоко', price: 260},
+  {lot: 'Эфиопия', notes: 'жасмин · бергамот · белый персик', price: 290},
+  {lot: 'Кения', notes: 'чёрная смородина · грейпфрут · ревень', price: 280},
+];
+const WEEKDAYS = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
+const today = new Date(), sp = SPECIALS[today.getDay() % SPECIALS.length];
+document.getElementById('day').textContent = `Сегодня, ${WEEKDAYS[today.getDay()]}`;
+document.getElementById('special').textContent = sp.lot;
+document.getElementById('specialNotes').textContent = sp.notes;
+document.getElementById('specialPrice').textContent = sp.price;
+
+// tally marks: N chalk strokes, the fifth one crosses the first four
+document.querySelectorAll('.tally svg').forEach(svg => {
+  const n = +svg.dataset.n;
+  let d = '';
+  for (let i = 0; i < Math.min(n, 4); i++) d += `M${6 + i * 11} 3l${i % 2 ? 1 : -1} 20`;
+  if (n === 5) d += 'M0 18L46 6';
+  svg.innerHTML = `<path d="${d}"/>`;
+});
+
+// we roast every Monday: chalk this week, circle today (rest 2 days, then at its best)
+const age = (today.getDay() + 6) % 7, roasted = new Date(today);
 roasted.setDate(today.getDate() - age);
 const fmt = d => d.toLocaleDateString('ru-RU', {day: 'numeric', month: 'long'});
-document.getElementById('roast').textContent = `обжарено на Садовой · партия от ${fmt(roasted)} ·`;
-document.getElementById('roastDay').textContent = roasted.getDate();
-document.getElementById('seal').setAttribute('aria-label', `Свежая обжарка, партия от ${fmt(roasted)}`);
 const DAYS = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+const RING = '<svg class="ring" viewBox="0 0 100 90" aria-hidden="true"><path d="M20 20C45 0 90 8 94 40S70 88 40 84S2 60 8 38S40 6 70 10"/></svg>';
 document.getElementById('week').innerHTML = DAYS.map((d, i) => {
   const date = new Date(roasted); date.setDate(roasted.getDate() + i);
-  const kind = i === 0 ? 'roast rest' : i < 2 ? 'rest' : 'peak';
-  const note = i === 0 ? 'обжарка' : i < 2 ? 'отдыхает' : `${i}-й день`;
-  return `<li class="${kind}${i === age ? ' today' : ''}"><span class="d">${d}</span><span class="n">${date.getDate()}</span><span class="s">${note}</span></li>`;
+  const kind = i === 0 ? 'roast' : i < 2 ? 'rest' : 'peak';
+  const note = i === 0 ? 'обжарка' : i < 2 ? 'отдыхает' : 'в форме';
+  return `<li class="${kind}${i === age ? ' today' : ''}">${i === age ? RING : ''}<span class="d">${d}</span><span class="n">${date.getDate()}</span><span class="s">${note}</span></li>`;
 }).join('');
 document.getElementById('freshText').innerHTML = age < 2
-  ? `Новая партия от ${fmt(roasted)} <em>отдыхает</em> после ростера — сегодня варим прошлую, ей неделя.`
-  : `Сегодня зерну <em>${age} ${age < 5 ? 'дня' : 'дней'}</em>: партия от ${fmt(roasted)} в лучшей форме до воскресенья.`;
+  ? `Партия от ${fmt(roasted)} <em>отдыхает</em> после ростера — сегодня варим прошлую.`
+  : `Сегодня зерну <em>${age} ${age < 5 ? 'дня' : 'дней'}</em> — партия от ${fmt(roasted)} в лучшей форме.`;
 
 const form = document.querySelector('form');
 form.date.min = new Date(Date.now() - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10); // local date, not UTC
